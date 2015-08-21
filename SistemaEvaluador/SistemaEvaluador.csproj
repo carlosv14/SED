@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5950AFAB-4C25-4B20-ADDA-D7C50DC9F05D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistemaEvaluador</RootNamespace>
+    <AssemblyName>SistemaEvaluador</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.3.0.4, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.Ribbon35">
+      <HintPath>..\..\..\Downloads\System.Windows.Forms.Ribbon35.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Departamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos.Designer.cs">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dependientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dependientes.Designer.cs">
+      <DependentUpon>Dependientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DependientesEmpleados.cs" />
+    <Compile Include="GestiondePersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestiondePersonal.Designer.cs">
+      <DependentUpon>GestiondePersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grados.Designer.cs">
+      <DependentUpon>Grados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Indicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Indicadores.Designer.cs">
+      <DependentUpon>Indicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terminos y resultado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Terminos y resultado.Designer.cs">
+      <DependentUpon>Terminos y resultado.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Departamentos.resx">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dependientes.resx">
+      <DependentUpon>Dependientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestiondePersonal.resx">
+      <DependentUpon>GestiondePersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grados.resx">
+      <DependentUpon>Grados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Indicadores.resx">
+      <DependentUpon>Indicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Terminos y resultado.resx">
+      <DependentUpon>Terminos y resultado.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crear_evaluacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gestion de personal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evaluador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indicadores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\terminos y resultados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pesos.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
