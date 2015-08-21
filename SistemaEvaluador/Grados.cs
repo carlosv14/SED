@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace SistemaEvaluador
 {
-    public partial class Grados : Form
+    public partial class Gradosindicadores : Form
     {
         private SqlConnection con = new SqlConnection();
-        public Grados(SqlConnection con)
+        public Gradosindicadores(SqlConnection con)
         {
             InitializeComponent();
             this.con = con;

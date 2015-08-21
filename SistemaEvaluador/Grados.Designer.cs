@@ -1,6 +1,6 @@
 ﻿namespace SistemaEvaluador
 {
-    partial class Grados
+    partial class Gradosindicadores
     {
         /// <summary>
         /// Required designer variable.
@@ -152,7 +152,7 @@
             this.label9.TabIndex = 41;
             this.label9.Text = "GRADOS";
             // 
-            // Grados
+            // Gradosindicadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +171,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Grados";
+            this.Name = "Gradosindicadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grados";
             this.Load += new System.EventHandler(this.Grados_Load);

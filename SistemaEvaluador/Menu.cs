@@ -121,5 +121,23 @@ namespace SistemaEvaluador
             gp.MdiParent = this;
             gp.Show();
         }
+
+        private void terminosyresultados_Click(object sender, EventArgs e)
+        {
+            Terminos_y_resultado tr = new Terminos_y_resultado();
+            tabStrip1.MdiForm = this;
+            tr.MdiParent = this;
+            tr.Show();
+        }
+
+        private void grados_Click(object sender, EventArgs e)
+        {
+            Gradosindicadores gi = new Gradosindicadores(con);
+            tabStrip1.MdiForm = this;
+            gi.MdiParent = this;
+            gi.Show();
+
+
+        }
     }
 }

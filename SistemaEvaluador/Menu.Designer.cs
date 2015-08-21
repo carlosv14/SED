@@ -35,38 +35,30 @@
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonPanel4 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar7 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
-            this.ribbonTabItem1 = new DevComponents.DotNetBar.RibbonTabItem();
-            this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
-            this.ribbonTabItem3 = new DevComponents.DotNetBar.RibbonTabItem();
-            this.ribbonTabItem4 = new DevComponents.DotNetBar.RibbonTabItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
-            this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
-            this.styleManager3 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
-            this.terminosyresultados = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem16 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem18 = new DevComponents.DotNetBar.ButtonItem();
-            this.evaluador = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem17 = new DevComponents.DotNetBar.ButtonItem();
-            this.indiadores = new DevComponents.DotNetBar.ButtonItem();
-            this.evaluacion = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem15 = new DevComponents.DotNetBar.ButtonItem();
             this.Agregargestion = new DevComponents.DotNetBar.ButtonItem();
             this.Modificargestion = new DevComponents.DotNetBar.ButtonItem();
             this.Eliminargestion = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
             this.Agregar = new DevComponents.DotNetBar.ButtonItem();
             this.Modificar = new DevComponents.DotNetBar.ButtonItem();
             this.Eliminar = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
+            this.grados = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
+            this.indiadores = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
+            this.evaluacion = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar7 = new DevComponents.DotNetBar.RibbonBar();
+            this.terminosyresultados = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem16 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem18 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
+            this.evaluador = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel4 = new DevComponents.DotNetBar.RibbonPanel();
             this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.itemContainer2 = new DevComponents.DotNetBar.ItemContainer();
@@ -86,6 +78,14 @@
             this.itemContainer4 = new DevComponents.DotNetBar.ItemContainer();
             this.buttonItem12 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem13 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonTabItem1 = new DevComponents.DotNetBar.RibbonTabItem();
+            this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
+            this.ribbonTabItem3 = new DevComponents.DotNetBar.RibbonTabItem();
+            this.ribbonTabItem4 = new DevComponents.DotNetBar.RibbonTabItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
+            this.styleManager3 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -108,9 +108,9 @@
             this.ribbonControl1.BackgroundStyle.Class = "";
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -175,6 +175,7 @@
             this.ribbonPanel1.StyleMouseOver.Class = "";
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar2
             // 
@@ -209,6 +210,37 @@
             // 
             this.ribbonBar2.TitleStyleMouseOver.Class = "";
             this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem15
+            // 
+            this.buttonItem15.Image = global::SistemaEvaluador.Properties.Resources.gestion_de_personal;
+            this.buttonItem15.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.buttonItem15.ImagePaddingHorizontal = 50;
+            this.buttonItem15.Name = "buttonItem15";
+            this.buttonItem15.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.Agregargestion,
+            this.Modificargestion,
+            this.Eliminargestion});
+            this.buttonItem15.SubItemsExpandWidth = 14;
+            this.buttonItem15.Text = "Gestion de Personal";
+            // 
+            // Agregargestion
+            // 
+            this.Agregargestion.Name = "Agregargestion";
+            this.Agregargestion.Text = "Agregar";
+            this.Agregargestion.Click += new System.EventHandler(this.Agregargestion_Click);
+            // 
+            // Modificargestion
+            // 
+            this.Modificargestion.Name = "Modificargestion";
+            this.Modificargestion.Text = "Modificar";
+            this.Modificargestion.Click += new System.EventHandler(this.Modificargestion_Click);
+            // 
+            // Eliminargestion
+            // 
+            this.Eliminargestion.Name = "Eliminargestion";
+            this.Eliminargestion.Text = "Eliminar";
+            this.Eliminargestion.Click += new System.EventHandler(this.Eliminargestion_Click);
             // 
             // ribbonBar1
             // 
@@ -245,6 +277,42 @@
             this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonBar1.ItemClick += new System.EventHandler(this.ribbonBar1_ItemClick);
             // 
+            // buttonItem14
+            // 
+            this.buttonItem14.Image = global::SistemaEvaluador.Properties.Resources.depto;
+            this.buttonItem14.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.buttonItem14.ImagePaddingHorizontal = 25;
+            this.buttonItem14.Name = "buttonItem14";
+            this.buttonItem14.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.Agregar,
+            this.Modificar,
+            this.Eliminar});
+            this.buttonItem14.SubItemsExpandWidth = 14;
+            this.buttonItem14.Text = "Departamento";
+            // 
+            // Agregar
+            // 
+            this.Agregar.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.Agregar.ImagePaddingHorizontal = 4;
+            this.Agregar.ImagePaddingVertical = 3;
+            this.Agregar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Bottom;
+            this.Agregar.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center;
+            this.Agregar.Name = "Agregar";
+            this.Agregar.Text = "Agregar";
+            this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
+            // 
+            // Modificar
+            // 
+            this.Modificar.Name = "Modificar";
+            this.Modificar.Text = "Modificar";
+            this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
             // ribbonPanel2
             // 
             this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -272,7 +340,6 @@
             this.ribbonPanel2.StyleMouseOver.Class = "";
             this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
             // 
             // ribbonBar5
             // 
@@ -290,7 +357,7 @@
             this.ribbonBar5.ContainerControlProcessDialogKey = true;
             this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem17});
+            this.grados});
             this.ribbonBar5.Location = new System.Drawing.Point(203, 0);
             this.ribbonBar5.Name = "ribbonBar5";
             this.ribbonBar5.Size = new System.Drawing.Size(100, 70);
@@ -307,6 +374,16 @@
             // 
             this.ribbonBar5.TitleStyleMouseOver.Class = "";
             this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // grados
+            // 
+            this.grados.Image = global::SistemaEvaluador.Properties.Resources.pesos;
+            this.grados.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.grados.ImagePaddingHorizontal = 48;
+            this.grados.Name = "grados";
+            this.grados.SubItemsExpandWidth = 14;
+            this.grados.Text = "buttonItem17";
+            this.grados.Click += new System.EventHandler(this.grados_Click);
             // 
             // ribbonBar4
             // 
@@ -342,6 +419,16 @@
             this.ribbonBar4.TitleStyleMouseOver.Class = "";
             this.ribbonBar4.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
+            // indiadores
+            // 
+            this.indiadores.Image = global::SistemaEvaluador.Properties.Resources.indicadores;
+            this.indiadores.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.indiadores.ImagePaddingHorizontal = 50;
+            this.indiadores.Name = "indiadores";
+            this.indiadores.SubItemsExpandWidth = 14;
+            this.indiadores.Text = "Indicadores";
+            this.indiadores.Click += new System.EventHandler(this.indiadores_Click);
+            // 
             // ribbonBar3
             // 
             this.ribbonBar3.AutoOverflowEnabled = true;
@@ -376,31 +463,14 @@
             this.ribbonBar3.TitleStyleMouseOver.Class = "";
             this.ribbonBar3.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // ribbonPanel4
+            // evaluacion
             // 
-            this.ribbonPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel4.Location = new System.Drawing.Point(0, 53);
-            this.ribbonPanel4.Name = "ribbonPanel4";
-            this.ribbonPanel4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel4.Size = new System.Drawing.Size(626, 73);
-            // 
-            // 
-            // 
-            this.ribbonPanel4.Style.Class = "";
-            this.ribbonPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel4.StyleMouseDown.Class = "";
-            this.ribbonPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel4.StyleMouseOver.Class = "";
-            this.ribbonPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel4.TabIndex = 4;
-            this.ribbonPanel4.Visible = false;
+            this.evaluacion.Image = global::SistemaEvaluador.Properties.Resources.crear_evaluacion1;
+            this.evaluacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.evaluacion.ImagePaddingHorizontal = 40;
+            this.evaluacion.Name = "evaluacion";
+            this.evaluacion.SubItemsExpandWidth = 14;
+            this.evaluacion.Text = "Evaluacion";
             // 
             // ribbonPanel3
             // 
@@ -464,6 +534,29 @@
             this.ribbonBar7.TitleStyleMouseOver.Class = "";
             this.ribbonBar7.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
+            // terminosyresultados
+            // 
+            this.terminosyresultados.Image = global::SistemaEvaluador.Properties.Resources.terminos_y_resultados;
+            this.terminosyresultados.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.terminosyresultados.ImagePaddingHorizontal = 100;
+            this.terminosyresultados.Name = "terminosyresultados";
+            this.terminosyresultados.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem16,
+            this.buttonItem18});
+            this.terminosyresultados.SubItemsExpandWidth = 14;
+            this.terminosyresultados.Text = "buttonItem18";
+            this.terminosyresultados.Click += new System.EventHandler(this.terminosyresultados_Click);
+            // 
+            // buttonItem16
+            // 
+            this.buttonItem16.Name = "buttonItem16";
+            this.buttonItem16.Text = "buttonItem16";
+            // 
+            // buttonItem18
+            // 
+            this.buttonItem18.Name = "buttonItem18";
+            this.buttonItem18.Text = "buttonItem18";
+            // 
             // ribbonBar6
             // 
             this.ribbonBar6.AutoOverflowEnabled = true;
@@ -498,85 +591,6 @@
             this.ribbonBar6.TitleStyleMouseOver.Class = "";
             this.ribbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // ribbonTabItem1
-            // 
-            this.ribbonTabItem1.Checked = true;
-            this.ribbonTabItem1.Name = "ribbonTabItem1";
-            this.ribbonTabItem1.Panel = this.ribbonPanel1;
-            this.ribbonTabItem1.Text = "Administracion de recurso";
-            // 
-            // ribbonTabItem2
-            // 
-            this.ribbonTabItem2.Name = "ribbonTabItem2";
-            this.ribbonTabItem2.Panel = this.ribbonPanel2;
-            this.ribbonTabItem2.Text = "Editor de evaluacion";
-            // 
-            // ribbonTabItem3
-            // 
-            this.ribbonTabItem3.Name = "ribbonTabItem3";
-            this.ribbonTabItem3.Panel = this.ribbonPanel3;
-            this.ribbonTabItem3.Text = "Evaluacion";
-            this.ribbonTabItem3.Click += new System.EventHandler(this.ribbonTabItem3_Click);
-            // 
-            // ribbonTabItem4
-            // 
-            this.ribbonTabItem4.Name = "ribbonTabItem4";
-            this.ribbonTabItem4.Panel = this.ribbonPanel4;
-            this.ribbonTabItem4.Text = "Reportes";
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "Sistema evaluador";
-            // 
-            // qatCustomizeItem1
-            // 
-            this.qatCustomizeItem1.Name = "qatCustomizeItem1";
-            this.qatCustomizeItem1.Visible = false;
-            // 
-            // styleManager3
-            // 
-            this.styleManager3.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
-            // 
-            // tabStrip1
-            // 
-            this.tabStrip1.AutoSelectAttachedControl = true;
-            this.tabStrip1.CanReorderTabs = true;
-            this.tabStrip1.CloseButtonOnTabsVisible = true;
-            this.tabStrip1.CloseButtonVisible = true;
-            this.tabStrip1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabStrip1.Location = new System.Drawing.Point(0, 128);
-            this.tabStrip1.MdiForm = this;
-            this.tabStrip1.Name = "tabStrip1";
-            this.tabStrip1.SelectedTab = null;
-            this.tabStrip1.Size = new System.Drawing.Size(626, 23);
-            this.tabStrip1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005;
-            this.tabStrip1.TabIndex = 5;
-            this.tabStrip1.Text = "tabStrip1";
-            this.tabStrip1.Click += new System.EventHandler(this.tabStrip1_Click);
-            // 
-            // terminosyresultados
-            // 
-            this.terminosyresultados.Image = global::SistemaEvaluador.Properties.Resources.terminos_y_resultados;
-            this.terminosyresultados.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.terminosyresultados.ImagePaddingHorizontal = 100;
-            this.terminosyresultados.Name = "terminosyresultados";
-            this.terminosyresultados.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem16,
-            this.buttonItem18});
-            this.terminosyresultados.SubItemsExpandWidth = 14;
-            this.terminosyresultados.Text = "buttonItem18";
-            // 
-            // buttonItem16
-            // 
-            this.buttonItem16.Name = "buttonItem16";
-            this.buttonItem16.Text = "buttonItem16";
-            // 
-            // buttonItem18
-            // 
-            this.buttonItem18.Name = "buttonItem18";
-            this.buttonItem18.Text = "buttonItem18";
-            // 
             // evaluador
             // 
             this.evaluador.Image = global::SistemaEvaluador.Properties.Resources.evaluador;
@@ -586,100 +600,31 @@
             this.evaluador.SubItemsExpandWidth = 14;
             this.evaluador.Text = "buttonItem16";
             // 
-            // buttonItem17
+            // ribbonPanel4
             // 
-            this.buttonItem17.Image = global::SistemaEvaluador.Properties.Resources.pesos;
-            this.buttonItem17.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.buttonItem17.ImagePaddingHorizontal = 48;
-            this.buttonItem17.Name = "buttonItem17";
-            this.buttonItem17.SubItemsExpandWidth = 14;
-            this.buttonItem17.Text = "buttonItem17";
+            this.ribbonPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel4.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel4.Name = "ribbonPanel4";
+            this.ribbonPanel4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel4.Size = new System.Drawing.Size(626, 73);
             // 
-            // indiadores
             // 
-            this.indiadores.Image = global::SistemaEvaluador.Properties.Resources.indicadores;
-            this.indiadores.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.indiadores.ImagePaddingHorizontal = 50;
-            this.indiadores.Name = "indiadores";
-            this.indiadores.SubItemsExpandWidth = 14;
-            this.indiadores.Text = "Indicadores";
-            this.indiadores.Click += new System.EventHandler(this.indiadores_Click);
             // 
-            // evaluacion
+            this.ribbonPanel4.Style.Class = "";
+            this.ribbonPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            this.evaluacion.Image = global::SistemaEvaluador.Properties.Resources.crear_evaluacion1;
-            this.evaluacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.evaluacion.ImagePaddingHorizontal = 40;
-            this.evaluacion.Name = "evaluacion";
-            this.evaluacion.SubItemsExpandWidth = 14;
-            this.evaluacion.Text = "Evaluacion";
             // 
-            // buttonItem15
             // 
-            this.buttonItem15.Image = global::SistemaEvaluador.Properties.Resources.gestion_de_personal;
-            this.buttonItem15.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.buttonItem15.ImagePaddingHorizontal = 50;
-            this.buttonItem15.Name = "buttonItem15";
-            this.buttonItem15.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.Agregargestion,
-            this.Modificargestion,
-            this.Eliminargestion});
-            this.buttonItem15.SubItemsExpandWidth = 14;
-            this.buttonItem15.Text = "Gestion de Personal";
+            this.ribbonPanel4.StyleMouseDown.Class = "";
+            this.ribbonPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // Agregargestion
             // 
-            this.Agregargestion.Name = "Agregargestion";
-            this.Agregargestion.Text = "Agregar";
-            this.Agregargestion.Click += new System.EventHandler(this.Agregargestion_Click);
             // 
-            // Modificargestion
-            // 
-            this.Modificargestion.Name = "Modificargestion";
-            this.Modificargestion.Text = "Modificar";
-            this.Modificargestion.Click += new System.EventHandler(this.Modificargestion_Click);
-            // 
-            // Eliminargestion
-            // 
-            this.Eliminargestion.Name = "Eliminargestion";
-            this.Eliminargestion.Text = "Eliminar";
-            this.Eliminargestion.Click += new System.EventHandler(this.Eliminargestion_Click);
-            // 
-            // buttonItem14
-            // 
-            this.buttonItem14.Image = global::SistemaEvaluador.Properties.Resources.depto;
-            this.buttonItem14.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.buttonItem14.ImagePaddingHorizontal = 25;
-            this.buttonItem14.Name = "buttonItem14";
-            this.buttonItem14.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.Agregar,
-            this.Modificar,
-            this.Eliminar});
-            this.buttonItem14.SubItemsExpandWidth = 14;
-            this.buttonItem14.Text = "Departamento";
-            // 
-            // Agregar
-            // 
-            this.Agregar.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.Agregar.ImagePaddingHorizontal = 4;
-            this.Agregar.ImagePaddingVertical = 3;
-            this.Agregar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Bottom;
-            this.Agregar.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center;
-            this.Agregar.Name = "Agregar";
-            this.Agregar.Text = "Agregar";
-            this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
-            // 
-            // Modificar
-            // 
-            this.Modificar.Name = "Modificar";
-            this.Modificar.Text = "Modificar";
-            this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            this.ribbonPanel4.StyleMouseOver.Class = "";
+            this.ribbonPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel4.TabIndex = 4;
+            this.ribbonPanel4.Visible = false;
             // 
             // office2007StartButton1
             // 
@@ -874,6 +819,63 @@
             this.buttonItem13.SubItemsExpandWidth = 24;
             this.buttonItem13.Text = "E&xit";
             // 
+            // ribbonTabItem1
+            // 
+            this.ribbonTabItem1.Name = "ribbonTabItem1";
+            this.ribbonTabItem1.Panel = this.ribbonPanel1;
+            this.ribbonTabItem1.Text = "Administracion de recurso";
+            // 
+            // ribbonTabItem2
+            // 
+            this.ribbonTabItem2.Checked = true;
+            this.ribbonTabItem2.Name = "ribbonTabItem2";
+            this.ribbonTabItem2.Panel = this.ribbonPanel2;
+            this.ribbonTabItem2.Text = "Editor de evaluacion";
+            // 
+            // ribbonTabItem3
+            // 
+            this.ribbonTabItem3.Name = "ribbonTabItem3";
+            this.ribbonTabItem3.Panel = this.ribbonPanel3;
+            this.ribbonTabItem3.Text = "Evaluacion";
+            this.ribbonTabItem3.Click += new System.EventHandler(this.ribbonTabItem3_Click);
+            // 
+            // ribbonTabItem4
+            // 
+            this.ribbonTabItem4.Name = "ribbonTabItem4";
+            this.ribbonTabItem4.Panel = this.ribbonPanel4;
+            this.ribbonTabItem4.Text = "Reportes";
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "Sistema evaluador";
+            // 
+            // qatCustomizeItem1
+            // 
+            this.qatCustomizeItem1.Name = "qatCustomizeItem1";
+            this.qatCustomizeItem1.Visible = false;
+            // 
+            // styleManager3
+            // 
+            this.styleManager3.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
+            // 
+            // tabStrip1
+            // 
+            this.tabStrip1.AutoSelectAttachedControl = true;
+            this.tabStrip1.CanReorderTabs = true;
+            this.tabStrip1.CloseButtonOnTabsVisible = true;
+            this.tabStrip1.CloseButtonVisible = true;
+            this.tabStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabStrip1.Location = new System.Drawing.Point(0, 128);
+            this.tabStrip1.MdiForm = this;
+            this.tabStrip1.Name = "tabStrip1";
+            this.tabStrip1.SelectedTab = null;
+            this.tabStrip1.Size = new System.Drawing.Size(626, 23);
+            this.tabStrip1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005;
+            this.tabStrip1.TabIndex = 5;
+            this.tabStrip1.Text = "tabStrip1";
+            this.tabStrip1.Click += new System.EventHandler(this.tabStrip1_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,7 +957,7 @@
         private DevComponents.DotNetBar.ButtonItem evaluacion;
         private DevComponents.DotNetBar.ButtonItem indiadores;
         private DevComponents.DotNetBar.ButtonItem evaluador;
-        private DevComponents.DotNetBar.ButtonItem buttonItem17;
+        private DevComponents.DotNetBar.ButtonItem grados;
         private DevComponents.DotNetBar.ButtonItem terminosyresultados;
         private DevComponents.DotNetBar.ButtonItem buttonItem16;
         private DevComponents.DotNetBar.ButtonItem buttonItem18;
