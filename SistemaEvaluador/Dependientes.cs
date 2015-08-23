@@ -27,7 +27,7 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DependientesEmpleados depen = new DependientesEmpleados(nombredependiente.Text, parentesco.SelectedText);
+            DependientesEmpleados depen = new DependientesEmpleados(nombredependiente.Text, textBox1.Text);
             hijos.Add(depen);
             
             

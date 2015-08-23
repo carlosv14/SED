@@ -39,13 +39,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(122, 274);
+            this.dataGridView1.Location = new System.Drawing.Point(176, 266);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(371, 258);
             this.dataGridView1.TabIndex = 33;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // button1
             // 
@@ -56,6 +60,7 @@
             this.button1.TabIndex = 32;
             this.button1.Text = "Modificar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Agregar
             // 
@@ -75,6 +80,8 @@
             this.Departamento.Name = "Departamento";
             this.Departamento.Size = new System.Drawing.Size(157, 22);
             this.Departamento.TabIndex = 29;
+            this.Departamento.Click += new System.EventHandler(this.Departamento_Click);
+            this.Departamento.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Departamento_MouseDoubleClick);
             // 
             // label1
             // 

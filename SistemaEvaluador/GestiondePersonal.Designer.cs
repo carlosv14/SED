@@ -61,8 +61,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label9
@@ -120,6 +125,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.Jefe);
@@ -128,28 +135,28 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox2.Location = new System.Drawing.Point(33, 392);
+            this.groupBox2.Location = new System.Drawing.Point(33, 380);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(468, 156);
+            this.groupBox2.Size = new System.Drawing.Size(517, 180);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de la Empresa";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(252, 115);
+            this.dateTimePicker1.Location = new System.Drawing.Point(252, 103);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(173, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(259, 22);
             this.dateTimePicker1.TabIndex = 34;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(15, 119);
+            this.label12.Location = new System.Drawing.Point(15, 107);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(225, 16);
             this.label12.TabIndex = 33;
@@ -158,17 +165,17 @@
             // Jefe
             // 
             this.Jefe.FormattingEnabled = true;
-            this.Jefe.Location = new System.Drawing.Point(252, 78);
+            this.Jefe.Location = new System.Drawing.Point(252, 68);
             this.Jefe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Jefe.Name = "Jefe";
-            this.Jefe.Size = new System.Drawing.Size(173, 24);
+            this.Jefe.Size = new System.Drawing.Size(259, 24);
             this.Jefe.TabIndex = 16;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(15, 80);
+            this.label11.Location = new System.Drawing.Point(15, 70);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(110, 16);
             this.label11.TabIndex = 15;
@@ -177,17 +184,18 @@
             // DepartamentoTrabajo
             // 
             this.DepartamentoTrabajo.FormattingEnabled = true;
-            this.DepartamentoTrabajo.Location = new System.Drawing.Point(252, 38);
+            this.DepartamentoTrabajo.Location = new System.Drawing.Point(252, 33);
             this.DepartamentoTrabajo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DepartamentoTrabajo.Name = "DepartamentoTrabajo";
-            this.DepartamentoTrabajo.Size = new System.Drawing.Size(173, 24);
+            this.DepartamentoTrabajo.Size = new System.Drawing.Size(259, 24);
             this.DepartamentoTrabajo.TabIndex = 12;
+            this.DepartamentoTrabajo.SelectedIndexChanged += new System.EventHandler(this.DepartamentoTrabajo_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 38);
+            this.label6.Location = new System.Drawing.Point(15, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 16);
             this.label6.TabIndex = 0;
@@ -196,11 +204,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
@@ -228,6 +235,7 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Personales";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // radioButton4
             // 
@@ -266,7 +274,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(276, 129);
+            this.radioButton2.Location = new System.Drawing.Point(99, 1);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(94, 20);
@@ -278,7 +286,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(177, 129);
+            this.radioButton1.Location = new System.Drawing.Point(5, 1);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(96, 20);
@@ -445,6 +453,34 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Apellidos";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(18, 145);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 16);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "Puesto";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(253, 139);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(258, 22);
+            this.textBox2.TabIndex = 39;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Location = new System.Drawing.Point(167, 125);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(198, 30);
+            this.groupBox3.TabIndex = 40;
+            this.groupBox3.TabStop = false;
+            // 
             // GestiondePersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +502,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,5 +544,9 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
