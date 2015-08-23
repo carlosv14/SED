@@ -20,6 +20,7 @@ namespace SistemaEvaluador
         }
         SqlConnection con;
         Login login;
+        
         public Menu(SqlConnection con, Login login)
         {
             InitializeComponent();
@@ -100,7 +101,7 @@ namespace SistemaEvaluador
 
         private void indiadores_Click(object sender, EventArgs e)
         {
-            Indicadores i = new Indicadores();
+            Indicadores i = new Indicadores(con);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
@@ -138,6 +139,11 @@ namespace SistemaEvaluador
             gi.Show();
 
 
+        }
+
+        private void evaluacion_Click(object sender, EventArgs e)
+        {
+            //codigo formulario de evaluacion
         }
     }
 }

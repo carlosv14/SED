@@ -14,7 +14,7 @@ namespace SistemaEvaluador
     public partial class Indicadores : Form
     {
         SqlConnection con;
-        public Indicadores()
+        public Indicadores(SqlConnection con)
         {
             InitializeComponent();
             this.con = con;
@@ -41,8 +41,8 @@ namespace SistemaEvaluador
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.CommandText = "SP_INSERT_INDICADORES";
-                cmd.Parameters.Add("@ID_INF", SqlDbType.Int).Value = (Evaluacion.SelectedIndex + 1);
+                cmd.CommandText = "SP_INSERT_INDICADOR";
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = (Evaluacion.SelectedIndex + 1);
                 if (EspecificoRadioB.Checked)
                 {
                     cmd.Parameters.Add("@INDICADORES_ID", SqlDbType.Int).Value = (Evaluacion.SelectedIndex + 1);
@@ -56,7 +56,6 @@ namespace SistemaEvaluador
                 }
                 cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre.Text;
                 cmd.Parameters.Add("@PESO", SqlDbType.Float).Value = float.Parse(Peso.Text);
-                cmd.Parameters.Add("@PUNTAJE", SqlDbType.Int).Value = 0;
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Se agrego correctamente");

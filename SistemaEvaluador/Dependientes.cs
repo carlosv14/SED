@@ -29,7 +29,7 @@ namespace SistemaEvaluador
         {
             DependientesEmpleados depen = new DependientesEmpleados(nombredependiente.Text, textBox1.Text);
             hijos.Add(depen);
-            
+            this.Close();
             
         }
 

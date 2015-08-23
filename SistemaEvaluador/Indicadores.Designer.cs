@@ -39,6 +39,7 @@
             this.Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label4
@@ -50,7 +51,7 @@
             this.label4.Location = new System.Drawing.Point(179, 201);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 37;
             this.label4.Text = "Peso";
             // 
@@ -73,14 +74,14 @@
             this.label3.Location = new System.Drawing.Point(179, 346);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 16);
+            this.label3.Size = new System.Drawing.Size(85, 16);
             this.label3.TabIndex = 35;
             this.label3.Text = "Evaluacion";
             // 
             // agregar
             // 
             this.agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar.Location = new System.Drawing.Point(567, 428);
+            this.agregar.Location = new System.Drawing.Point(571, 456);
             this.agregar.Margin = new System.Windows.Forms.Padding(2);
             this.agregar.Name = "agregar";
             this.agregar.Size = new System.Drawing.Size(106, 36);
@@ -108,7 +109,7 @@
             this.EspecificoRadioB.Location = new System.Drawing.Point(273, 284);
             this.EspecificoRadioB.Margin = new System.Windows.Forms.Padding(2);
             this.EspecificoRadioB.Name = "EspecificoRadioB";
-            this.EspecificoRadioB.Size = new System.Drawing.Size(98, 20);
+            this.EspecificoRadioB.Size = new System.Drawing.Size(99, 20);
             this.EspecificoRadioB.TabIndex = 32;
             this.EspecificoRadioB.TabStop = true;
             this.EspecificoRadioB.Text = "Especifico";
@@ -124,7 +125,7 @@
             this.GeneralRadioB.Location = new System.Drawing.Point(273, 246);
             this.GeneralRadioB.Margin = new System.Windows.Forms.Padding(2);
             this.GeneralRadioB.Name = "GeneralRadioB";
-            this.GeneralRadioB.Size = new System.Drawing.Size(80, 20);
+            this.GeneralRadioB.Size = new System.Drawing.Size(81, 20);
             this.GeneralRadioB.TabIndex = 31;
             this.GeneralRadioB.TabStop = true;
             this.GeneralRadioB.Text = "General";
@@ -158,7 +159,7 @@
             this.label1.Location = new System.Drawing.Point(179, 152);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nombre";
             // 
@@ -174,12 +175,23 @@
             this.label9.TabIndex = 38;
             this.label9.Text = "INDICADORES";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(569, 417);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(108, 17);
+            this.checkBox1.TabIndex = 39;
+            this.checkBox1.Text = "Grados Asumidos";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Indicadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(774, 585);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Evaluacion);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.TextBox Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
