@@ -77,9 +77,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(352, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 17);
+            this.label3.Size = new System.Drawing.Size(237, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "(Peso en base a 100%)";
+            this.label3.Text = "(Peso disponible por agregar 100%)";
             // 
             // button1
             // 
@@ -93,23 +93,26 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(499, 211);
+            this.button2.Location = new System.Drawing.Point(535, 199);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Guardar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.listView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView1.Location = new System.Drawing.Point(212, 199);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(281, 205);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -132,7 +135,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GradosInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradosInicio";
             this.Load += new System.EventHandler(this.GradosInicio_Load);
             this.ResumeLayout(false);

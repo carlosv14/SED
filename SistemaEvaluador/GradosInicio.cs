@@ -12,7 +12,7 @@ namespace SistemaEvaluador
 {
     public partial class GradosInicio : Form
     {
-        List<Grados_Arr> grados;
+        public List<Grados_Arr> grados;
         float pesos = 100;
         public GradosInicio()
         {
@@ -27,14 +27,27 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (float.Parse(Peso.Text)>pesos)
+            {
+                MessageBox.Show("Excede el peso disponible");
+                return;
+            }
+            label3.Text = "(Peso disponible por agregar " + (pesos -= float.Parse(Peso.Text)) + "%)";
             Grados_Arr grado = new Grados_Arr(Nombre.Text, float.Parse(Peso.Text));
             grados.Add(grado);
-            IEnumerable<Grados_Arr> temp = grados.OrderByDescending(x=>x.peso);
+            grados.Sort();
             listView1.Items.Clear();
-            foreach(Grados_Arr grad in temp)
+            foreach(Grados_Arr grad in grados)
             {
-                listView1.Items.Add(grad.descp);
+                ListViewItem item = new ListViewItem(grad.descp);
+                item.SubItems.Add(grad.peso.ToString());
+                listView1.Items.Add(item);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

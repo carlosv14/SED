@@ -16,6 +16,7 @@ namespace SistemaEvaluador
         Indicadores indicador;
         Gradosindicadores grados;
         private SqlConnection con;
+        List<Grados_Arr> gradosLista;
         public Evaluacion(SqlConnection con)
         {
             InitializeComponent();
@@ -38,6 +39,32 @@ namespace SistemaEvaluador
 
             GradosInicio grad = new GradosInicio();
             grad.ShowDialog();
+            gradosLista = grad.grados;
+
+            InitializeDataGridView();
         }
+
+        private void InitializeDataGridView()
+        {
+            
+            dataGridView1.ColumnCount = gradosLista.Count()+1;
+            dataGridView1.ColumnHeadersVisible = true;
+
+            
+            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
+
+            columnHeaderStyle.BackColor = Color.Beige;
+            columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+
+            dataGridView1.Columns[0].Name = "Indicadores";
+            for (int i = 0; i < gradosLista.Count(); i++)
+            {
+                dataGridView1.Columns[i+1].Name = gradosLista.ElementAt(i).descp;
+            }
+            
+
+          }
+
     }
 }
