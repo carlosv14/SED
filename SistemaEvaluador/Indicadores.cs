@@ -13,28 +13,30 @@ namespace SistemaEvaluador
 {
     public partial class Indicadores : Form
     {
-        SqlConnection con;
-        public Indicadores(SqlConnection con)
+     
+        public List<Indicadores_Arr>indicadoresEspecificos;
+        private float peso = 100;
+        private int indicador = 0;
+        private bool indEspecificos;
+        public Indicadores()
         {
             InitializeComponent();
-            this.con = con;
-        }
 
-        private void GeneralRadioB_CheckedChanged(object sender, EventArgs e)
-        {
-            if (GeneralRadioB.Checked)
-                indicadoresEspecificos.Enabled = true;
+          indicadoresEspecificos=new List<Indicadores_Arr>();
+          indEspecificos = false;
         }
 
         private void EspecificoRadioB_CheckedChanged(object sender, EventArgs e)
         {
-            if (EspecificoRadioB.Checked)
-                indicadoresEspecificos.Enabled = false;
+            //if (EspecificoRadioB.Checked)
+                //indicadoresEspecificos.Enabled = false;
         }
 
         private void agregar_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = null;
+           /* 
+            * Guardar Indicadores en la base de datos
+            * SqlCommand cmd = null;
             try
             {
                 con.Open();
@@ -69,15 +71,62 @@ namespace SistemaEvaluador
             {
                 if (con.State != ConnectionState.Closed)
                     con.Close();
+            }*/
+            if (float.Parse(Peso.Text) > peso)
+                return;
+            Indicadores_Arr ind = new Indicadores_Arr(Nombre.Text, float.Parse(Peso.Text));
+
+            if (!indEspecificos)
+            {
+                indicadoresEspecificos.Add(ind);
+                indicadoresEspecificos.Sort();
+                listView1.Items.Clear();
+                foreach (Indicadores_Arr id in indicadoresEspecificos)
+                {
+                    ListViewItem item = new ListViewItem(id.descp);
+                    item.SubItems.Add(id.peso.ToString());
+                    listView1.Items.Add(item);
+                }
+
+                label2.Text = "(Peso disponible " + (peso -= float.Parse(Peso.Text)) + "%)";
+
+                if (peso == 0)
+                {
+                    button1.Enabled = true;
+                    agregar.Enabled = false;
+                    indEspecificos = true;
+                }
             }
+            else
+            {
+                indicadoresEspecificos.ElementAt(indicador).IndicadoresEspecificos.Add(ind);
+                indicadoresEspecificos.ElementAt(indicador).IndicadoresEspecificos.Sort();
+                listView1.Items.Clear();
+                foreach (Indicadores_Arr id in indicadoresEspecificos.ElementAt(indicador).IndicadoresEspecificos)
+                {
+                    ListViewItem item = new ListViewItem(id.descp);
+                    item.SubItems.Add(id.peso.ToString());
+                    listView1.Items.Add(item);
+                }
+
+                label2.Text = "(Peso disponible " + (peso -= float.Parse(Peso.Text)) + "%)";
+
+                if (peso == 0)
+                {
+                    button1.Enabled = true;
+                    agregar.Enabled = false;
+                    indicador++;
+                }
+            }
+    
         }
 
         private void Indicadores_Load(object sender, EventArgs e)
         {
-            GeneralRadioB.Checked = true;
-            SqlCommand cmd = null;
-            try
-            {
+            //GeneralRadioB.Checked = true;
+          //  SqlCommand cmd = null;
+            //try
+            //{
                 //con.Open();
                 //cmd = new SqlCommand();
                 //cmd.Connection = con;
@@ -91,10 +140,7 @@ namespace SistemaEvaluador
                 //Evaluacion.DataSource = dt;
                 //Evaluacion.DisplayMember = "NOMBRE";
 
-
-
-
-                SqlCommand cmd2 = new SqlCommand();
+                /*SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
                 cmd2.CommandText = "SELECT * FROM INDICADORES";
@@ -117,6 +163,24 @@ namespace SistemaEvaluador
             {
                 if (con.State != ConnectionState.Closed)
                     con.Close();
+            }*/
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (indicador == indicadoresEspecificos.Count())
+            {
+                this.Close();
+            }
+            else
+            {
+                peso = 100;
+                agregar.Enabled = true;
+                button1.Enabled = false;
+                label3.Text = "Especificos " + indicadoresEspecificos.ElementAt(indicador).descp;
+                label2.Text = "(Peso disponible " + peso + "%)";
+                listView1.Items.Clear();
+
             }
         }
     }

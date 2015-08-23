@@ -16,12 +16,12 @@ namespace SistemaEvaluador
         Indicadores indicador;
         Gradosindicadores grados;
         private SqlConnection con;
-        List<Grados_Arr> gradosLista;
+        List<String> gradosLista;
         public Evaluacion(SqlConnection con)
         {
             InitializeComponent();
             this.con = con;
-            indicador = new Indicadores(con);
+            indicador = new Indicadores();
             grados = new Gradosindicadores(con);
         }
 
@@ -40,6 +40,9 @@ namespace SistemaEvaluador
             GradosInicio grad = new GradosInicio();
             grad.ShowDialog();
             gradosLista = grad.grados;
+
+            Indicadores ind = new Indicadores();
+            ind.ShowDialog();
 
             InitializeDataGridView();
         }
@@ -60,7 +63,7 @@ namespace SistemaEvaluador
             dataGridView1.Columns[0].Name = "Indicadores";
             for (int i = 0; i < gradosLista.Count(); i++)
             {
-                dataGridView1.Columns[i+1].Name = gradosLista.ElementAt(i).descp;
+                dataGridView1.Columns[i+1].Name = gradosLista.ElementAt(i);
             }
             
 
