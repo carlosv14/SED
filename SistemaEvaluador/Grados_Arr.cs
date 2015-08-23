@@ -10,10 +10,12 @@ namespace SistemaEvaluador
     {
         string descp;
         float peso;
-        public Grados_Arr(string descp, float peso)
+        int id_indicador;
+        public Grados_Arr(string descp, float peso,int id_indicador)
         {
             this.descp = descp;
             this.peso = peso;
+            this.id_indicador = id_indicador;
         }
     }
 }
