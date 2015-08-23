@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace SistemaEvaluador
 {
-    public class Grados_Arr
+    public class Grados_Arr:IComparable<Grados_Arr>
     {
-        string descp;
-        float peso;
-        int id_indicador;
-        public Grados_Arr(string descp, float peso,int id_indicador)
+
+       public string descp;
+       public float peso;
+        public Grados_Arr(string descp, float peso)
+
         {
             this.descp = descp;
             this.peso = peso;
-            this.id_indicador = id_indicador;
+           
+        }
+
+        public int CompareTo(Grados_Arr obj)
+        {
+            if (this.peso > obj.peso)
+                return 1;
+            else if (this.peso < obj.peso)
+                return -1;
+            else
+                return 0;
         }
     }
 }

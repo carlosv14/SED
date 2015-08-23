@@ -143,7 +143,10 @@ namespace SistemaEvaluador
 
         private void evaluacion_Click(object sender, EventArgs e)
         {
-            //codigo formulario de evaluacion
+            Evaluacion eva = new Evaluacion(con);
+            tabStrip1.MdiForm = this;
+            eva.MdiParent = this;
+            eva.Show();
         }
     }
 }
