@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.Evaluacion = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.agregar = new System.Windows.Forms.Button();
             this.indicadoresEspecificos = new System.Windows.Forms.ComboBox();
             this.EspecificoRadioB = new System.Windows.Forms.RadioButton();
@@ -48,43 +46,19 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(179, 201);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(239, 247);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 37;
             this.label4.Text = "Peso";
-            // 
-            // Evaluacion
-            // 
-            this.Evaluacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Evaluacion.FormattingEnabled = true;
-            this.Evaluacion.Location = new System.Drawing.Point(273, 343);
-            this.Evaluacion.Margin = new System.Windows.Forms.Padding(2);
-            this.Evaluacion.Name = "Evaluacion";
-            this.Evaluacion.Size = new System.Drawing.Size(222, 24);
-            this.Evaluacion.TabIndex = 36;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(179, 346);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 16);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Evaluacion";
             // 
             // agregar
             // 
             this.agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar.Location = new System.Drawing.Point(571, 456);
-            this.agregar.Margin = new System.Windows.Forms.Padding(2);
+            this.agregar.Location = new System.Drawing.Point(761, 561);
+            this.agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.agregar.Name = "agregar";
-            this.agregar.Size = new System.Drawing.Size(106, 36);
+            this.agregar.Size = new System.Drawing.Size(141, 44);
             this.agregar.TabIndex = 34;
             this.agregar.Text = "Agregar";
             this.agregar.UseVisualStyleBackColor = true;
@@ -94,10 +68,10 @@
             // 
             this.indicadoresEspecificos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.indicadoresEspecificos.FormattingEnabled = true;
-            this.indicadoresEspecificos.Location = new System.Drawing.Point(375, 284);
-            this.indicadoresEspecificos.Margin = new System.Windows.Forms.Padding(2);
+            this.indicadoresEspecificos.Location = new System.Drawing.Point(500, 350);
+            this.indicadoresEspecificos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.indicadoresEspecificos.Name = "indicadoresEspecificos";
-            this.indicadoresEspecificos.Size = new System.Drawing.Size(120, 24);
+            this.indicadoresEspecificos.Size = new System.Drawing.Size(159, 28);
             this.indicadoresEspecificos.TabIndex = 33;
             // 
             // EspecificoRadioB
@@ -106,10 +80,10 @@
             this.EspecificoRadioB.BackColor = System.Drawing.Color.Transparent;
             this.EspecificoRadioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EspecificoRadioB.ForeColor = System.Drawing.Color.Black;
-            this.EspecificoRadioB.Location = new System.Drawing.Point(273, 284);
-            this.EspecificoRadioB.Margin = new System.Windows.Forms.Padding(2);
+            this.EspecificoRadioB.Location = new System.Drawing.Point(364, 350);
+            this.EspecificoRadioB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EspecificoRadioB.Name = "EspecificoRadioB";
-            this.EspecificoRadioB.Size = new System.Drawing.Size(99, 20);
+            this.EspecificoRadioB.Size = new System.Drawing.Size(118, 24);
             this.EspecificoRadioB.TabIndex = 32;
             this.EspecificoRadioB.TabStop = true;
             this.EspecificoRadioB.Text = "Especifico";
@@ -122,10 +96,10 @@
             this.GeneralRadioB.BackColor = System.Drawing.Color.Transparent;
             this.GeneralRadioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeneralRadioB.ForeColor = System.Drawing.Color.Black;
-            this.GeneralRadioB.Location = new System.Drawing.Point(273, 246);
-            this.GeneralRadioB.Margin = new System.Windows.Forms.Padding(2);
+            this.GeneralRadioB.Location = new System.Drawing.Point(364, 303);
+            this.GeneralRadioB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GeneralRadioB.Name = "GeneralRadioB";
-            this.GeneralRadioB.Size = new System.Drawing.Size(81, 20);
+            this.GeneralRadioB.Size = new System.Drawing.Size(96, 24);
             this.GeneralRadioB.TabIndex = 31;
             this.GeneralRadioB.TabStop = true;
             this.GeneralRadioB.Text = "General";
@@ -135,19 +109,19 @@
             // Peso
             // 
             this.Peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Peso.Location = new System.Drawing.Point(273, 198);
-            this.Peso.Margin = new System.Windows.Forms.Padding(2);
+            this.Peso.Location = new System.Drawing.Point(364, 244);
+            this.Peso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Peso.Name = "Peso";
-            this.Peso.Size = new System.Drawing.Size(222, 22);
+            this.Peso.Size = new System.Drawing.Size(295, 26);
             this.Peso.TabIndex = 30;
             // 
             // Nombre
             // 
             this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.Location = new System.Drawing.Point(273, 149);
-            this.Nombre.Margin = new System.Windows.Forms.Padding(2);
+            this.Nombre.Location = new System.Drawing.Point(364, 183);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(340, 22);
+            this.Nombre.Size = new System.Drawing.Size(452, 26);
             this.Nombre.TabIndex = 28;
             // 
             // label1
@@ -156,10 +130,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(179, 152);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(239, 187);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
+            this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nombre";
             // 
@@ -169,33 +142,33 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(30, 26);
+            this.label9.Location = new System.Drawing.Point(40, 32);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(256, 39);
+            this.label9.Size = new System.Drawing.Size(321, 51);
             this.label9.TabIndex = 38;
             this.label9.Text = "INDICADORES";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(569, 417);
+            this.checkBox1.Location = new System.Drawing.Point(759, 513);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(108, 17);
+            this.checkBox1.Size = new System.Drawing.Size(142, 21);
             this.checkBox1.TabIndex = 39;
             this.checkBox1.Text = "Grados Asumidos";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Indicadores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(774, 585);
+            this.ClientSize = new System.Drawing.Size(1032, 720);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Evaluacion);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.agregar);
             this.Controls.Add(this.indicadoresEspecificos);
             this.Controls.Add(this.EspecificoRadioB);
@@ -204,6 +177,7 @@
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Indicadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Indicadores";
@@ -216,8 +190,6 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox Evaluacion;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button agregar;
         private System.Windows.Forms.ComboBox indicadoresEspecificos;
         private System.Windows.Forms.RadioButton EspecificoRadioB;

@@ -40,20 +40,20 @@ namespace SistemaEvaluador
         private void Entrar_Click(object sender, EventArgs e)
         {
             setKey(usuario.Text, contrasena.Text);
-            try
+           /* try
             {
                 con.Open();
-               con.Close();
+               con.Close();*/
                 Menu menu = new Menu(con, this);
                 this.Hide();
                 menu.ShowDialog();
 
 
-            }
+            /*}
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
         }
     }
 }
