@@ -54,8 +54,6 @@ namespace SistemaEvaluador
 
               
 
-                cmd2.ExecuteNonQuery();
-                cmd.Dispose();
 
             }
             catch (Exception ene)

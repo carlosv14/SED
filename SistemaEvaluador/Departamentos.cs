@@ -40,7 +40,7 @@ namespace SistemaEvaluador
                 this.Size = new Size(774, 585);
                 this.Refresh();
                 dataGridView1.Visible = true;
-                SqlCommand cmd = null;
+              //  SqlCommand cmd = null;
                 try
                 {
                     SqlCommand cmd2 = new SqlCommand();

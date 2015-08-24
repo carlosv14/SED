@@ -20,12 +20,13 @@ namespace SistemaEvaluador
         }
         SqlConnection con;
         Login login;
-        
+     
         public Menu(SqlConnection con, Login login)
         {
             InitializeComponent();
             this.Enabled = true;
             this.con = con;
+         
             this.login = login;
         }
 
@@ -101,7 +102,7 @@ namespace SistemaEvaluador
 
         private void indiadores_Click(object sender, EventArgs e)
         {
-            Indicadores i = new Indicadores(con);
+            Indicadores i = new Indicadores(con,null);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
