@@ -16,14 +16,18 @@ namespace SistemaEvaluador
      
         public List<Indicadores_Arr>indicadoresEspecificos;
         private float peso = 100;
+        int id_gen = 0;
         private int indicador = 0;
         private bool indEspecificos;
         SqlConnection con;
+        int informe;
           List<grados_Arr> gradosInsert;
         public Indicadores( SqlConnection con,  List<grados_Arr> gradosInsert )
         {
             InitializeComponent();
             this.con = con;
+            informe = 0;
+            id_gen = 0;
             this.gradosInsert = gradosInsert;
           indicadoresEspecificos=new List<Indicadores_Arr>();
           indEspecificos = false;
@@ -52,15 +56,21 @@ namespace SistemaEvaluador
                 da.Fill(ds);
                 dt = ds.Tables[0];
 
+                informe = int.Parse(dt.Rows[0][0].ToString());
 
                 con.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = "SP_INSERT_INDICADOR";
-                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(dt.Rows[0][0].ToString());
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = informe;
+                if(!indEspecificos){
                 cmd.Parameters.Add("@INDICADORES_ID", SqlDbType.Int).Value = DBNull.Value;
                 cmd.Parameters.Add("@ID_GEN", SqlDbType.Int).Value = DBNull.Value;
+                }else{
+                    cmd.Parameters.Add("@INDICADORES_ID", SqlDbType.Int).Value = informe;
+                    cmd.Parameters.Add("@ID_GEN", SqlDbType.Int).Value =indicadoresEspecificos.ElementAt(indicador).id_gen;
+                }
                 cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre.Text;
                 cmd.Parameters.Add("@PESO", SqlDbType.Float).Value = float.Parse(Peso.Text);
                 cmd.ExecuteNonQuery();
@@ -77,9 +87,10 @@ namespace SistemaEvaluador
                 dt2 = ds2.Tables[0];
                 if (checkBox1.Checked)
                 {
+                    id_gen =  int.Parse(dt2.Rows[0][0].ToString());
                     for (int i = 0; i < gradosInsert.Count; i++)
                     {
-                        gradosInsert.ElementAt(i).ID_IND = int.Parse(dt2.Rows[0][0].ToString());
+                        gradosInsert.ElementAt(i).ID_IND =id_gen;
                     }
                     SqlCommand cmd5 = null;
                     for (int i = 0; i < gradosInsert.Count; i++)
@@ -101,7 +112,7 @@ namespace SistemaEvaluador
        
             if (float.Parse(Peso.Text) > peso)
                 return;
-            Indicadores_Arr ind = new Indicadores_Arr(Nombre.Text, float.Parse(Peso.Text));
+            Indicadores_Arr ind = new Indicadores_Arr(Nombre.Text, float.Parse(Peso.Text),id_gen);
 
             if (!indEspecificos)
             {
@@ -218,6 +229,8 @@ namespace SistemaEvaluador
                 label3.Text = "Especificos " + indicadoresEspecificos.ElementAt(indicador).descp;
                 label2.Text = "(Peso disponible " + peso + "%)";
                 listView1.Items.Clear();
+
+                
 
             }
         }

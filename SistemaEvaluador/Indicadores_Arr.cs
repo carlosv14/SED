@@ -11,11 +11,13 @@ namespace SistemaEvaluador
 
        public string descp;
        public float peso;
+       public int id_gen;
 
        public List<Indicadores_Arr> IndicadoresEspecificos;
-        public Indicadores_Arr(string descp, float peso)
+        public Indicadores_Arr(string descp, float peso,int id_gen)
         {
             this.descp = descp;
+            this.id_gen = id_gen;
             this.peso = peso;
             IndicadoresEspecificos=new List<Indicadores_Arr>();
         }

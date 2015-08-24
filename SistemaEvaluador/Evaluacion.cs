@@ -15,6 +15,7 @@ namespace SistemaEvaluador
 {
     public partial class Evaluacion : Form
     {
+        int id;
         Indicadores indicador;
         Gradosindicadores grados;
         private SqlConnection con;
@@ -23,16 +24,18 @@ namespace SistemaEvaluador
         List<grados_Arr> gradosInsert;
         public Evaluacion(SqlConnection con)
         {
+            
             InitializeComponent();
             this.con = con;
-            indicador = new Indicadores(con,gradosInsert);
             grados = new Gradosindicadores(con);
             gradosInsert = new List<grados_Arr>();
+            id = 0;
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            indicador.ShowDialog();
+           Editar_Indicadores ed = new Editar_Indicadores(con,13);
+           ed.ShowDialog();
         }
 
         private void Evaluacion_Load(object sender, EventArgs e)
@@ -41,7 +44,7 @@ namespace SistemaEvaluador
             Evanom.ShowDialog();
             Nombre.Text = Evanom.nombreEvaluacion;
             Fecha.Text = DateTime.Today.ToString();
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             try
             {
 
@@ -54,6 +57,7 @@ namespace SistemaEvaluador
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 dt = ds.Tables[0];
+                id = int.Parse(dt.Rows[0][0].ToString());
             }
             catch(Exception ex)
             {
@@ -67,9 +71,13 @@ namespace SistemaEvaluador
             {
                 gradosInsert.Add(new grados_Arr( 0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));
             }
+
+
+
             Indicadores ind = new Indicadores(con,gradosInsert);
             ind.ShowDialog();
             indicadores = ind.indicadoresEspecificos;
+            indicador = new Indicadores(con, gradosInsert);
 
             InitializeDataGridView();
         }
