@@ -102,7 +102,8 @@ namespace SistemaEvaluador
 
         private void indiadores_Click(object sender, EventArgs e)
         {
-            Indicadores i = new Indicadores(con,null);
+
+            Evaluador i = new Evaluador(con);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
