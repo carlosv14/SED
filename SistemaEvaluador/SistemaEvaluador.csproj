@@ -62,6 +62,12 @@
       <DependentUpon>Dependientes.cs</DependentUpon>
     </Compile>
     <Compile Include="DependientesEmpleados.cs" />
+    <Compile Include="EmpleadoNombre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadoNombre.Designer.cs">
+      <DependentUpon>EmpleadoNombre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Evaluacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,18 @@
     </Compile>
     <Compile Include="EvaluacionNombre.Designer.cs">
       <DependentUpon>EvaluacionNombre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evaluador.Designer.cs">
+      <DependentUpon>Evaluador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puntaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puntaje.Designer.cs">
+      <DependentUpon>Puntaje.cs</DependentUpon>
     </Compile>
     <Compile Include="GestiondePersonal.cs">
       <SubType>Form</SubType>
@@ -125,11 +143,17 @@
     <EmbeddedResource Include="Dependientes.resx">
       <DependentUpon>Dependientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadoNombre.resx">
+      <DependentUpon>EmpleadoNombre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Evaluacion.resx">
       <DependentUpon>Evaluacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EvaluacionNombre.resx">
       <DependentUpon>EvaluacionNombre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Evaluador.resx">
+      <DependentUpon>Evaluador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestiondePersonal.resx">
       <DependentUpon>GestiondePersonal.cs</DependentUpon>
@@ -159,6 +183,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Puntaje.resx">
+      <DependentUpon>Puntaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Terminos y resultado.resx">
       <DependentUpon>Terminos y resultado.cs</DependentUpon>
     </EmbeddedResource>

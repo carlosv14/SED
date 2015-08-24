@@ -56,8 +56,6 @@ namespace SistemaEvaluador
             
             dataGridView1.ColumnCount = gradosLista.Count()+1;
             dataGridView1.ColumnHeadersVisible = true;
-
-            
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
 
             columnHeaderStyle.BackColor = Color.Beige;
@@ -98,14 +96,14 @@ namespace SistemaEvaluador
             ws.Cells[1, 1] = "Indicadores";
             for(int i=0;i<gradosLista.Count();i++)
             {
-                ws.Cells[1, i+1] = gradosLista.ElementAt(i);
+                ws.Cells[1, i+2] = gradosLista.ElementAt(i);
             }
 
-            for(int i=2;i<=dataGridView1.Rows.Count;i++)
+            for(int i=0;i<=dataGridView1.Rows.Count;i++)
             {
-                for(int x=2;x<gradosLista.Count()+1;x++)
+                for(int x=0;x<gradosLista.Count()+1;x++)
                 {
-                    ws.Cells[i, x] = dataGridView1.Rows[i - 2].Cells[x - 1].Value;
+                    ws.Cells[i+2,x+1] = dataGridView1.Rows[i].Cells[x].Value;
                 }
             }
         }
