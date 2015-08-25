@@ -72,13 +72,34 @@ namespace SistemaEvaluador
                     }
                 }
 
+                DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
+                cmb.HeaderText = "Grado";
+                cmb.Name = "cmb";
+               cmb.MaxDropDownItems = 4;
+                cmb.Items.Add("Malo");
+                cmb.Items.Add("Regular");
+                cmb.Items.Add("Bueno");
+                cmb.Items.Add("Muy Bueno");
+                cmb.Items.Add("Excelente");
+                dataGridView1.Columns.Add(cmb);
 
-                for (int i = 0; i < cols.Count; i++)
-                {
-                    dataGridView1.Columns.Add(cols.ElementAt(i), cols.ElementAt(i));
-                }
+
+                //for (int i = 0; i <  cols.Count; i++)
+                //{
+
+                    
+                //        dataGridView1.Rows.Add();
+                //        dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = cols.ElementAt(i);
+                        
+                                      
+
+                //}
+
+
+             
                     //Buscar el nombre en la base de datos, ya tenemos el ID
-                    label2.Text = id;
+            
+            label2.Text = id;
             Nombre.Text = dt1.Rows[0][0].ToString();
             //cargar de la base de datos los indicadores y los grados!! 
             //Temporal, solo como ejemplo
@@ -142,13 +163,6 @@ namespace SistemaEvaluador
             
         }
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            Puntaje punt = new Puntaje();
-            punt.label2.Text=dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            punt.ShowDialog();
-
-            dataGridView1.CurrentRow.Cells[punt.index].Value = "X";
-        }
+        
     }
 }

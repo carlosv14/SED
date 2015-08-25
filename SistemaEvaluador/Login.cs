@@ -33,7 +33,7 @@ namespace SistemaEvaluador
 
         private void setKey(string user, string pass)
         {
-            con.ConnectionString = "Data Source=localhost;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
+            con.ConnectionString = "Data Source=172.16.2.4;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
 
         }
 

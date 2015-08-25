@@ -103,10 +103,7 @@ namespace SistemaEvaluador
         private void indiadores_Click(object sender, EventArgs e)
         {
 
-            Evaluador i = new Evaluador(con);
-            tabStrip1.MdiForm = this;
-            i.MdiParent = this;
-            i.Show();
+            
         }
 
         private void Modificargestion_Click(object sender, EventArgs e)
@@ -149,6 +146,14 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             eva.MdiParent = this;
             eva.Show();
+        }
+
+        private void evaluador_Click(object sender, EventArgs e)
+        {
+            Evaluador i = new Evaluador(con);
+            tabStrip1.MdiForm = this;
+            i.MdiParent = this;
+            i.Show();
         }
     }
 }
