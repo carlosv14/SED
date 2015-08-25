@@ -166,12 +166,14 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
-            }
+            limpiar();
+        }
     
         
 
         private void Indicadores_Load(object sender, EventArgs e)
         {
+            checkBox1.Checked = true;
             //GeneralRadioB.Checked = true;
           //  SqlCommand cmd = null;
             //try
@@ -233,6 +235,13 @@ namespace SistemaEvaluador
                 
 
             }
+            limpiar();
+        }
+
+        private void limpiar()
+        {
+            Nombre.Text = "";
+            Peso.Text = "";
         }
     }
 }
