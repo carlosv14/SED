@@ -132,7 +132,7 @@ namespace SistemaEvaluador
                 ws.Cells[1, i+2] = gradosLista.ElementAt(i);
             }
 
-            for(int i=0;i<=dataGridView1.Rows.Count;i++)
+            for(int i=0;i<dataGridView1.Rows.Count;i++)
             {
                 for(int x=0;x<gradosLista.Count()+1;x++)
                 {

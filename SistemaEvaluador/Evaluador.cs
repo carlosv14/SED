@@ -16,6 +16,8 @@ namespace SistemaEvaluador
         SqlConnection con;
         private string id;
         int id_eval;
+        List<string> cols = new List<string>();
+        List<Indicadores_Arr> indicadores = new List<Indicadores_Arr>();
         public Evaluador(SqlConnection con)
         {
             this.con = con;
@@ -29,7 +31,7 @@ namespace SistemaEvaluador
             en.ShowDialog();
             id = en.id;
             id_eval = en.id_eval;
-            List<Indicadores_Arr> indicadores = new List<Indicadores_Arr>(); 
+           
             try
             {
                 con.Open();
@@ -56,7 +58,7 @@ namespace SistemaEvaluador
                 DataSet ds3 = new DataSet();
                 da3.Fill(ds3);
                 dt3 = ds3.Tables[0];
-                List<string> cols = new List<string>();
+               
                 dataGridView1.Columns.Add("Indicadores","Indicadores");
                 for (int i = 0; i < dt3.Rows.Count; i++)
                 {
@@ -123,10 +125,11 @@ namespace SistemaEvaluador
                     {
                         dataGridView1.Rows.Add();
                         dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Indicadores"].Value = " ---" + dt.Rows[i][2].ToString();
-                        indicadores.ElementAt(indicadores.Count - 1).IndicadoresEspecificos.Add(new Indicadores_Arr(dt.Rows[i][2].ToString(), float.Parse(dt.Rows[i][3].ToString()), int.Parse(dt.Rows[i][5].ToString())));
+                        indicadores.ElementAt(indicadores.Count - 1).IndicadoresEspecificos.Add(new Indicadores_Arr(dt.Rows[i][2].ToString(), float.Parse(dt.Rows[i][3].ToString()), int.Parse(dt.Rows[i][4].ToString())));
                     }
 
                 }
+               
 
             }
             catch (Exception ex)
@@ -149,6 +152,49 @@ namespace SistemaEvaluador
             punt.ShowDialog();
 
             dataGridView1.CurrentRow.Cells[punt.index].Value = "X";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Indicadores_Calc_arr> indicadoresCalc = new List<Indicadores_Calc_arr>();
+                Indicadores_Arr indicador = null;
+                Indicadores_Arr indicador_esp = null;
+                for (int i = 0; i < indicadores.Count; i++)
+                {
+                    for (int j = 0; j < indicadores.ElementAt(i).IndicadoresEspecificos.Count; j++)
+                    {
+                        indicador = indicadores.ElementAt(i);
+                        indicador_esp = indicadores.ElementAt(i).IndicadoresEspecificos.ElementAt(j);
+                        indicadoresCalc.Add(new Indicadores_Calc_arr(indicador_esp, 1, indicador.id_gen, 0, cols.Count));
+                    }
+                }
+
+                Evaluador_Calculos ec = new Evaluador_Calculos(indicadoresCalc);
+                List<Resultado_Indicadores_Generales> resul = new List<Resultado_Indicadores_Generales>();
+
+
+                ec.Calcular_Indicador();
+                float suma = 0;
+                for (int i = 0; i < indicadores.Count; i++)
+                {
+                    for (int j = 0; j < ec.calculos.Count; j++)
+                    {
+                        if (indicadores.ElementAt(i).id_gen == ec.calculos.ElementAt(j).indicador.id_gen)
+                        {
+                            suma += ec.calculos.ElementAt(j).respuesta;
+                        }
+
+                    }
+                    resul.Add(new Resultado_Indicadores_Generales(indicadores.ElementAt(i).descp, suma));
+                    suma = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
