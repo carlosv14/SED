@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel; 
@@ -156,17 +157,52 @@ namespace SistemaEvaluador
            
             Excel.Visible = true;
             ws.Cells[1, 1] = "Indicadores";
-            for(int i=0;i<gradosLista.Count();i++)
+          
+            for (int i=0;i<gradosLista.Count();i++)
             {
+               
                 ws.Cells[1, i+2] = gradosLista.ElementAt(i);
+               
+                
+
             }
 
-            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            
+for (int i=0;i<dataGridView1.Rows.Count;i++)
             {
                 for(int x=0;x<gradosLista.Count()+1;x++)
                 {
+                  
                     ws.Cells[i+2,x+1] = dataGridView1.Rows[i].Cells[x].Value;
+                   
                 }
+            }
+
+            Excel.Range usedRange = ws.UsedRange;
+            Excel.Range rows = usedRange.Rows;
+
+            Borders border = rows.Borders;
+            int count = 0;
+            foreach (Excel.Range row in rows)
+            {
+
+                if (count == 0)
+                {
+                    row.Interior.Color = System.Drawing.Color.SeaGreen;
+                    row.Cells.AutoFit();
+                }
+
+                
+                border[XlBordersIndex.xlEdgeLeft].LineStyle =
+               Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                border[XlBordersIndex.xlEdgeTop].LineStyle =
+                    Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                border[XlBordersIndex.xlEdgeBottom].LineStyle =
+                    Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                border[XlBordersIndex.xlEdgeRight].LineStyle =
+                    Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                row.Cells.AutoFit();
+                count++;
             }
         }
 

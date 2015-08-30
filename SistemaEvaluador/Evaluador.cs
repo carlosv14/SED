@@ -4,10 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using DataTable = System.Data.DataTable;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace SistemaEvaluador
 {
@@ -16,12 +21,14 @@ namespace SistemaEvaluador
         SqlConnection con;
         private string id;
         int id_eval;
+        private DataTable gradosesp;
         List<string> cols = new List<string>();
         List<Indicadores_Arr> indicadores = new List<Indicadores_Arr>();
         public Evaluador(SqlConnection con)
         {
             this.con = con;
             InitializeComponent();
+            gradosesp = new DataTable();
         }
 
         private void Evaluador_Load(object sender, EventArgs e)
@@ -51,14 +58,14 @@ namespace SistemaEvaluador
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
                 cmd3.CommandType = System.Data.CommandType.Text;
-                cmd3.CommandText = "select g.NOMBRE from INDICADORES I INNER JOIN GRADOS g on I.ID_IND = g.ID_IND WHERE I.ID = "+ id_eval;
+                cmd3.CommandText = "select g.NOMBRE,I.NOMBRE as n from INDICADORES I INNER JOIN GRADOS g on I.ID_IND = g.ID_IND WHERE I.ID = "+ id_eval;
                 SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
 
 
                 DataSet ds3 = new DataSet();
                 da3.Fill(ds3);
                 dt3 = ds3.Tables[0];
-               
+                gradosesp = dt3;
                 dataGridView1.Columns.Add("Indicadores","Indicadores");
                 for (int i = 0; i < dt3.Rows.Count; i++)
                 {
@@ -76,32 +83,25 @@ namespace SistemaEvaluador
 
                 DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
                 cmb.HeaderText = "Grado";
-                cmb.Name = "cmb";
-               cmb.MaxDropDownItems = 4;
-                cmb.Items.Add("Malo");
-                cmb.Items.Add("Regular");
-                cmb.Items.Add("Bueno");
-                cmb.Items.Add("Muy Bueno");
-                cmb.Items.Add("Excelente");
+                cmb.Name = "Grado";
                 dataGridView1.Columns.Add(cmb);
-
 
                 //for (int i = 0; i <  cols.Count; i++)
                 //{
 
-                    
+
                 //        dataGridView1.Rows.Add();
                 //        dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = cols.ElementAt(i);
-                        
-                                      
+
+
 
                 //}
 
 
-             
-                    //Buscar el nombre en la base de datos, ya tenemos el ID
-            
-            label2.Text = id;
+
+                //Buscar el nombre en la base de datos, ya tenemos el ID
+
+                label2.Text = id;
             Nombre.Text = dt1.Rows[0][0].ToString();
             //cargar de la base de datos los indicadores y los grados!! 
             //Temporal, solo como ejemplo
@@ -129,7 +129,7 @@ namespace SistemaEvaluador
                 da.Fill(ds);
                 dt = ds.Tables[0];
                 string n_gen = "";
-              
+                DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
 
@@ -139,13 +139,29 @@ namespace SistemaEvaluador
                         n_gen = dt.Rows[i][0].ToString();
                         dataGridView1.Rows.Add();
                         dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Indicadores"].Value = n_gen;
-                        indicadores.Add(new Indicadores_Arr(n_gen, float.Parse(dt.Rows[i][1].ToString()), int.Parse(dt.Rows[i][4].ToString()),null));
+                       
+                    indicadores.Add(new Indicadores_Arr(n_gen, float.Parse(dt.Rows[i][1].ToString()), int.Parse(dt.Rows[i][4].ToString()),null));
                     
                     }
                     if (dt.Rows[i][0].ToString() == n_gen)
                     {
                         dataGridView1.Rows.Add();
+
                         dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Indicadores"].Value = " ---" + dt.Rows[i][2].ToString();
+                        cell = new DataGridViewComboBoxCell();
+                        for (int l = 0; l < gradosesp.Rows.Count; l++)
+                        {
+                           
+                            if (dt.Rows[i][2].ToString() == gradosesp.Rows[l][1].ToString())
+                            {
+
+                                cell.Items.Add(gradosesp.Rows[l][0].ToString());
+
+                            }
+
+                            
+                        }
+                        dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Grado"] = cell;
                         indicadores.ElementAt(indicadores.Count - 1).IndicadoresEspecificos.Add(new Indicadores_Arr(dt.Rows[i][2].ToString(), float.Parse(dt.Rows[i][3].ToString()), int.Parse(dt.Rows[i][4].ToString()),null));
                     }
 
@@ -216,6 +232,21 @@ namespace SistemaEvaluador
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void formatoEvaluadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            string strfilename;
+            if (fd.ShowDialog(this) == DialogResult.OK)
+            {
+                String filename = fd.FileName.ToString();
+                Excel.Application ex = new Excel.Application();
+                Excel.Workbook wb = ex.Workbooks.Open(filename);
+                ex.Visible = true;
+              
+
             }
         }
     }

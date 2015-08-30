@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Fecha = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.formatoEvaluadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +88,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guardarEvauacionToolStripMenuItem});
+            this.guardarEvauacionToolStripMenuItem,
+            this.formatoEvaluadorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -134,13 +136,20 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(285, 462);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 13;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // formatoEvaluadorToolStripMenuItem
+            // 
+            this.formatoEvaluadorToolStripMenuItem.Name = "formatoEvaluadorToolStripMenuItem";
+            this.formatoEvaluadorToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.formatoEvaluadorToolStripMenuItem.Text = "Formato Evaluador";
+            this.formatoEvaluadorToolStripMenuItem.Click += new System.EventHandler(this.formatoEvaluadorToolStripMenuItem_Click);
             // 
             // Evaluador
             // 
@@ -182,5 +191,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Fecha;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem formatoEvaluadorToolStripMenuItem;
     }
 }
