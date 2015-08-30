@@ -16,11 +16,13 @@ namespace SistemaEvaluador
         SqlConnection con;
         bool modificar;
         private List<DependientesEmpleados> hijos;
+        private List<int> idsJefes; 
         public GestiondePersonal(SqlConnection con, bool modificar)
         {
             InitializeComponent();
             this.con = con;
-     
+        this.idsJefes = new List<int>();
+            this.hijos = new List<DependientesEmpleados>();
             this.modificar = modificar;
             if (modificar)
             {
@@ -38,7 +40,7 @@ namespace SistemaEvaluador
         {
             Dependientes depen = new Dependientes();
             depen.ShowDialog();
-            hijos = depen.hijos;
+            hijos.Add(depen.hijos[0]);
         }
 
         private void GestiondePersonal_Load(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace SistemaEvaluador
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
                 cmd3.CommandType = System.Data.CommandType.Text;
-                cmd3.CommandText = "SELECT ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" + (DepartamentoTrabajo.SelectedIndex + 1) + " AND CONCAT(NOMBRES,' ',APELLIDOS)=" + "'" + Jefe.GetItemText(Jefe.SelectedItem) + "'";
+                cmd3.CommandText = "SELECT ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" + idsJefes[(DepartamentoTrabajo.SelectedIndex)] + " AND CONCAT(NOMBRES,' ',APELLIDOS)=" + "'" + Jefe.GetItemText(Jefe.SelectedItem) + "'";
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd3);
                 DataTable dt1 = new DataTable();
                 DataSet ds1 = new DataSet();
@@ -141,7 +143,7 @@ namespace SistemaEvaluador
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "SELECT COUNT(*) from EMPLEADOS";
+                cmd2.CommandText = "select top 1 ID_EMPLEADO  from EMPLEADOS order by ID_EMPLEADO desc ";
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 DataTable dt = new DataTable();
                 DataSet ds = new DataSet();
@@ -198,13 +200,17 @@ namespace SistemaEvaluador
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRECOMPLETO FROM EMPLEADOS WHERE ID_DEPTO=" + (DepartamentoTrabajo.SelectedIndex + 1);
+                cmd2.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRECOMPLETO, ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" + (DepartamentoTrabajo.SelectedIndex + 1);
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 DataTable dt2 = new DataTable();
                 DataSet ds2 = new DataSet();
                 da2.Fill(ds2);
                 dt2 = ds2.Tables[0];
                 Jefe.DataSource = dt2;
+                for (int i = 0; i < dt2.Rows.Count; i++)
+                {
+                    idsJefes.Add(int.Parse( dt2.Rows[i][1].ToString()));
+                }
                 Jefe.DisplayMember = "NOMBRECOMPLETO";
 
 

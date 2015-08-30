@@ -41,24 +41,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 109);
+            this.label1.Location = new System.Drawing.Point(62, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 17);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre Grado";
             // 
             // Nombre
             // 
-            this.Nombre.Location = new System.Drawing.Point(198, 109);
+            this.Nombre.Location = new System.Drawing.Point(148, 89);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(176, 22);
+            this.Nombre.Size = new System.Drawing.Size(133, 20);
             this.Nombre.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(426, 109);
+            this.button1.Location = new System.Drawing.Point(320, 89);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.Size = new System.Drawing.Size(56, 24);
             this.button1.TabIndex = 6;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(426, 311);
+            this.button2.Location = new System.Drawing.Point(320, 253);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 51);
+            this.button2.Size = new System.Drawing.Size(89, 41);
             this.button2.TabIndex = 7;
             this.button2.Text = "Guardar";
             this.button2.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(86, 172);
+            this.listView1.Location = new System.Drawing.Point(64, 140);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(288, 161);
+            this.listView1.Size = new System.Drawing.Size(217, 132);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -89,12 +94,14 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Grado";
+            this.columnHeader1.Width = 106;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(392, 172);
+            this.button3.Location = new System.Drawing.Point(294, 140);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 41);
+            this.button3.Size = new System.Drawing.Size(45, 33);
             this.button3.TabIndex = 9;
             this.button3.Text = "Up";
             this.button3.UseVisualStyleBackColor = true;
@@ -102,18 +109,19 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(392, 242);
+            this.button4.Location = new System.Drawing.Point(294, 197);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 41);
+            this.button4.Size = new System.Drawing.Size(45, 33);
             this.button4.TabIndex = 10;
             this.button4.Text = "Down";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // GradosInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 446);
+            this.ClientSize = new System.Drawing.Size(482, 362);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView1);
@@ -122,6 +130,7 @@
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GradosInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradosInicio";

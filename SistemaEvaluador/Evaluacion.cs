@@ -34,7 +34,7 @@ namespace SistemaEvaluador
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           Editar_Indicadores ed = new Editar_Indicadores(con,13);
+           Editar_Indicadores ed = new Editar_Indicadores(con,9);
            ed.ShowDialog();
         }
 
@@ -51,7 +51,7 @@ namespace SistemaEvaluador
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "SELECT COUNT(*) from INFORME_INDICADORES";
+                cmd2.CommandText = "SELECT TOP 1 ID from INFORME_INDICADORES ORDER BY ID DESC";
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                
                 DataSet ds = new DataSet();
@@ -70,6 +70,8 @@ namespace SistemaEvaluador
             for (int i = 0; i < gradosLista.Count; i++)
             {
                 gradosInsert.Add(new grados_Arr( 0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));
+        
+                
             }
 
 
@@ -115,9 +117,35 @@ namespace SistemaEvaluador
                     for(int x=0;x<indicadores.ElementAt(i).IndicadoresEspecificos.Count();x++)
                     {
                         rows[0] = "   ------"+indicadores.ElementAt(i).IndicadoresEspecificos.ElementAt(x).descp;
+                    
                         dataGridView1.Rows.Add(rows);
+                        for (int j =1; j < dataGridView1.Columns.Count; j++)
+                        {
+                            for (int h = 0;
+                                h < indicadores.ElementAt(i).IndicadoresEspecificos.ElementAt(x).grados.Count;
+                                h++)
+                            {
+                                if (
+                                    indicadores.ElementAt(i)
+                                        .IndicadoresEspecificos.ElementAt(x)
+                                        .grados.ElementAt(h)
+                                        .nombre ==
+                                    dataGridView1.Columns[j].Name)
+                                {
+                                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[j].ReadOnly = false;
+                                    break;
+                                }
+                                else
+                                {
+                                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[j].ReadOnly =true;
+                            }
+                            }
+                        }
+
                     }
+
             }
+            
         }
 
         private void guardarEvaluacionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,6 +153,7 @@ namespace SistemaEvaluador
             Excel.Application Excel = new Excel.Application();
             Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet ws = (Worksheet)Excel.ActiveSheet;
+           
             Excel.Visible = true;
             ws.Cells[1, 1] = "Indicadores";
             for(int i=0;i<gradosLista.Count();i++)

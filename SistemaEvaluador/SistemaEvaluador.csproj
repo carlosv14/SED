@@ -93,6 +93,12 @@
       <DependentUpon>Evaluador.cs</DependentUpon>
     </Compile>
     <Compile Include="Evaluador_Calculos.cs" />
+    <Compile Include="Grados_NoAsumidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grados_NoAsumidos.Designer.cs">
+      <DependentUpon>Grados_NoAsumidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Indicadores_Calc_arr.cs" />
     <Compile Include="Puntaje.cs">
       <SubType>Form</SubType>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GradosInicio.resx">
       <DependentUpon>GradosInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grados_NoAsumidos.resx">
+      <DependentUpon>Grados_NoAsumidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Indicadores.resx">
       <DependentUpon>Indicadores.cs</DependentUpon>

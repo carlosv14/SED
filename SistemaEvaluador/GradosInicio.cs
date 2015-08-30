@@ -28,7 +28,8 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (Nombre.Text == "")
+                return;
             grados.Add(Nombre.Text);
             ListViewItem item = new ListViewItem(Nombre.Text);
             listView1.Items.Add(item);
@@ -65,6 +66,7 @@ namespace SistemaEvaluador
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             index = int.Parse(listView1.SelectedIndices.ToString());
             
         }

@@ -41,6 +41,10 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -49,19 +53,20 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(136, 222);
+            this.label4.Location = new System.Drawing.Point(102, 180);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 37;
             this.label4.Text = "Peso";
             // 
             // agregar
             // 
             this.agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar.Location = new System.Drawing.Point(572, 276);
-            this.agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.agregar.Location = new System.Drawing.Point(429, 224);
+            this.agregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.agregar.Name = "agregar";
-            this.agregar.Size = new System.Drawing.Size(141, 44);
+            this.agregar.Size = new System.Drawing.Size(106, 36);
             this.agregar.TabIndex = 34;
             this.agregar.Text = "Agregar";
             this.agregar.UseVisualStyleBackColor = true;
@@ -70,10 +75,10 @@
             // Nombre
             // 
             this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.Location = new System.Drawing.Point(261, 158);
-            this.Nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Nombre.Location = new System.Drawing.Point(196, 128);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(452, 26);
+            this.Nombre.Size = new System.Drawing.Size(340, 22);
             this.Nombre.TabIndex = 28;
             // 
             // label1
@@ -82,9 +87,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(136, 162);
+            this.label1.Location = new System.Drawing.Point(102, 132);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nombre";
             // 
@@ -94,20 +100,18 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(40, 32);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(30, 26);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(321, 51);
+            this.label9.Size = new System.Drawing.Size(256, 39);
             this.label9.TabIndex = 38;
             this.label9.Text = "INDICADORES";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(572, 219);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.Location = new System.Drawing.Point(429, 178);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(142, 21);
+            this.checkBox1.Size = new System.Drawing.Size(108, 17);
             this.checkBox1.TabIndex = 39;
             this.checkBox1.Text = "Grados Asumidos";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -115,9 +119,10 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(639, 509);
+            this.button1.Location = new System.Drawing.Point(479, 414);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 71);
+            this.button1.Size = new System.Drawing.Size(119, 58);
             this.button1.TabIndex = 41;
             this.button1.Text = "Continuar";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,17 +130,19 @@
             // 
             // Peso
             // 
-            this.Peso.Location = new System.Drawing.Point(261, 218);
+            this.Peso.Location = new System.Drawing.Point(196, 177);
+            this.Peso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Peso.Name = "Peso";
-            this.Peso.Size = new System.Drawing.Size(100, 22);
+            this.Peso.Size = new System.Drawing.Size(76, 20);
             this.Peso.TabIndex = 42;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(376, 225);
+            this.label2.Location = new System.Drawing.Point(282, 183);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 17);
+            this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 43;
             this.label2.Text = "(Peso disponible 100%)";
             // 
@@ -145,10 +152,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(252, 83);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(189, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 51);
+            this.label3.Size = new System.Drawing.Size(177, 39);
             this.label3.TabIndex = 44;
             this.label3.Text = "Generales";
             // 
@@ -157,9 +163,10 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.Location = new System.Drawing.Point(140, 304);
+            this.listView1.Location = new System.Drawing.Point(105, 247);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(404, 257);
+            this.listView1.Size = new System.Drawing.Size(304, 210);
             this.listView1.TabIndex = 45;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -172,12 +179,50 @@
             // 
             this.columnHeader2.Text = "Peso";
             // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(65, 247);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(165, 210);
+            this.listView2.TabIndex = 46;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView3
+            // 
+            this.listView3.Location = new System.Drawing.Point(259, 247);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(165, 210);
+            this.listView3.TabIndex = 47;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(236, 313);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 23);
+            this.button2.TabIndex = 48;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(232, 351);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(21, 23);
+            this.button3.TabIndex = 49;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Indicadores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(924, 647);
+            this.ClientSize = new System.Drawing.Size(693, 526);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listView3);
+            this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -190,7 +235,6 @@
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Indicadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Indicadores";
@@ -216,5 +260,9 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

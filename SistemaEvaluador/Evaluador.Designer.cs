@@ -46,42 +46,40 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            this.dataGridView1.Location = new System.Drawing.Point(20, 141);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 115);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-//=======
-//            this.dataGridView1.Location = new System.Drawing.Point(27, 174);
-//            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-//>>>>>>> 4253c25ccdd1ba808f12de7c7d43b7e1dd3bba35
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1045, 519);
+            this.dataGridView1.Size = new System.Drawing.Size(784, 422);
             this.dataGridView1.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 140);
+            this.label4.Location = new System.Drawing.Point(18, 114);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Fecha";
             // 
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(221, 110);
+            this.Nombre.Location = new System.Drawing.Point(166, 89);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(113, 17);
+            this.Nombre.Size = new System.Drawing.Size(70, 13);
             this.Nombre.TabIndex = 6;
             this.Nombre.Text = "---------------------";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 110);
+            this.label1.Location = new System.Drawing.Point(18, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 17);
+            this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Nombre del Empleado";
             // 
@@ -92,49 +90,53 @@
             this.guardarEvauacionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1107, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(830, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // guardarEvauacionToolStripMenuItem
             // 
             this.guardarEvauacionToolStripMenuItem.Name = "guardarEvauacionToolStripMenuItem";
-            this.guardarEvauacionToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.guardarEvauacionToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.guardarEvauacionToolStripMenuItem.Text = "Guardar Evauacion";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(221, 78);
+            this.label2.Location = new System.Drawing.Point(166, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 17);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "---------------------";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 78);
+            this.label3.Location = new System.Drawing.Point(18, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "ID Empleado";
             // 
             // Fecha
             // 
             this.Fecha.AutoSize = true;
-            this.Fecha.Location = new System.Drawing.Point(221, 140);
+            this.Fecha.Location = new System.Drawing.Point(166, 114);
+            this.Fecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Fecha.Name = "Fecha";
-            this.Fecha.Size = new System.Drawing.Size(113, 17);
+            this.Fecha.Size = new System.Drawing.Size(70, 13);
             this.Fecha.TabIndex = 8;
             this.Fecha.Text = "---------------------";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(380, 568);
+            this.button1.Location = new System.Drawing.Point(285, 462);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 13;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -142,14 +144,10 @@
             // 
             // Evaluador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(830, 614);
+            this.ClientSize = new System.Drawing.Size(830, 499);
             this.Controls.Add(this.button1);
-//=======
-//            this.ClientSize = new System.Drawing.Size(1107, 738);
-//>>>>>>> 4253c25ccdd1ba808f12de7c7d43b7e1dd3bba35
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
@@ -159,11 +157,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-
             this.Margin = new System.Windows.Forms.Padding(2);
-//=======
-//            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-//>>>>>>> 4253c25ccdd1ba808f12de7c7d43b7e1dd3bba35
             this.Name = "Evaluador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluador";
