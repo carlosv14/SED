@@ -39,9 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Fecha = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gradosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indicadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,8 +86,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guardarEvauacionToolStripMenuItem,
-            this.formatoEvaluadorToolStripMenuItem,
-            this.editarToolStripMenuItem});
+            this.formatoEvaluadorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -149,29 +145,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gradosToolStripMenuItem,
-            this.indicadoresToolStripMenuItem});
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.editarToolStripMenuItem.Text = "Editar";
-            // 
-            // gradosToolStripMenuItem
-            // 
-            this.gradosToolStripMenuItem.Name = "gradosToolStripMenuItem";
-            this.gradosToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.gradosToolStripMenuItem.Text = "Grados";
-            this.gradosToolStripMenuItem.Click += new System.EventHandler(this.gradosToolStripMenuItem_Click);
-            // 
-            // indicadoresToolStripMenuItem
-            // 
-            this.indicadoresToolStripMenuItem.Name = "indicadoresToolStripMenuItem";
-            this.indicadoresToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.indicadoresToolStripMenuItem.Text = "Indicadores";
-            this.indicadoresToolStripMenuItem.Click += new System.EventHandler(this.indicadoresToolStripMenuItem_Click);
-            // 
             // Evaluador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -213,8 +186,5 @@
         private System.Windows.Forms.Label Fecha;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem formatoEvaluadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gradosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indicadoresToolStripMenuItem;
     }
 }

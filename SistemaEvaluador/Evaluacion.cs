@@ -217,5 +217,10 @@ for (int i=0;i<dataGridView1.Rows.Count;i++)
             gr.ShowDialog();
         }
 
+        private void cancelarEvaluacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
