@@ -18,8 +18,10 @@ namespace SistemaEvaluador
 {
     public partial class Evaluador : Form
     {
+
         SqlConnection con;
         private string id;
+        public List<CoordenadaTriangular> nbts; 
         int id_eval;
         private DataTable gradosesp;
         List<string> cols = new List<string>();
@@ -194,40 +196,76 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            nbts = new List<CoordenadaTriangular>();
             try
             {
-                List<Indicadores_Calc_arr> indicadoresCalc = new List<Indicadores_Calc_arr>();
-                Indicadores_Arr indicador = null;
-                Indicadores_Arr indicador_esp = null;
-                for (int i = 0; i < indicadores.Count; i++)
+                List<string> GradosNombres = new List<string>();
+                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
                 {
-                    for (int j = 0; j < indicadores.ElementAt(i).IndicadoresEspecificos.Count; j++)
+                    DataGridViewComboBoxCell currentCell = (DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1];
+                    for (int j = 0; j < currentCell.Items.Count; j++)
                     {
-                        indicador = indicadores.ElementAt(i);
-                        indicador_esp = indicadores.ElementAt(i).IndicadoresEspecificos.ElementAt(j);
-                        indicadoresCalc.Add(new Indicadores_Calc_arr(indicador_esp, 1, indicador.id_gen, 0, cols.Count));
+                     GradosNombres.Add(currentCell.Items[j].ToString());  
                     }
+                    CoordenadaTriangular ct =
+                          new CoordenadaTriangular(GradosNombres,
+                              currentCell.Items.Count,dataGridView1.Rows[i].Cells[0].Value.ToString());
+                    if(dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
+                        nbts.Add(ct);
+                   
+                    GradosNombres.Clear();
                 }
 
-                Evaluador_Calculos ec = new Evaluador_Calculos(indicadoresCalc);
-                List<Resultado_Indicadores_Generales> resul = new List<Resultado_Indicadores_Generales>();
-
-
-                ec.Calcular_Indicador();
-                float suma = 0;
-                for (int i = 0; i < indicadores.Count; i++)
+                List<NumeroTriangular> resultado  =new List<NumeroTriangular>();
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    for (int j = 0; j < ec.calculos.Count; j++)
+                    if (!dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
                     {
-                        if (indicadores.ElementAt(i).id_gen == ec.calculos.ElementAt(j).indicador.id_gen)
+                        continue;
+                    }
+                    NumeroTriangular nt = new NumeroTriangular();
+                    for (int j = 0; j < indicadores.Count; j++)
+                      {
+
+                        for (int k = 0; k < indicadores.ElementAt(j).IndicadoresEspecificos.Count; k++)
                         {
-                            suma += ec.calculos.ElementAt(j).respuesta;
+                            if (dataGridView1.Rows[i].Cells[0].Value.ToString() == " ---"+
+                                indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).descp)
+                            {
+                               int pos = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1]).Items.IndexOf(dataGridView1.Rows[i].Cells[1].Value.ToString());
+                                
+                                   
+                                    nt.x = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                           (indicadores.ElementAt(j).peso)/(100)*
+                                           nbts[j+k].NumeroBorrosoTriangular.ElementAt(pos).x;
+                                    nt.y = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                           (indicadores.ElementAt(j).peso)/(100)*
+                                           nbts[j+k].NumeroBorrosoTriangular.ElementAt(pos).y;
+                                    nt.z = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                           (indicadores.ElementAt(j).peso)/(100)*
+                                           nbts[j+k].NumeroBorrosoTriangular.ElementAt(pos).z;
+                                    resultado.Add(nt);
+                                    break;
+                                
+                            }
                         }
-
                     }
-                    resul.Add(new Resultado_Indicadores_Generales(indicadores.ElementAt(i).descp, suma));
-                    suma = 0;
+                  
                 }
+
+                NumeroTriangular resultante = new NumeroTriangular();
+                resultante.x = 0;
+                resultante.y = 0;
+                resultante.z = 0;
+                for (int i = 0; i < resultado.Count; i++)
+                {
+                    resultante.x += resultado.ElementAt(i).x;
+                    resultante.y += resultado.ElementAt(i).y;
+                    resultante.z += resultado.ElementAt(i).z;
+                }
+               Grafica gf = new Grafica(cols.Count,resultante.x,resultante.y,resultante.z,cols);
+                gf.ShowDialog();
             }
             catch (Exception ex)
             {

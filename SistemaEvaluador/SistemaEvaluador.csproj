@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoordenadaTriangular.cs" />
     <Compile Include="Departamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,14 +99,19 @@
     <Compile Include="Evaluador.Designer.cs">
       <DependentUpon>Evaluador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Evaluador_Calculos.cs" />
     <Compile Include="Grados_NoAsumidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Grados_NoAsumidos.Designer.cs">
       <DependentUpon>Grados_NoAsumidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Indicadores_Calc_arr.cs" />
+    <Compile Include="Grafica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grafica.Designer.cs">
+      <DependentUpon>Grafica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumeroTriangular.cs" />
     <Compile Include="Puntaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,7 +158,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resultado_Indicadores_Generales.cs" />
     <Compile Include="Terminos y resultado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Grados_NoAsumidos.resx">
       <DependentUpon>Grados_NoAsumidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grafica.resx">
+      <DependentUpon>Grafica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Indicadores.resx">
       <DependentUpon>Indicadores.cs</DependentUpon>

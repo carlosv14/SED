@@ -47,7 +47,10 @@ namespace SistemaEvaluador
 
         private void agregar_Click(object sender, EventArgs e)
         {
-              DataTable dt = new DataTable();
+
+            if (float.Parse(Peso.Text) > peso)
+                return;
+            DataTable dt = new DataTable();
               DataTable dt2 = new DataTable();
              SqlCommand cmd = null;
            
@@ -144,8 +147,7 @@ namespace SistemaEvaluador
                 {
                     gradosInsert.ElementAt(i).ID_IND = 0;
                 }
-                if (float.Parse(Peso.Text) > peso)
-                return;
+            
             Indicadores_Arr ind = new Indicadores_Arr(Nombre.Text, float.Parse(Peso.Text),id_gen,gradosTable);
                 gradosTable = new List<grados_Arr>();
 
