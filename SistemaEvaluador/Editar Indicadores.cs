@@ -169,7 +169,7 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
-        
+            this.Close();
         }
         }
     }

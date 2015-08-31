@@ -35,8 +35,7 @@ namespace SistemaEvaluador
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           Editar_Indicadores ed = new Editar_Indicadores(con,9);
-           ed.ShowDialog();
+           
         }
 
         private void Evaluacion_Load(object sender, EventArgs e)
@@ -204,6 +203,18 @@ for (int i=0;i<dataGridView1.Rows.Count;i++)
                 //row.Cells.AutoFit();
                 count++;
             }
+        }
+
+        private void indicadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Editar_Indicadores ed = new Editar_Indicadores(con, 9);
+            ed.ShowDialog();
+        }
+
+        private void gradosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditarGrados gr = new EditarGrados(con,2);
+            gr.ShowDialog();
         }
 
     }

@@ -25,7 +25,7 @@ namespace SistemaEvaluador
         private void button1_Click(object sender, EventArgs e)
         {
             id = textBox1.Text;
-            id_eval = comboBox1.SelectedIndex+1;
+            id_eval = int.Parse(comboBox1.SelectedValue.ToString());
             this.Close();
         }
 
@@ -46,6 +46,7 @@ namespace SistemaEvaluador
 
                 comboBox1.DataSource = dt3;
                 comboBox1.DisplayMember = "NOMBRE";
+                comboBox1.ValueMember = "ID";
             }
             catch (Exception ex)
             {

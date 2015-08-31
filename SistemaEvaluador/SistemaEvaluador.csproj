@@ -69,6 +69,12 @@
     <Compile Include="Editar Indicadores.Designer.cs">
       <DependentUpon>Editar Indicadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditarGrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarGrados.Designer.cs">
+      <DependentUpon>EditarGrados.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmpleadoNombre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editar Indicadores.resx">
       <DependentUpon>Editar Indicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarGrados.resx">
+      <DependentUpon>EditarGrados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmpleadoNombre.resx">
       <DependentUpon>EmpleadoNombre.cs</DependentUpon>

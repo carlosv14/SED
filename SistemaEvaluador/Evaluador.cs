@@ -287,5 +287,17 @@ namespace SistemaEvaluador
 
             }
         }
+
+        private void gradosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditarGrados gr = new EditarGrados(con,id_eval);
+            gr.ShowDialog();
+        }
+
+        private void indicadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
+            ei.ShowDialog();
+        }
     }
 }
