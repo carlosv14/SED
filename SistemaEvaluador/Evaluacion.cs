@@ -189,7 +189,7 @@ for (int i=0;i<dataGridView1.Rows.Count;i++)
                 if (count == 0)
                 {
                     row.Interior.Color = System.Drawing.Color.SeaGreen;
-                    row.Cells.AutoFit();
+                    //row.Cells.AutoFit();
                 }
 
                 
@@ -201,7 +201,7 @@ for (int i=0;i<dataGridView1.Rows.Count;i++)
                     Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
                 border[XlBordersIndex.xlEdgeRight].LineStyle =
                     Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                row.Cells.AutoFit();
+                //row.Cells.AutoFit();
                 count++;
             }
         }
