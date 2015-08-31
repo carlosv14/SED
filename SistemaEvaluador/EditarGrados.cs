@@ -15,6 +15,7 @@ namespace SistemaEvaluador
     {
         SqlConnection con;
         int id_eva;
+        private string gradoMod;
         public EditarGrados(SqlConnection con, int id_eva)
         {
             InitializeComponent();
@@ -36,10 +37,6 @@ namespace SistemaEvaluador
                 da.Fill(ds);
                 dt = ds.Tables[0];
                 dataGridView1.DataSource = dt;
-
-                //this.Close();
-
-
             }
             catch (Exception ene)
             {
@@ -49,6 +46,82 @@ namespace SistemaEvaluador
             {
                 if (con.State != ConnectionState.Closed)
                     con.Close();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+               con.Open();
+               for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandText = "UPDATE GRADOS SET ID_GRADO = @ID_GRADO, ID_IND=@ID_IND, ID=@ID, NOMBRE=@NOMBRE, VALOR=@VALOR WHERE ID_GRADO = @ID_GRADO";
+
+                    cmd.Parameters.Add("@ID_GRADO", SqlDbType.Int).Value = int.Parse(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                    cmd.Parameters.Add("@ID_IND", SqlDbType.Int).Value = int.Parse(dataGridView2.Rows[i].Cells[1].Value.ToString());
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString());
+                    cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Grados.Text;
+                    cmd.Parameters.Add("@VALOR", SqlDbType.Int).Value = int.Parse(dataGridView2.Rows[i].Cells[4].Value.ToString());
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Grados.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            gradoMod = Grados.Text;
+
+
+            try
+            {
+                SqlCommand cmd2 = new SqlCommand();
+                cmd2.Connection = con;
+                cmd2.CommandType = System.Data.CommandType.Text;
+                cmd2.CommandText = "select ID_GRADO, ID_IND, ID, NOMBRE, VALOR from GRADOS where ID=" + id_eva + " and NOMBRE='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' group by ID_GRADO, ID_IND, ID, NOMBRE, VALOR ORDER BY ID_GRADO;";
+                SqlDataAdapter da = new SqlDataAdapter(cmd2);
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dt = ds.Tables[0];
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+        }
+
+        private void Grados_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(Grados.Text))
+            {
+                button1.Enabled = true;
+            }
+            else
+            {
+                button1.Enabled = false;
             }
         }
     }
