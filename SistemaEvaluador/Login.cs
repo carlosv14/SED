@@ -33,17 +33,18 @@ namespace SistemaEvaluador
 
         private void setKey(string user, string pass)
         {
-            con.ConnectionString = "Data Source=192.168.43.95;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
+            con.ConnectionString = "Data Source=localhost;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
 
         }
 
         private void Entrar_Click(object sender, EventArgs e)
         {
-            setKey(usuario.Text, contrasena.Text);
+            //setKey(usuario.Text, contrasena.Text);
+            setKey("sa", "12345");
             try
             {
                 con.Open();
-                con.Close();
+               con.Close();
                 Menu menu = new Menu(con, this);
                 this.Hide();
                 menu.ShowDialog();

@@ -20,11 +20,13 @@ namespace SistemaEvaluador
         }
         SqlConnection con;
         Login login;
+     
         public Menu(SqlConnection con, Login login)
         {
             InitializeComponent();
             this.Enabled = true;
             this.con = con;
+         
             this.login = login;
         }
 
@@ -44,7 +46,7 @@ namespace SistemaEvaluador
 
         private void Departamentos_Click_1(object sender, EventArgs e)
         {
-            Departamentos deptos = new Departamentos(con);
+            Departamentos deptos = new Departamentos(con,false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -68,7 +70,7 @@ namespace SistemaEvaluador
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            Departamentos deptos = new Departamentos(con);
+            Departamentos deptos = new Departamentos(con,false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -76,7 +78,7 @@ namespace SistemaEvaluador
 
         private void Modificar_Click(object sender, EventArgs e)
         {
-            Departamentos deptos = new Departamentos(con);
+            Departamentos deptos = new Departamentos(con,true);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -84,7 +86,7 @@ namespace SistemaEvaluador
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            Departamentos deptos = new Departamentos(con);
+            Departamentos deptos = new Departamentos(con,false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -92,7 +94,7 @@ namespace SistemaEvaluador
 
         private void Agregargestion_Click(object sender, EventArgs e)
         {
-            GestiondePersonal gp = new GestiondePersonal(con);
+            GestiondePersonal gp = new GestiondePersonal(con,false);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
@@ -100,15 +102,13 @@ namespace SistemaEvaluador
 
         private void indiadores_Click(object sender, EventArgs e)
         {
-            Indicadores i = new Indicadores();
-            tabStrip1.MdiForm = this;
-            i.MdiParent = this;
-            i.Show();
+
+            
         }
 
         private void Modificargestion_Click(object sender, EventArgs e)
         {
-            GestiondePersonal gp = new GestiondePersonal(con);
+            GestiondePersonal gp = new GestiondePersonal(con,true);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
@@ -116,7 +116,7 @@ namespace SistemaEvaluador
 
         private void Eliminargestion_Click(object sender, EventArgs e)
         {
-            GestiondePersonal gp = new GestiondePersonal(con);
+            GestiondePersonal gp = new GestiondePersonal(con,true);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
@@ -138,6 +138,22 @@ namespace SistemaEvaluador
             gi.Show();
 
 
+        }
+
+        private void evaluacion_Click(object sender, EventArgs e)
+        {
+            Evaluacion eva = new Evaluacion(con);
+            tabStrip1.MdiForm = this;
+            eva.MdiParent = this;
+            eva.Show();
+        }
+
+        private void evaluador_Click(object sender, EventArgs e)
+        {
+            Evaluador i = new Evaluador(con);
+            tabStrip1.MdiForm = this;
+            i.MdiParent = this;
+            i.Show();
         }
     }
 }
