@@ -74,9 +74,9 @@
             this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView2.FormattingEnabled = true;
             this.listView2.ItemHeight = 16;
-            this.listView2.Location = new System.Drawing.Point(128, 116);
+            this.listView2.Location = new System.Drawing.Point(105, 116);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(197, 404);
+            this.listView2.Size = new System.Drawing.Size(220, 404);
             this.listView2.TabIndex = 52;
             // 
             // listView3
@@ -86,7 +86,7 @@
             this.listView3.ItemHeight = 16;
             this.listView3.Location = new System.Drawing.Point(403, 116);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(197, 404);
+            this.listView3.Size = new System.Drawing.Size(209, 404);
             this.listView3.TabIndex = 53;
             // 
             // label9
@@ -113,6 +113,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Grados_NoAsumidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grados_NoAsumidos";

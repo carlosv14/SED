@@ -41,9 +41,9 @@
             this.label1.Location = new System.Drawing.Point(90, 151);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 16);
+            this.label1.Size = new System.Drawing.Size(185, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de la Evaluacion: ";
+            this.label1.Text = "Nombre de la evaluación:";
             // 
             // textBox1
             // 
@@ -78,7 +78,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(239, 39);
             this.label9.TabIndex = 41;
-            this.label9.Text = "EVALUACION";
+            this.label9.Text = "EVALUACIÓN";
             // 
             // EvaluacionNombre
             // 

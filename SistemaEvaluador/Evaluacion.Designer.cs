@@ -50,7 +50,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de la evaluacion";
+            this.label1.Text = "Nombre de la evaluación";
             // 
             // Nombre
             // 
@@ -58,7 +58,7 @@
             this.Nombre.Location = new System.Drawing.Point(227, 42);
             this.Nombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(92, 16);
+            this.Nombre.Size = new System.Drawing.Size(91, 16);
             this.Nombre.TabIndex = 1;
             this.Nombre.Text = "---------------------";
             // 
@@ -68,7 +68,7 @@
             this.Fecha.Location = new System.Drawing.Point(227, 71);
             this.Fecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Fecha.Name = "Fecha";
-            this.Fecha.Size = new System.Drawing.Size(92, 16);
+            this.Fecha.Size = new System.Drawing.Size(91, 16);
             this.Fecha.TabIndex = 3;
             this.Fecha.Text = "---------------------";
             // 
@@ -113,14 +113,14 @@
             // 
             this.guardarEvaluacionToolStripMenuItem.Name = "guardarEvaluacionToolStripMenuItem";
             this.guardarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.guardarEvaluacionToolStripMenuItem.Text = "Guardar Evaluacion";
+            this.guardarEvaluacionToolStripMenuItem.Text = "Guardar Evaluación";
             this.guardarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.guardarEvaluacionToolStripMenuItem_Click);
             // 
             // cancelarEvaluacionToolStripMenuItem
             // 
             this.cancelarEvaluacionToolStripMenuItem.Name = "cancelarEvaluacionToolStripMenuItem";
             this.cancelarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.cancelarEvaluacionToolStripMenuItem.Text = "Cancelar Evaluacion";
+            this.cancelarEvaluacionToolStripMenuItem.Text = "Cancelar Evaluación";
             this.cancelarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.cancelarEvaluacionToolStripMenuItem_Click);
             // 
             // button1
@@ -136,7 +136,7 @@
             // 
             // Evaluacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(758, 547);

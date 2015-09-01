@@ -104,7 +104,7 @@
             // 
             this.guardarEvauacionToolStripMenuItem.Name = "guardarEvauacionToolStripMenuItem";
             this.guardarEvauacionToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.guardarEvauacionToolStripMenuItem.Text = "Guardar Evaluacion";
+            this.guardarEvauacionToolStripMenuItem.Text = "Guardar Evaluación";
             // 
             // formatoEvaluadorToolStripMenuItem
             // 
@@ -147,12 +147,12 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(567, 71);
+            this.button1.Location = new System.Drawing.Point(558, 61);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 37);
+            this.button1.Size = new System.Drawing.Size(144, 37);
             this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
+            this.button1.Text = "Generar grafica";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -172,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Evaluador";

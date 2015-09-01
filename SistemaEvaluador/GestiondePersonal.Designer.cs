@@ -406,7 +406,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 16);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Nivel de Educacion";
+            this.label8.Text = "Nivel de Educación";
             // 
             // label10
             // 
