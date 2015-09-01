@@ -203,6 +203,8 @@ namespace SistemaEvaluador
                 List<string> GradosNombres = new List<string>();
                 for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
                 {
+                    DataGridViewComboBoxCell firstCell = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[1];
+
                     DataGridViewComboBoxCell currentCell = (DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1];
                     for (int j = 0; j < currentCell.Items.Count; j++)
                     {
@@ -210,7 +212,7 @@ namespace SistemaEvaluador
                     }
                     CoordenadaTriangular ct =
                           new CoordenadaTriangular(GradosNombres,
-                              currentCell.Items.Count,dataGridView1.Rows[i].Cells[0].Value.ToString());
+                              firstCell.Items.Count,dataGridView1.Rows[i].Cells[0].Value.ToString(),cols);
                     if(dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
                         nbts.Add(ct);
                    
@@ -234,20 +236,25 @@ namespace SistemaEvaluador
                                 indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).descp)
                             {
                                int pos = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1]).Items.IndexOf(dataGridView1.Rows[i].Cells[1].Value.ToString());
-                                
-                                   
-                                    nt.x = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
-                                           (indicadores.ElementAt(j).peso)/(100)*
-                                           nbts[j+k].NumeroBorrosoTriangular.ElementAt(pos).x;
-                                    nt.y = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
-                                           (indicadores.ElementAt(j).peso)/(100)*
-                                           nbts[j+k].NumeroBorrosoTriangular.ElementAt(pos).y;
-                                    nt.z = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
-                                           (indicadores.ElementAt(j).peso)/(100)*
-                                           nbts[j+k].NumeroBorrosoTriangular.ElementAt(pos).z;
-                                    resultado.Add(nt);
-                                    break;
-                                
+
+                                for (int w = 0; w < nbts.Count; w++)
+                                {
+                                    if (nbts[w].Indicador ==
+                                        " ---" + indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).descp)
+                                    {
+                                        nt.x = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                               (indicadores.ElementAt(j).peso)/(100)*
+                                               nbts[w].NumeroBorrosoTriangular.ElementAt(pos).x;
+                                        nt.y = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                               (indicadores.ElementAt(j).peso)/(100)*
+                                               nbts[w].NumeroBorrosoTriangular.ElementAt(pos).y;
+                                        nt.z = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                               (indicadores.ElementAt(j).peso)/(100)*
+                                               nbts[w].NumeroBorrosoTriangular.ElementAt(pos).z;
+                                        resultado.Add(nt);
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }

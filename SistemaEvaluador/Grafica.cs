@@ -164,15 +164,15 @@ namespace SistemaEvaluador
                 List<float>distancias = new List<float>();
                 for (int j = 0; j < puntas.Count; j++)
                 {
-                    distancias.Add(Math.Abs(resx2-puntas.ElementAt(j)));
+                    distancias.Add(Math.Abs(resx2 - puntas.ElementAt(j)));
                 }
                 string nearest = "";
                 distancias.Sort();
                 for (int w = 0; w < grados.Count; w++)
                 {
-                    float valor = (float)w/2;
-                    if ( valor- distancias.ElementAt(0) == resx2 ||
-                        valor+ distancias.ElementAt(0) == resx2)
+                    float valor = (float)w / (grados.Count-1);
+                    if (valor - distancias.ElementAt(0) == resx2 ||
+                        valor + distancias.ElementAt(0) == resx2)
                     {
                         nearest = grados[w];
                         break;
@@ -273,11 +273,10 @@ namespace SistemaEvaluador
             {
 
                 puntos.Add(new PointF((float)i / (n_indicadores-1), 0));
-                for (int j = 0; j < puntas.Count; j++)
-                {
-                    if(puntas.ElementAt(j)!= (float)i / (n_indicadores - 1))
-                    puntas.Add((float) i/(n_indicadores - 1));
-                }
+               
+                    if (puntas.ElementAt(puntas.Count-1) != (float)i / (n_indicadores - 1)) 
+                      puntas.Add((float) i/(n_indicadores - 1));
+                
                 puntos.Add(new PointF((float)(i - 1) / (n_indicadores-1), 1));
 
             }

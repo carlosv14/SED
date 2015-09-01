@@ -12,13 +12,15 @@ namespace SistemaEvaluador
         public List<string> NombreCoordenada ;
         public float cantidadGrados;
         public string Indicador;
+        private List<string> cols;
 
-        public CoordenadaTriangular(List<string> NombreCoordenada, float cg,string Indicador)
+        public CoordenadaTriangular(List<string> NombreCoordenada, float cg,string Indicador, List<string> cols)
         {
         
             this.NombreCoordenada = NombreCoordenada;
             this.cantidadGrados = cg;
             this.Indicador = Indicador;
+            this.cols = cols;
             this.NumeroBorrosoTriangular = new List<NumeroTriangular>();
             GenerarBorroso();
         }
@@ -28,26 +30,41 @@ namespace SistemaEvaluador
             
             for (int i = 0; i < cantidadGrados ; i++)
             {
-                NumeroTriangular nt = new NumeroTriangular();
-                if (i == 0)
+                
+                for (int j = 0; j < NombreCoordenada.Count; j++)
                 {
-                    nt.x = 0;
-                    nt.y = 0;
-                    nt.z = (i + 1)/(cantidadGrados - 1);
+                    
+                    
+                    if (i == 0 && NombreCoordenada[j] == cols[i] )
+                    {
+                        NumeroTriangular nt = new NumeroTriangular();
+                        nt.x = 0;
+                        nt.y = 0;
+                        nt.z = (i + 1)/(cantidadGrados - 1);
+                        NumeroBorrosoTriangular.Add(nt);
+                       
+                    }
+                    else if (i != cantidadGrados - 1 && NombreCoordenada[j] == cols[i])
+                    {
+                        NumeroTriangular nt = new NumeroTriangular();
+                        nt.x = (i - 1)/(cantidadGrados - 1);
+                        nt.y = i/(cantidadGrados - 1);
+                        nt.z = (i + 1)/(cantidadGrados - 1);
+                        NumeroBorrosoTriangular.Add(nt);
+                        
+                    }
+                    else if(i == cantidadGrados- 1 && NombreCoordenada[j] == cols[i])
+                    {
+                        NumeroTriangular nt = new NumeroTriangular();
+                        nt.x = (i - 1)/(cantidadGrados - 1);
+                        nt.y = 1;
+                        nt.z = 1;
+                        NumeroBorrosoTriangular.Add(nt);
+                        
+                    }
+                   
+                   
                 }
-                else if (i != cantidadGrados - 1)
-                {
-                    nt.x = (i - 1)/(cantidadGrados - 1);
-                    nt.y = i/(cantidadGrados - 1);
-                    nt.z = (i + 1)/(cantidadGrados - 1);
-                }
-                else
-                {
-                    nt.x = (i - 1) / (cantidadGrados - 1);
-                    nt.y = 1;
-                    nt.z = 1;
-                }
-                NumeroBorrosoTriangular.Add(nt);
             }
         }
 
