@@ -19,6 +19,8 @@ namespace SistemaEvaluador
         private float inx;
         private bool solucion;
         private Boolean reverse;
+
+        private List<float> puntas;
         Timer timer = new Timer();
         private List<string> grados; 
         private int i = 0;
@@ -43,6 +45,7 @@ namespace SistemaEvaluador
             //    l.Size = new Size(55,50);
             //    this.Controls.Add(l);
             //}
+            puntas = new List<float>();
             label1.BackColor = Color.Red;
             label2.BackColor = Color.Blue;
             label3.BackColor = Color.Green;
@@ -158,9 +161,26 @@ namespace SistemaEvaluador
             }
             if (solucion)
             {
+                List<float>distancias = new List<float>();
+                for (int j = 0; j < puntas.Count; j++)
+                {
+                    distancias.Add(Math.Abs(resx2 - puntas.ElementAt(j)));
+                }
+                string nearest = "";
+                distancias.Sort();
+                for (int w = 0; w < grados.Count; w++)
+                {
+                    float valor = (float)w / (grados.Count-1);
+                    if (valor - distancias.ElementAt(0) == resx2 ||
+                        valor + distancias.ElementAt(0) == resx2)
+                    {
+                        nearest = grados[w];
+                        break;
+                    }
+                }
                Label l = new Label();
-                l.Text = resx2.ToString();
-                l.Left =(int)(resx2*pictureBox1.Size.Width);
+                l.Text =  nearest+ " "+resx2.ToString();
+                l.Left =(int)(resx2*pictureBox1.Size.Width-45);
                this.Controls.Add(l);
                 e.DrawLine(
                     new Pen(Color.Black, 3f),
@@ -248,12 +268,15 @@ namespace SistemaEvaluador
         private IList<PointF> calcular_puntos_reverse(int n_indicadores)
         {
             IList<PointF> puntos = new List<PointF>();
+            puntas.Add(0);
             for (int i = 1; i < n_indicadores; i++)
             {
 
                 puntos.Add(new PointF((float)i / (n_indicadores-1), 0));
-
-
+               
+                    if (puntas.ElementAt(puntas.Count-1) != (float)i / (n_indicadores - 1)) 
+                      puntas.Add((float) i/(n_indicadores - 1));
+                
                 puntos.Add(new PointF((float)(i - 1) / (n_indicadores-1), 1));
 
             }
