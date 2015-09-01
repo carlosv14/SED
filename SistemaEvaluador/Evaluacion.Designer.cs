@@ -36,6 +36,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.guardarEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,11 +114,22 @@
             this.cancelarEvaluacionToolStripMenuItem.Text = "Cancelar Evaluacion";
             this.cancelarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.cancelarEvaluacionToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(867, 70);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Evaluacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 695);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Fecha);
             this.Controls.Add(this.label4);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem guardarEvaluacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarEvaluacionToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
