@@ -209,6 +209,7 @@ namespace SistemaEvaluador
                     for (int j = 0; j < currentCell.Items.Count; j++)
                     {
                      GradosNombres.Add(currentCell.Items[j].ToString());  
+                        
                     }
                     CoordenadaTriangular ct =
                           new CoordenadaTriangular(GradosNombres,
