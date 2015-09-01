@@ -102,7 +102,13 @@ namespace SistemaEvaluador
 
         private void indiadores_Click(object sender, EventArgs e)
         {
-
+            EmpleadoNombre emp = new EmpleadoNombre(con);
+            emp.label1.Visible = false;
+            emp.textBox1.Visible = false;
+            emp.ShowDialog();
+            int id_eval = emp.id_eval;
+            Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
+            ei.ShowDialog();
             
         }
 
@@ -132,10 +138,13 @@ namespace SistemaEvaluador
 
         private void grados_Click(object sender, EventArgs e)
         {
-            Gradosindicadores gi = new Gradosindicadores(con);
-            tabStrip1.MdiForm = this;
-            gi.MdiParent = this;
-            gi.Show();
+            EmpleadoNombre emp = new EmpleadoNombre(con);
+            emp.label1.Visible = false;
+            emp.textBox1.Visible = false;
+            emp.ShowDialog();
+            int id_eval = emp.id_eval;
+            EditarGrados gr = new EditarGrados(con, id_eval);
+            gr.ShowDialog();
 
 
         }

@@ -47,7 +47,8 @@ namespace SistemaEvaluador
 
         private void agregar_Click(object sender, EventArgs e)
         {
-
+            if (peso.Equals(""))
+                return;
             if (float.Parse(Peso.Text) > peso)
                 return;
             DataTable dt = new DataTable();
