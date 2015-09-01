@@ -49,7 +49,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(3, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(308, 306);
+            this.pictureBox1.Size = new System.Drawing.Size(604, 511);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -157,9 +157,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(317, 24);
+            this.groupBox1.Location = new System.Drawing.Point(613, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(97, 306);
+            this.groupBox1.Size = new System.Drawing.Size(133, 511);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grados";
@@ -178,10 +178,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(438, 332);
+            this.ClientSize = new System.Drawing.Size(758, 547);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Grafica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grafica";
             this.Load += new System.EventHandler(this.Grafica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
