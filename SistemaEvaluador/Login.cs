@@ -48,7 +48,7 @@ namespace SistemaEvaluador
                 Menu menu = new Menu(con, this);
                 this.Hide();
                 menu.ShowDialog();
-
+            
 
             }
             catch (Exception ex)

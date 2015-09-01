@@ -103,8 +103,8 @@
             // guardarEvauacionToolStripMenuItem
             // 
             this.guardarEvauacionToolStripMenuItem.Name = "guardarEvauacionToolStripMenuItem";
-            this.guardarEvauacionToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.guardarEvauacionToolStripMenuItem.Text = "Guardar Evauacion";
+            this.guardarEvauacionToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.guardarEvauacionToolStripMenuItem.Text = "Guardar Evaluacion";
             // 
             // formatoEvaluadorToolStripMenuItem
             // 
