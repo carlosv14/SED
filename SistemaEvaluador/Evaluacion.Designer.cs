@@ -44,36 +44,42 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 40);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 17);
+            this.label1.Size = new System.Drawing.Size(181, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de la evaluacion";
             // 
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(254, 40);
+            this.Nombre.Location = new System.Drawing.Point(227, 42);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(113, 17);
+            this.Nombre.Size = new System.Drawing.Size(92, 16);
             this.Nombre.TabIndex = 1;
             this.Nombre.Text = "---------------------";
             // 
             // Fecha
             // 
             this.Fecha.AutoSize = true;
-            this.Fecha.Location = new System.Drawing.Point(254, 70);
+            this.Fecha.Location = new System.Drawing.Point(227, 71);
+            this.Fecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Fecha.Name = "Fecha";
-            this.Fecha.Size = new System.Drawing.Size(113, 17);
+            this.Fecha.Size = new System.Drawing.Size(92, 16);
             this.Fecha.TabIndex = 3;
             this.Fecha.Text = "---------------------";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 70);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 71);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(50, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Fecha";
             // 
@@ -82,43 +88,47 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 126);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 110);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1045, 520);
+            this.dataGridView1.Size = new System.Drawing.Size(736, 426);
             this.dataGridView1.TabIndex = 4;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guardarEvaluacionToolStripMenuItem,
             this.cancelarEvaluacionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1177, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(758, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // guardarEvaluacionToolStripMenuItem
             // 
             this.guardarEvaluacionToolStripMenuItem.Name = "guardarEvaluacionToolStripMenuItem";
-            this.guardarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.guardarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.guardarEvaluacionToolStripMenuItem.Text = "Guardar Evaluacion";
             this.guardarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.guardarEvaluacionToolStripMenuItem_Click);
             // 
             // cancelarEvaluacionToolStripMenuItem
             // 
             this.cancelarEvaluacionToolStripMenuItem.Name = "cancelarEvaluacionToolStripMenuItem";
-            this.cancelarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.cancelarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cancelarEvaluacionToolStripMenuItem.Text = "Cancelar Evaluacion";
             this.cancelarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.cancelarEvaluacionToolStripMenuItem_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(867, 70);
+            this.button1.Location = new System.Drawing.Point(758, 68);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(65, 22);
             this.button1.TabIndex = 6;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -128,7 +138,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 695);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
+            this.ClientSize = new System.Drawing.Size(758, 547);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Fecha);
@@ -136,7 +147,10 @@
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Evaluacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Criterios de Evaluacion";
