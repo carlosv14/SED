@@ -108,9 +108,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(12, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(280, 39);
+            this.label9.Size = new System.Drawing.Size(455, 39);
             this.label9.TabIndex = 55;
-            this.label9.Text = "GRADOS INICIO";
+            this.label9.Text = "GRADOS DE EVALUACIÓN";
             // 
             // GradosInicio
             // 
