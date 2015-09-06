@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace SistemaEvaluador
     {
         private float resx1;
         private float resx2;
+        private int gradosig;
         private float resx3;
         private float inx;
         private bool solucion;
@@ -45,6 +47,7 @@ namespace SistemaEvaluador
             //    l.Size = new Size(55,50);
             //    this.Controls.Add(l);
             //}
+            gradosig = 0;
             puntas = new List<float>();
             label1.BackColor = Color.Red;
             label2.BackColor = Color.Blue;
@@ -102,10 +105,12 @@ namespace SistemaEvaluador
 
         private void Timer_Tick(object sender, EventArgs p)
         {
+            List<float> posiciongrados = new List<float>();
             int inz = i;
             if (reverse)
                 inz += 2;
 
+            string text;
             Pen cPen = null;
             switch (inz)
             {
@@ -157,6 +162,13 @@ namespace SistemaEvaluador
                      new PointF(inx * pictureBox1.Size.Width, pictureBox1.Size.Height ));
                 lastLine = false;
                 solucion = true;
+                Label lf= new Label();
+                lf.Size = new System.Drawing.Size(2, 2);
+                lf.AutoSize = true;
+                lf.Text = grados.ElementAt(grados.Count - 1);
+                lf.Left = (int)(inx * pictureBox1.Size.Width-30);
+                posiciongrados.Add((int)inx * pictureBox1.Size.Width );
+                this.Controls.Add(lf);
                 return;
             }
             if (solucion)
@@ -180,7 +192,18 @@ namespace SistemaEvaluador
                 }
                Label l = new Label();
                 l.Text =  nearest+ " "+resx2.ToString();
-                l.Left =(int)(resx2*pictureBox1.Size.Width-45);
+                l.Left =(int)(resx2*pictureBox1.Size.Width-20);
+                text = nearest;
+                for (int o = 0; o < posiciongrados.Count; o++)
+                {
+                    //if (posiciongrados.ElementAt(o) + 20 == l.Size.Width ||
+                    //    posiciongrados.ElementAt(o) + 20 == l.Size.Width)
+                    //{
+                    //    Label lo = new Label();
+                    //    lo.Text = "fuck";
+                    //}
+                }
+                label13.Text = resx2.ToString();
                this.Controls.Add(l);
                 e.DrawLine(
                     new Pen(Color.Black, 3f),
@@ -189,7 +212,10 @@ namespace SistemaEvaluador
                         new Pen(Color.Black, 3f),
                         new PointF(resx2 * pictureBox1.Size.Width, 0), new PointF(resx3 * pictureBox1.Size.Width, pictureBox1.Size.Height));
                 timer.Enabled = false;
-                return;
+
+                Rangos r = new Rangos(grados,resx2, l, text,label15);
+                r.ShowDialog();
+               return;
             }
             if (!reverse)
             {
@@ -204,8 +230,19 @@ namespace SistemaEvaluador
             e.DrawLine(
                     cPen,
                     new PointF(P.ElementAt(i).X * pictureBox1.Size.Width, P.ElementAt(i).Y * pictureBox1.Size.Height ), new PointF((float)P.ElementAt(i + 1).X * pictureBox1.Size.Width, P.ElementAt(i + 1).Y * pictureBox1.Size.Height ));
+            Label la = new Label();
+            la.Size = new System.Drawing.Size(2, 2);
+            la.AutoSize = true;
+            if (gradosig < cantidadGrados-1)
+            {
+                la.Text = grados.ElementAt(gradosig);
+              
 
-
+            }
+            la.Left = (int)(P.ElementAt(i).X * pictureBox1.Size.Width);
+            posiciongrados.Add((int)P.ElementAt(i).X * pictureBox1.Size.Width);
+            this.Controls.Add(la);
+            gradosig++;
             i += 2;
             if (i >= P.Count)
             {

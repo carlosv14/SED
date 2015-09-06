@@ -40,7 +40,7 @@ namespace SistemaEvaluador
             en.ShowDialog();
             id = en.id;
             id_eval = en.id_eval;
-           
+            Fecha.Text = DateTime.Now.ToString();
             try
             {
                 con.Open();
@@ -272,12 +272,30 @@ namespace SistemaEvaluador
                     resultante.y += resultado.ElementAt(i).y;
                     resultante.z += resultado.ElementAt(i).z;
                 }
+                con.Open();
+                SqlCommand cmd4 = new SqlCommand();
+                cmd4.Connection = con;
+                cmd4.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd4.CommandText = "SP_INSERT_EVALUACION";
+                cmd4.Parameters.Add("@ID_EMPLEADO", SqlDbType.Int).Value = int.Parse(label2.Text);
+                cmd4.Parameters.Add("@ID", SqlDbType.Int).Value =int.Parse(id_eval.ToString());
+                cmd4.Parameters.Add("@FECHA_EVAL", SqlDbType.Date).Value = DateTime.Now ;
+                cmd4.Parameters.Add("@RESUL", SqlDbType.Float).Value = resultante.y;
+                cmd4.ExecuteNonQuery();
+                cmd4.Dispose();
+
+               
                Grafica gf = new Grafica(cols.Count,resultante.x,resultante.y,resultante.z,cols);
                 gf.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
             }
         }
 

@@ -164,5 +164,12 @@ namespace SistemaEvaluador
             i.MdiParent = this;
             i.Show();
         }
+
+        private void ribbonPanel4_Click(object sender, EventArgs e)
+        {
+            Reportes r = new Reportes(con);
+            r.ShowDialog();
+            
+        }
     }
 }
