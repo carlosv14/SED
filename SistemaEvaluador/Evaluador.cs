@@ -335,7 +335,7 @@ namespace SistemaEvaluador
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ((DataGridViewComboBoxCell)dataGridView1.Rows[e.RowIndex].Cells[1]).DisplayMember = dataGridView1.Columns[e.ColumnIndex].Name;
+            ((DataGridViewComboBoxCell)dataGridView1.Rows[e.RowIndex].Cells[1]).Value = dataGridView1.Columns[e.ColumnIndex].Name;
         }
     }
 }
