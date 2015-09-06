@@ -167,6 +167,14 @@ namespace SistemaEvaluador
 
         private void ribbonPanel4_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show(c.Message);
+            }
             Reportes r = new Reportes(con);
             r.ShowDialog();
             
