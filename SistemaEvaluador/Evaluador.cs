@@ -168,6 +168,27 @@ namespace SistemaEvaluador
                     }
 
                 }
+
+                //========= CHECKBOX
+
+                DataTable dt4 = new DataTable();
+                SqlCommand cmd4 = new SqlCommand();
+                cmd4.Connection = con;
+                cmd4.CommandType = System.Data.CommandType.Text;
+                cmd4.CommandText = "SELECT NOMBRE FROM GRADOS WHERE ID_IND= (SELECT TOP 1 ID_IND FROM INDICADORES WHERE ID='"+id_eval+"' AND ID_GEN IS NULL)";
+                SqlDataAdapter da4 = new SqlDataAdapter(cmd4);
+
+                DataSet ds4 = new DataSet();
+                da4.Fill(ds4);
+                dt4 = ds4.Tables[0];
+               for(int i=0;i<dt4.Rows.Count;i++)
+               {
+                   DataGridViewCheckBoxColumn col = new DataGridViewCheckBoxColumn();
+                   col.Name = dt4.Rows[i][0].ToString();
+                   col.DataPropertyName = dt4.Rows[i][0].ToString();
+                   col.HeaderText = dt4.Rows[i][0].ToString();
+                   dataGridView1.Columns.Add(col);
+               }
                
 
             }
@@ -204,10 +225,11 @@ namespace SistemaEvaluador
                 for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
                 {
                     DataGridViewComboBoxCell firstCell = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[1];
-
+                    string valor;
                     DataGridViewComboBoxCell currentCell = (DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1];
                     for (int j = 0; j < currentCell.Items.Count; j++)
                     {
+                        valor=currentCell.Items[j].ToString();
                      GradosNombres.Add(currentCell.Items[j].ToString());  
                         
                     }
@@ -304,6 +326,16 @@ namespace SistemaEvaluador
         private void indicadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ((DataGridViewComboBoxCell)dataGridView1.Rows[e.RowIndex].Cells[1]).DisplayMember = dataGridView1.Columns[e.ColumnIndex].Name;
         }
     }
 }
