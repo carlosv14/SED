@@ -53,18 +53,18 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(102, 180);
+            this.label4.Location = new System.Drawing.Point(162, 259);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(43, 16);
             this.label4.TabIndex = 37;
             this.label4.Text = "Peso";
             // 
             // agregar
             // 
             this.agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar.Location = new System.Drawing.Point(429, 224);
-            this.agregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.agregar.Location = new System.Drawing.Point(539, 347);
+            this.agregar.Margin = new System.Windows.Forms.Padding(2);
             this.agregar.Name = "agregar";
             this.agregar.Size = new System.Drawing.Size(106, 36);
             this.agregar.TabIndex = 34;
@@ -75,8 +75,8 @@
             // Nombre
             // 
             this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.Location = new System.Drawing.Point(196, 128);
-            this.Nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Nombre.Location = new System.Drawing.Point(256, 207);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(2);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(340, 22);
             this.Nombre.TabIndex = 28;
@@ -87,10 +87,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(102, 132);
+            this.label1.Location = new System.Drawing.Point(162, 211);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
+            this.label1.Size = new System.Drawing.Size(62, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nombre";
             // 
@@ -109,7 +109,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(429, 178);
+            this.checkBox1.Location = new System.Drawing.Point(489, 245);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(108, 17);
             this.checkBox1.TabIndex = 39;
@@ -119,10 +119,11 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(479, 414);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(539, 429);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 58);
+            this.button1.Size = new System.Drawing.Size(106, 36);
             this.button1.TabIndex = 41;
             this.button1.Text = "Continuar";
             this.button1.UseVisualStyleBackColor = true;
@@ -130,8 +131,8 @@
             // 
             // Peso
             // 
-            this.Peso.Location = new System.Drawing.Point(196, 177);
-            this.Peso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Peso.Location = new System.Drawing.Point(256, 256);
+            this.Peso.Margin = new System.Windows.Forms.Padding(2);
             this.Peso.Name = "Peso";
             this.Peso.Size = new System.Drawing.Size(76, 20);
             this.Peso.TabIndex = 42;
@@ -139,7 +140,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(282, 183);
+            this.label2.Location = new System.Drawing.Point(342, 262);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
@@ -152,19 +153,19 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(189, 67);
+            this.label3.Location = new System.Drawing.Point(210, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 39);
+            this.label3.Size = new System.Drawing.Size(228, 39);
             this.label3.TabIndex = 44;
-            this.label3.Text = "Generales";
+            this.label3.Text = "GENERALES";
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.Location = new System.Drawing.Point(105, 247);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Location = new System.Drawing.Point(205, 325);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(304, 210);
             this.listView1.TabIndex = 45;
@@ -181,7 +182,7 @@
             // 
             // listView2
             // 
-            this.listView2.Location = new System.Drawing.Point(65, 247);
+            this.listView2.Location = new System.Drawing.Point(165, 325);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(165, 210);
             this.listView2.TabIndex = 46;
@@ -189,7 +190,7 @@
             // 
             // listView3
             // 
-            this.listView3.Location = new System.Drawing.Point(259, 247);
+            this.listView3.Location = new System.Drawing.Point(359, 325);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(165, 210);
             this.listView3.TabIndex = 47;
@@ -197,7 +198,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(236, 313);
+            this.button2.Location = new System.Drawing.Point(336, 391);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(21, 23);
             this.button2.TabIndex = 48;
@@ -206,7 +207,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(232, 351);
+            this.button3.Location = new System.Drawing.Point(332, 429);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(21, 23);
             this.button3.TabIndex = 49;
@@ -218,7 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(693, 526);
+            this.ClientSize = new System.Drawing.Size(774, 585);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView3);
