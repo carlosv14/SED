@@ -40,7 +40,7 @@ namespace SistemaEvaluador
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
                 cmd3.CommandType = System.Data.CommandType.Text;
-                cmd3.CommandText = "SELECT * from EVALUACION";
+                cmd3.CommandText = "SELECT * from EVALUACION where ID_EMPLEADO= "+id_empleado;
                 SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
 
                 DataSet ds3 = new DataSet();
@@ -50,11 +50,13 @@ namespace SistemaEvaluador
                 {
                     idevals.Add(int.Parse( dt3.Rows[i]["ID"].ToString()));
                 }
-                comboBox1.DataSource = dt3;
-                comboBox1.DisplayMember = "fecha_evaluacion";
-              
+                for (int j = 0; j < dt3.Rows.Count; j++)
+                {
+                    comboBox1.Items.Add(dt3.Rows[j]["fecha_evaluacion"].ToString());
+                }
+                          
                 //comboBox1.ValueMember = "ID";
-                datosGrafico();
+               
             }
             catch (Exception ex)
             {
@@ -72,11 +74,11 @@ namespace SistemaEvaluador
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
                 cmd3.CommandType = System.Data.CommandType.StoredProcedure;
-                
+
                 cmd3.CommandText = "sp_employee_results";
                 cmd3.Parameters.Add("@eval_date", SqlDbType.Date).Value =
                     DateTime.Parse(comboBox1.GetItemText(comboBox1.SelectedItem));
-                
+
                 cmd3.Parameters.Add("@id_empleado", SqlDbType.Int).Value = id_empleado;
                 cmd3.ExecuteNonQuery();
                 SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
@@ -88,11 +90,14 @@ namespace SistemaEvaluador
                 valor = (double) (float.Parse(dt3.Rows[0][0].ToString()));
                 cmd3.Dispose();
 
+                grados.Clear();
                 SqlCommand cmd = null;
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "SELECT g.NOMBRE, g.ID_IND FROM GRADOS g INNER JOIN EVALUACION e on g.ID = e.ID WHERE e.ID = " + idevals.ElementAt(comboBox1.SelectedIndex);
+                cmd.CommandText =
+                    "SELECT DISTINCT g.NOMBRE, g.ID_IND FROM GRADOS g INNER JOIN EVALUACION e on g.ID = e.ID WHERE e.ID = " +
+                    idevals.ElementAt(comboBox1.SelectedIndex);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 DataSet ds = new DataSet();
@@ -102,17 +107,21 @@ namespace SistemaEvaluador
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     id_ind = int.Parse(dt.Rows[0][1].ToString());
-                    if(id_ind == int.Parse(dt.Rows[i][1].ToString()))
+                    if (id_ind == int.Parse(dt.Rows[i][1].ToString()))
                         grados.Add(dt.Rows[i][0].ToString());
                 }
-               
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+            finally
+            {
+                if(con.State!=ConnectionState.Closed)
+                    con.Close();
+            }
            
             double[] xData = new double[] { 1 };
             double[] yData = new double[] {valor};
@@ -168,7 +177,7 @@ namespace SistemaEvaluador
                     da3.Fill(ds3);
                     dt3 = ds3.Tables[0];
                   
-                    //el valor para el grafico esta en dt
+                   
 
                 }
                 catch (Exception ex)
@@ -187,7 +196,9 @@ namespace SistemaEvaluador
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-
+            chart1.Series.Clear();
+            chart1.ChartAreas.Clear();
+            datosGrafico();
           
         }
     }

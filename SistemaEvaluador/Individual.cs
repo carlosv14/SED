@@ -34,13 +34,13 @@ namespace SistemaEvaluador
                 dt = ds.Tables[0];
                 comboBox1.DataSource = dt;
                 comboBox1.DisplayMember = "NOMBRE";
-
+              
                 
                 DataTable dt1 = new DataTable();
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.Connection = con;
                 cmd1.CommandType = System.Data.CommandType.Text;
-                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = "+ comboBox1.SelectedIndex+1;
+                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = "+ (comboBox1.SelectedIndex+1);
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
 
                 DataSet ds1 = new DataSet();
@@ -80,13 +80,11 @@ namespace SistemaEvaluador
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try { 
-                if(con.State== ConnectionState.Closed)
-                con.Open();
             DataTable dt1 = new DataTable();
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
             cmd1.CommandType = System.Data.CommandType.Text;
-            cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = " + comboBox1.SelectedIndex + 1;
+            cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = " + (comboBox1.SelectedIndex+1);
             SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
 
             DataSet ds1 = new DataSet();
@@ -105,6 +103,7 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
+
         }
     }
 }
