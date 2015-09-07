@@ -37,6 +37,7 @@ namespace SistemaEvaluador
         {
            
             EmpleadoNombre en = new EmpleadoNombre(con);
+            List<string> bloquear = new List<string>();
             en.ShowDialog();
             id = en.id;
             id_eval = en.id_eval;
@@ -132,6 +133,7 @@ namespace SistemaEvaluador
                 dt = ds.Tables[0];
                 string n_gen = "";
                 DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
+               
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
 
@@ -139,12 +141,14 @@ namespace SistemaEvaluador
                     if (dt.Rows[i][0].ToString() != n_gen)
                     {
                         n_gen = dt.Rows[i][0].ToString();
+                        bloquear.Add(n_gen);
                         dataGridView1.Rows.Add();
                         dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Indicadores"].Value = n_gen;
-                       
+                        
                     indicadores.Add(new Indicadores_Arr(n_gen, float.Parse(dt.Rows[i][1].ToString()), int.Parse(dt.Rows[i][4].ToString()),null));
                     
                     }
+                    //ver aca
                     if (dt.Rows[i][0].ToString() == n_gen)
                     {
                         dataGridView1.Rows.Add();
@@ -169,6 +173,7 @@ namespace SistemaEvaluador
 
                 }
 
+                
                 //========= CHECKBOX
 
                 DataTable dt4 = new DataTable();
@@ -189,8 +194,25 @@ namespace SistemaEvaluador
                    col.HeaderText = dt4.Rows[i][0].ToString();
                    dataGridView1.Columns.Add(col);
                }
-               
+                for(int i=0;i<bloquear.Count;i++)
+                {
+                    for(int x=0;x<dataGridView1.Rows.Count-1;x++)
+                    {
+                       if(dataGridView1.Rows[x].Cells[0].Value.Equals(bloquear.ElementAt(i)))
+                        {
+                            for(int c=2;c<dataGridView1.Columns.Count;c++)
+                            {
+                                dataGridView1.Rows[x].Cells[c] = new DataGridViewTextBoxCell();
+                                dataGridView1.Rows[x].Cells[c].ReadOnly = true;
+                                
+                            }
+                            break;
+                        }
+                    }
+                }
 
+           dataGridView1.Columns[1].Visible = false;
+               
             }
             catch (Exception ex)
             {
@@ -208,11 +230,7 @@ namespace SistemaEvaluador
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            Puntaje punt = new Puntaje();
-            punt.label2.Text=dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            punt.ShowDialog();
-
-            dataGridView1.CurrentRow.Cells[punt.index].Value = "X";
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -353,7 +371,57 @@ namespace SistemaEvaluador
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ((DataGridViewComboBoxCell)dataGridView1.Rows[e.RowIndex].Cells[1]).Value = dataGridView1.Columns[e.ColumnIndex].Name;
+                          
+               
+        
+        }
+
+
+
+        private void dataGridView1_DataError_1(object sender, DataGridViewDataErrorEventArgs anError)
+        {
+          // MessageBox.Show("Error tipo:  " + anError.Context.ToString());
+
+            if (anError.Context == DataGridViewDataErrorContexts.Commit)
+            {
+                MessageBox.Show("Commit error");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.CurrentCellChange)
+            {
+                MessageBox.Show("Cell change");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.Parsing)
+            {
+                MessageBox.Show("parsing error");
+            }
+            if (anError.Context == DataGridViewDataErrorContexts.LeaveControl)
+            {
+                MessageBox.Show("leave control error");
+            }
+
+            if ((anError.Exception) is ConstraintException)
+            {
+                DataGridView view = (DataGridView)sender;
+                view.Rows[anError.RowIndex].ErrorText = "an error";
+                view.Rows[anError.RowIndex].Cells[anError.ColumnIndex].ErrorText = "an error";
+
+                anError.ThrowException = false;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell is DataGridViewCheckBoxCell)
+            {
+               // bool isChecked = (bool)dataGridView1[e.RowIndex, e.ColumnIndex].EditedFormattedValue;
+                if (e.ColumnIndex > 1 && e.ColumnIndex <= dataGridView1.Columns.Count)
+                {
+                    //if(isChecked)
+                    ((DataGridViewComboBoxCell)dataGridView1.Rows[e.RowIndex].Cells[1]).Value = dataGridView1.Columns[e.ColumnIndex].Name;
+
+                }
+
+            }
         }
     }
 }

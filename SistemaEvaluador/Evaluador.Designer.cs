@@ -54,6 +54,8 @@
             this.dataGridView1.Size = new System.Drawing.Size(736, 402);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError_1);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // label4
