@@ -211,6 +211,42 @@ namespace SistemaEvaluador
                     }
                 }
 
+                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+                {
+                    
+                        if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
+                        {
+
+                            
+                           DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1];
+                            for (int k = 0; k < cb.Items.Count; k++)
+                            {
+                               
+                                for (int h = 2; h < dataGridView1.Columns.Count; h++)
+                                {
+                                    DataGridViewCheckBoxCell cellbox =
+                                        (DataGridViewCheckBoxCell) dataGridView1.Rows[i].Cells[h];
+                                    if (
+                                        cb.Items[k].ToString() !=
+                                        dataGridView1.Columns[h].HeaderText)
+                                    {
+
+                                        cellbox.ReadOnly = true;
+
+                                    }
+                                    else
+                                    {
+
+                                        cellbox.ReadOnly = false;
+                                        k++;
+                                    }
+                                   
+                                }
+                               
+                        }
+                    }
+                }
+
            dataGridView1.Columns[1].Visible = false;
                
             }

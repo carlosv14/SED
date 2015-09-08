@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace SistemaEvaluador
     {
         private SqlConnection con;
         private int id_empleado;
+        private List<int> id_Empleados; 
         public Individual(SqlConnection con)
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace SistemaEvaluador
             try
             {
                 con.Open();
+                id_Empleados = new List<int>();
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.Text;
@@ -40,13 +43,19 @@ namespace SistemaEvaluador
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.Connection = con;
                 cmd1.CommandType = System.Data.CommandType.Text;
-                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = "+ (comboBox1.SelectedIndex+1);
+                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) as NOMBRE, ID_EMPLEADO AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = "+ (comboBox1.SelectedIndex+1);
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
 
                 DataSet ds1 = new DataSet();
                 da1.Fill(ds1);
                 dt1 = ds1.Tables[0];
                 dataGridView1.DataSource = dt1;
+                dataGridView1.Columns[1].Visible = false;
+                id_Empleados.Clear();
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    id_Empleados.Add(int.Parse(dt1.Rows[0][1].ToString()));
+                }
 
 
             }
@@ -71,7 +80,7 @@ namespace SistemaEvaluador
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-             id_empleado = e.RowIndex + 1;
+           id_empleado=id_Empleados.ElementAt(e.RowIndex );
             GraficoBarras gb  = new GraficoBarras(con,id_empleado);
             gb.ShowDialog();
 
@@ -84,13 +93,23 @@ namespace SistemaEvaluador
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
             cmd1.CommandType = System.Data.CommandType.Text;
-            cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = " + (comboBox1.SelectedIndex+1);
-            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) as NOMBRE, ID_EMPLEADO AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = " + (comboBox1.SelectedIndex + 1);
+                SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
 
-            DataSet ds1 = new DataSet();
-            da1.Fill(ds1);
-            dt1 = ds1.Tables[0];
-            dataGridView1.DataSource = dt1;
+                DataSet ds1 = new DataSet();
+                da1.Fill(ds1);
+                dt1 = ds1.Tables[0];
+                dataGridView1.DataSource = dt1;
+               dataGridView1.Columns[1].Visible = true;
+                id_Empleados.Clear();
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    id_Empleados.Add(int.Parse(dt1.Rows[0][1].ToString()));
+                }
+
+
+
+                dataGridView1.DataSource = dt1;
 
 
         }
