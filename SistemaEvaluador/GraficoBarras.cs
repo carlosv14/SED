@@ -54,9 +54,11 @@ namespace SistemaEvaluador
                 {
                     comboBox1.Items.Add(dt3.Rows[j]["fecha_evaluacion"].ToString());
                 }
-                          
+
+                comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
+                datosGrafico();
                 //comboBox1.ValueMember = "ID";
-               
+
             }
             catch (Exception ex)
             {
@@ -70,6 +72,8 @@ namespace SistemaEvaluador
             try
             {
                 con.Open();
+                chart1.Series.Clear();
+                chart1.ChartAreas.Clear();
                 DataTable dt3 = new DataTable();
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
@@ -164,7 +168,7 @@ namespace SistemaEvaluador
 
                 try
                 {
-                   
+                  
                     DataTable dt3 = new DataTable();
                     SqlCommand cmd3 = new SqlCommand();
                     cmd3.Connection = con;
@@ -176,8 +180,39 @@ namespace SistemaEvaluador
                     DataSet ds3 = new DataSet();
                     da3.Fill(ds3);
                     dt3 = ds3.Tables[0];
-                  
+                    List<double> valores=  new List<double>();
+                    for(int h = 0; h<dt3.Rows.Count;h++)
+                            valores.Add(Double.Parse(dt3.Rows[h]["resultado"].ToString()));
+
+                    chart1.Series.Clear();
+                    chart1.ChartAreas.Clear();
+                    chart1.ChartAreas.Add("draw");
+                    chart1.ChartAreas["draw"].AxisY.Minimum = 0;
+                    chart1.ChartAreas["draw"].AxisY.Maximum =1;
+                    chart1.ChartAreas["draw"].AxisY.Interval = (double)1/grados.Count;
+                    chart1.ChartAreas["draw"].AxisY.MajorGrid.LineColor = Color.White;
+                    chart1.ChartAreas["draw"].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                    chart1.ChartAreas["draw"].AxisX.Minimum = 0;
+                    chart1.ChartAreas["draw"].AxisX.Interval = 1;
+                    chart1.ChartAreas["draw"].AxisX.Maximum = 1;
+                    chart1.ChartAreas["draw"].AxisX.MajorGrid.LineColor = Color.White;
+                    chart1.ChartAreas["draw"].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+
+                    chart1.ChartAreas["draw"].BackColor = Color.White;
+
                    
+                    chart1.Series.Add("MyFunc");
+                         
+                    chart1.Series["MyFunc"].ChartType = SeriesChartType.Line;
+                 
+                    chart1.Series["MyFunc"].Color = Color.LightGreen;
+                    chart1.Series["MyFunc"].BorderWidth = 3;
+                  
+                    for (int x = 0; x < valores.Count; x ++)
+                    {
+                        chart1.Series["MyFunc"].Points.AddXY(x,valores.ElementAt(x));
+                    }
+
 
                 }
                 catch (Exception ex)
