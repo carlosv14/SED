@@ -41,23 +41,22 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(235, 327);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(122, 207);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(495, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(425, 317);
             this.dataGridView1.TabIndex = 33;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(773, 279);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(575, 324);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 33);
+            this.button1.Size = new System.Drawing.Size(81, 26);
             this.button1.TabIndex = 32;
             this.button1.Text = "Modificar";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,10 +65,9 @@
             // Agregar
             // 
             this.Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Agregar.Location = new System.Drawing.Point(773, 208);
-            this.Agregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Agregar.Location = new System.Drawing.Point(575, 267);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(108, 33);
+            this.Agregar.Size = new System.Drawing.Size(81, 26);
             this.Agregar.TabIndex = 30;
             this.Agregar.Text = "Agregar";
             this.Agregar.UseVisualStyleBackColor = true;
@@ -78,10 +76,9 @@
             // Departamento
             // 
             this.Departamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Departamento.Location = new System.Drawing.Point(448, 206);
-            this.Departamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Departamento.Location = new System.Drawing.Point(336, 167);
             this.Departamento.Name = "Departamento";
-            this.Departamento.Size = new System.Drawing.Size(208, 26);
+            this.Departamento.Size = new System.Drawing.Size(211, 22);
             this.Departamento.TabIndex = 29;
             this.Departamento.Click += new System.EventHandler(this.Departamento_Click);
             this.Departamento.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Departamento_MouseDoubleClick);
@@ -92,10 +89,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(159, 208);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(119, 169);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 20);
+            this.label1.Size = new System.Drawing.Size(194, 16);
             this.label1.TabIndex = 28;
             this.label1.Text = "Nombre de Departamento: ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -106,20 +102,19 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(40, 27);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(30, 21);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(410, 51);
+            this.label9.Size = new System.Drawing.Size(328, 39);
             this.label9.TabIndex = 34;
             this.label9.Text = "DEPARTAMENTOS";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // Departamentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1032, 720);
+            this.ClientSize = new System.Drawing.Size(774, 585);
             this.ControlBox = false;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
@@ -130,7 +125,6 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Departamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Departamentos";

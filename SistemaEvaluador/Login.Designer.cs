@@ -95,7 +95,7 @@
             // 
             // Entrar
             // 
-            this.Entrar.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.Entrar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Entrar.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.Entrar.Image = global::SistemaEvaluador.Properties.Resources._lock;

@@ -40,7 +40,7 @@ namespace SistemaEvaluador
         private void Entrar_Click(object sender, EventArgs e)
         {
             //setKey(usuario.Text, contrasena.Text);
-            setKey("root", "1234");
+            setKey("sa", "12345");
             try
             {
                 con.Open();
@@ -48,7 +48,7 @@ namespace SistemaEvaluador
                 Menu menu = new Menu(con, this);
                 this.Hide();
                 menu.ShowDialog();
-
+            
 
             }
             catch (Exception ex)
