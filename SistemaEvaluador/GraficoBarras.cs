@@ -126,7 +126,6 @@ namespace SistemaEvaluador
                 if(con.State!=ConnectionState.Closed)
                     con.Close();
             }
-            MessageBox.Show("Valor: " + valor);
             double[] xData = new double[] { 1 };
             double[] yData = new double[] {Math.Round(valor,2)};
             //Horizontal bar chart
@@ -191,6 +190,7 @@ namespace SistemaEvaluador
                     List<double> valores=  new List<double>();
                     for(int h = 0; h<dt3.Rows.Count;h++)
                             valores.Add(Double.Parse(dt3.Rows[h]["resultado"].ToString()));
+                   
 
                     chart1.Series.Clear();
                     chart1.ChartAreas.Clear();
@@ -219,6 +219,10 @@ namespace SistemaEvaluador
                     {
                         chart1.Series["MyFunc"].Points.AddXY(x+1,Math.Round(valores.ElementAt(x),2));
                     }
+
+                    for (int i = 0; i < valores.Count; i++)
+                        chart1.ChartAreas[0].AxisX.CustomLabels.Add(i+1, i+2,comboBox1.Items[i].ToString().Split(' ')[0]);
+
 
 
                 }
