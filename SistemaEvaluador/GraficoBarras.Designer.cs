@@ -39,27 +39,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 47);
+            this.label1.Location = new System.Drawing.Point(16, 58);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(135, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Seleccione la Fecha\r\n";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(122, 44);
+            this.comboBox1.Location = new System.Drawing.Point(163, 54);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
+            this.comboBox1.Size = new System.Drawing.Size(219, 24);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(308, 48);
+            this.checkBox1.Location = new System.Drawing.Point(411, 59);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(67, 17);
+            this.checkBox1.Size = new System.Drawing.Size(85, 21);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Historico";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -69,21 +72,23 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(15, 84);
+            this.chart1.Location = new System.Drawing.Point(20, 103);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(404, 289);
+            this.chart1.Size = new System.Drawing.Size(539, 356);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             // 
             // GraficoBarras
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 396);
+            this.ClientSize = new System.Drawing.Size(575, 487);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GraficoBarras";
             this.Text = "GraficoBarras";
             this.Load += new System.EventHandler(this.GraficoBarras_Load);
