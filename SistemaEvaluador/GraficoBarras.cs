@@ -126,7 +126,7 @@ namespace SistemaEvaluador
                 if(con.State!=ConnectionState.Closed)
                     con.Close();
             }
-           
+            MessageBox.Show("Valor: " + valor);
             double[] xData = new double[] { 1 };
             double[] yData = new double[] {Math.Round(valor,2)};
             //Horizontal bar chart
@@ -138,7 +138,9 @@ namespace SistemaEvaluador
             area.AxisY.Interval = (double)1/grados.Count;
             area.AxisX.Maximum = 2;
             area.AxisX.Minimum = 0;
+      
             area.Position = new ElementPosition(0,0,100,100);
+            
            
             chart1.ChartAreas.Add(area);
 
@@ -146,6 +148,7 @@ namespace SistemaEvaluador
             Series barSeries = new Series();
            
          
+
             barSeries.Points.DataBindXY(xData, yData);
             //Set the chart type, Bar; horizontal bars
             barSeries.ChartType = SeriesChartType.Bar;
@@ -153,6 +156,7 @@ namespace SistemaEvaluador
         
             //Add the series to the chart
             chart1.Series.Add(barSeries);
+
             chart1.Series[0].IsValueShownAsLabel = true;
             chart1.Series[0]["BarLabelStyle"] = "Center";
             //chart1.Series[0].Points[0].label = "First Point";
@@ -162,6 +166,7 @@ namespace SistemaEvaluador
             for(int i = 0; i<grados.Count;i++)
             chart1.ChartAreas[0].AxisY.CustomLabels.Add((Math.Round((double)i/grados.Count,2)), Math.Round((double)(i+1)/ grados.Count, 2), grados.ElementAt(i));
         }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
