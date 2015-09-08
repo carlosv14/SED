@@ -15,19 +15,24 @@ namespace SistemaEvaluador
     public partial class Individual : Form
     {
         private SqlConnection con;
+        private bool loading;
         private int id_empleado;
-        private List<int> id_Empleados; 
+        private List<int> id_Empleados;
+        List<int> id_dept;
         public Individual(SqlConnection con)
         {
             InitializeComponent();
             this.con = con;
+           
             SqlCommand cmd = null;
             try
             {
                 con.Open();
                 id_Empleados = new List<int>();
                 cmd = new SqlCommand();
+                loading = true;
                 cmd.Connection = con;
+                id_dept = new List<int>();
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = "SELECT * FROM DEPARTAMENTOS";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -37,13 +42,17 @@ namespace SistemaEvaluador
                 dt = ds.Tables[0];
                 comboBox1.DataSource = dt;
                 comboBox1.DisplayMember = "NOMBRE";
-              
-                
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    id_dept.Add(int.Parse(dt.Rows[i][0].ToString()));
+                }
+
+                loading = false;
                 DataTable dt1 = new DataTable();
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.Connection = con;
                 cmd1.CommandType = System.Data.CommandType.Text;
-                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) as NOMBRE, ID_EMPLEADO AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = "+ (comboBox1.SelectedIndex+1);
+                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) as NOMBRE, ID_EMPLEADO AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = "+ id_dept.ElementAt(comboBox1.SelectedIndex);
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
 
                 DataSet ds1 = new DataSet();
@@ -88,12 +97,16 @@ namespace SistemaEvaluador
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(loading)
+                return;
             try { 
+              
             DataTable dt1 = new DataTable();
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
             cmd1.CommandType = System.Data.CommandType.Text;
-                cmd1.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) as NOMBRE, ID_EMPLEADO AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = " + (comboBox1.SelectedIndex + 1);
+                cmd1.CommandText =
+                    "SELECT CONCAT(NOMBRES,' ',APELLIDOS) as NOMBRE, ID_EMPLEADO AS NOMBRE FROM EMPLEADOS WHERE ID_DEPTO = " + id_dept.ElementAt(comboBox1.SelectedIndex);
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
 
                 DataSet ds1 = new DataSet();

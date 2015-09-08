@@ -100,8 +100,8 @@ namespace SistemaEvaluador
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText =
-                    "SELECT DISTINCT g.NOMBRE, g.ID_IND FROM GRADOS g INNER JOIN EVALUACION e on g.ID = e.ID WHERE e.ID = " +
-                    idevals.ElementAt(comboBox1.SelectedIndex);
+                    "SELECT DISTINCT g.NOMBRE, g.ID_IND,g.VALOR FROM GRADOS g INNER JOIN EVALUACION e on g.ID = e.ID WHERE e.ID = " +
+                    idevals.ElementAt(comboBox1.SelectedIndex) +" ORDER BY(g.VALOR)";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 DataSet ds = new DataSet();
@@ -128,7 +128,7 @@ namespace SistemaEvaluador
             }
            
             double[] xData = new double[] { 1 };
-            double[] yData = new double[] {valor};
+            double[] yData = new double[] {Math.Round(valor,2)};
             //Horizontal bar chart
             //Create a chart area and add it to the chart
             ChartArea area = new ChartArea("First");
@@ -144,20 +144,23 @@ namespace SistemaEvaluador
 
            //Create a series using the data
             Series barSeries = new Series();
-            for (int i = 0; i < barSeries.Points.Count; i++)
-            {
-                barSeries.Points[i].AxisLabel = "by";
-            }
+           
          
             barSeries.Points.DataBindXY(xData, yData);
             //Set the chart type, Bar; horizontal bars
             barSeries.ChartType = SeriesChartType.Bar;
             //Assign it to the required area
-            barSeries.ChartArea = "First";
+        
             //Add the series to the chart
             chart1.Series.Add(barSeries);
-            
+            chart1.Series[0].IsValueShownAsLabel = true;
+            chart1.Series[0]["BarLabelStyle"] = "Center";
+            //chart1.Series[0].Points[0].label = "First Point";
+            //chart1.Series[0].Points[1].AxisLabel = "Second Point";
 
+           
+            for(int i = 0; i<grados.Count;i++)
+            chart1.ChartAreas[0].AxisY.CustomLabels.Add((Math.Round((double)i/grados.Count,2)), Math.Round((double)(i+1)/ grados.Count, 2), grados.ElementAt(i));
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -194,7 +197,6 @@ namespace SistemaEvaluador
                     chart1.ChartAreas["draw"].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
                     chart1.ChartAreas["draw"].AxisX.Minimum = 0;
                     chart1.ChartAreas["draw"].AxisX.Interval = 1;
-                    chart1.ChartAreas["draw"].AxisX.Maximum = 1;
                     chart1.ChartAreas["draw"].AxisX.MajorGrid.LineColor = Color.White;
                     chart1.ChartAreas["draw"].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
 
@@ -207,10 +209,10 @@ namespace SistemaEvaluador
                  
                     chart1.Series["MyFunc"].Color = Color.LightGreen;
                     chart1.Series["MyFunc"].BorderWidth = 3;
-                  
+                    chart1.Series["MyFunc"].IsValueShownAsLabel = true;
                     for (int x = 0; x < valores.Count; x ++)
                     {
-                        chart1.Series["MyFunc"].Points.AddXY(x,valores.ElementAt(x));
+                        chart1.Series["MyFunc"].Points.AddXY(x+1,Math.Round(valores.ElementAt(x),2));
                     }
 
 
