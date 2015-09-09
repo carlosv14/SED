@@ -92,6 +92,7 @@ namespace SistemaEvaluador
            id_empleado=id_Empleados.ElementAt(e.RowIndex );
             GraficoBarras gb  = new GraficoBarras(con,id_empleado);
             gb.ShowDialog();
+            this.Close();
 
         }
 

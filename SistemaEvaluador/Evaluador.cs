@@ -229,8 +229,9 @@ namespace SistemaEvaluador
                                         cb.Items[k].ToString() !=
                                         dataGridView1.Columns[h].HeaderText)
                                     {
-
-                                        cellbox.ReadOnly = true;
+                                        dataGridView1.Rows[i].Cells[h] = new DataGridViewTextBoxCell();
+                                        dataGridView1.Rows[i].Cells[h].ReadOnly = true;
+                                        //cellbox.ReadOnly = true;
 
                                     }
                                     else
@@ -249,7 +250,7 @@ namespace SistemaEvaluador
                     }
                 }
 
-          // dataGridView1.Columns[1].Visible = false;
+          dataGridView1.Columns[1].Visible = false;
                
             }
             catch (Exception ex)

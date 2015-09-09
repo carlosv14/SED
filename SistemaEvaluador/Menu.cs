@@ -176,7 +176,9 @@ namespace SistemaEvaluador
                 MessageBox.Show(c.Message);
             }
             Reportes r = new Reportes(con);
-            r.ShowDialog();
+            tabStrip1.MdiForm = this;
+            r.MdiParent = this;
+            r.Show();
             
         }
     }
