@@ -24,6 +24,7 @@ namespace SistemaEvaluador
             InitializeComponent();
             this.con = con;
            
+           
             SqlCommand cmd = null;
             try
             {
