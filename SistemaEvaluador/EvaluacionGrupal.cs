@@ -61,7 +61,9 @@ namespace SistemaEvaluador
         {
             int id_depto = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             GraficaDepto gb = new GraficaDepto(con, id_depto);
+            this.Hide();
             gb.ShowDialog();
+            this.Show();
             this.Close();
         }
     }

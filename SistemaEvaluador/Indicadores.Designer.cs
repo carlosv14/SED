@@ -56,7 +56,7 @@
             this.label4.Location = new System.Drawing.Point(162, 259);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 37;
             this.label4.Text = "Peso";
             // 
@@ -90,7 +90,7 @@
             this.label1.Location = new System.Drawing.Point(162, 211);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Nombre";
             // 
@@ -236,8 +236,9 @@
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(285, 170);
             this.Name = "Indicadores";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Indicadores";
             this.Load += new System.EventHandler(this.Indicadores_Load);
             this.ResumeLayout(false);

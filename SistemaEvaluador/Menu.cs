@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SistemaEvaluador
 {
     public partial class Menu : Form
@@ -20,6 +21,8 @@ namespace SistemaEvaluador
         }
         SqlConnection con;
         Login login;
+         
+        
      
         public Menu(SqlConnection con, Login login)
         {
@@ -108,7 +111,9 @@ namespace SistemaEvaluador
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
-            ei.ShowDialog();
+            tabStrip1.MdiForm = this;
+            ei.MdiParent = this;
+            ei.Show();
             
         }
 
@@ -144,7 +149,10 @@ namespace SistemaEvaluador
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             EditarGrados gr = new EditarGrados(con, id_eval);
-            gr.ShowDialog();
+            tabStrip1.MdiForm = this;
+            gr.MdiParent = this;
+            gr.Show();
+            //gr.ShowDialog();
 
 
         }

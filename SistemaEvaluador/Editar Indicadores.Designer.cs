@@ -63,6 +63,8 @@
             this.ClientSize = new System.Drawing.Size(758, 547);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(285, 170);
             this.Name = "Editar_Indicadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar_Indicadores";
