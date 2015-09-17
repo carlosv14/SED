@@ -33,14 +33,14 @@ namespace SistemaEvaluador
 
         private void setKey(string user, string pass)
         {
-            con.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
+            con.ConnectionString = "Data Source=localhost;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
 
         }
 
         private void Entrar_Click(object sender, EventArgs e)
         {
             //setKey(usuario.Text, contrasena.Text);
-            setKey("sa", "12345");
+            setKey("Josselyn", "12345");
             try
             {
                 con.Open();

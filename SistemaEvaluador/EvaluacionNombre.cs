@@ -35,6 +35,8 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+            
             nombreEvaluacion = textBox1.Text;
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;

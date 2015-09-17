@@ -155,6 +155,12 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             eva.MdiParent = this;
             eva.Show();
+
+          
+
+          
+
+            
         }
 
         private void evaluador_Click(object sender, EventArgs e)
@@ -180,6 +186,27 @@ namespace SistemaEvaluador
             r.MdiParent = this;
             r.Show();
             
+        }
+
+        private void buttonItem14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ribbonBar8_ItemClick(object sender, EventArgs e)
+        {
+            Individual ind = new Individual(con);
+            tabStrip1.MdiForm = this;
+            ind.MdiParent = this;
+            ind.Show();
+        }
+
+        private void buttonItem3_Click_1(object sender, EventArgs e)
+        {
+            EvaluacionGrupal gru = new EvaluacionGrupal(con);
+            tabStrip1.MdiForm = this;
+            gru.MdiParent = this;
+            gru.Show();
         }
     }
 }

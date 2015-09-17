@@ -23,7 +23,9 @@ namespace SistemaEvaluador
 
         private void GradosInicio_Load(object sender, EventArgs e)
         {
-
+            GradosInicio gi = new GradosInicio();
+            gi.Left = 500;
+            gi.Top = -800;
         }
 
         private void button1_Click(object sender, EventArgs e)

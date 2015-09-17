@@ -33,7 +33,7 @@
             this.Modificar = new System.Windows.Forms.Button();
             this.Agregar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Puesto = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -43,13 +43,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.Femenino = new System.Windows.Forms.RadioButton();
+            this.Masculino = new System.Windows.Forms.RadioButton();
+            this.no = new System.Windows.Forms.RadioButton();
+            this.si = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pasaporte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.Direcion = new System.Windows.Forms.RichTextBox();
@@ -126,7 +126,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.Puesto);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label12);
@@ -145,13 +145,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de la Empresa";
             // 
-            // textBox2
+            // Puesto
             // 
-            this.textBox2.Location = new System.Drawing.Point(252, 138);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(258, 22);
-            this.textBox2.TabIndex = 39;
+            this.Puesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Puesto.Location = new System.Drawing.Point(252, 138);
+            this.Puesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Puesto.Name = "Puesto";
+            this.Puesto.Size = new System.Drawing.Size(258, 22);
+            this.Puesto.TabIndex = 39;
             // 
             // label14
             // 
@@ -165,6 +166,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(252, 103);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -183,6 +185,7 @@
             // 
             // Jefe
             // 
+            this.Jefe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Jefe.FormattingEnabled = true;
             this.Jefe.Location = new System.Drawing.Point(252, 68);
             this.Jefe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -202,6 +205,7 @@
             // 
             // DepartamentoTrabajo
             // 
+            this.DepartamentoTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DepartamentoTrabajo.FormattingEnabled = true;
             this.DepartamentoTrabajo.Location = new System.Drawing.Point(252, 33);
             this.DepartamentoTrabajo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -224,11 +228,11 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.no);
+            this.groupBox1.Controls.Add(this.si);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.pasaporte);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.Direcion);
@@ -258,61 +262,61 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.Femenino);
+            this.groupBox3.Controls.Add(this.Masculino);
             this.groupBox3.Location = new System.Drawing.Point(167, 125);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(198, 30);
             this.groupBox3.TabIndex = 40;
             this.groupBox3.TabStop = false;
             // 
-            // radioButton2
+            // Femenino
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(99, 11);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(93, 20);
-            this.radioButton2.TabIndex = 35;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Femenino";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.Femenino.AutoSize = true;
+            this.Femenino.Location = new System.Drawing.Point(99, 11);
+            this.Femenino.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Femenino.Name = "Femenino";
+            this.Femenino.Size = new System.Drawing.Size(93, 20);
+            this.Femenino.TabIndex = 35;
+            this.Femenino.TabStop = true;
+            this.Femenino.Text = "Femenino";
+            this.Femenino.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // Masculino
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(5, 11);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(95, 20);
-            this.radioButton1.TabIndex = 34;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.Masculino.AutoSize = true;
+            this.Masculino.Location = new System.Drawing.Point(5, 11);
+            this.Masculino.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Masculino.Name = "Masculino";
+            this.Masculino.Size = new System.Drawing.Size(95, 20);
+            this.Masculino.TabIndex = 34;
+            this.Masculino.TabStop = true;
+            this.Masculino.Text = "Masculino";
+            this.Masculino.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // no
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(533, 160);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(45, 20);
-            this.radioButton4.TabIndex = 38;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "No";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.no.AutoSize = true;
+            this.no.Location = new System.Drawing.Point(533, 160);
+            this.no.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(45, 20);
+            this.no.TabIndex = 38;
+            this.no.TabStop = true;
+            this.no.Text = "No";
+            this.no.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // si
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(447, 160);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(39, 20);
-            this.radioButton3.TabIndex = 37;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Si";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.si.AutoSize = true;
+            this.si.Location = new System.Drawing.Point(447, 160);
+            this.si.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.si.Name = "si";
+            this.si.Size = new System.Drawing.Size(39, 20);
+            this.si.TabIndex = 37;
+            this.si.TabStop = true;
+            this.si.Text = "Si";
+            this.si.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -334,13 +338,14 @@
             this.label13.TabIndex = 33;
             this.label13.Text = "Género";
             // 
-            // textBox1
+            // pasaporte
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 95);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 22);
-            this.textBox1.TabIndex = 30;
+            this.pasaporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pasaporte.Location = new System.Drawing.Point(192, 95);
+            this.pasaporte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pasaporte.Name = "pasaporte";
+            this.pasaporte.Size = new System.Drawing.Size(172, 22);
+            this.pasaporte.TabIndex = 30;
             // 
             // label1
             // 
@@ -366,6 +371,7 @@
             // 
             // Direcion
             // 
+            this.Direcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Direcion.Location = new System.Drawing.Point(179, 161);
             this.Direcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Direcion.Name = "Direcion";
@@ -375,6 +381,7 @@
             // 
             // NivelEducacion
             // 
+            this.NivelEducacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NivelEducacion.FormattingEnabled = true;
             this.NivelEducacion.Items.AddRange(new object[] {
             "Primaria",
@@ -388,6 +395,7 @@
             // 
             // estadoCivil
             // 
+            this.estadoCivil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estadoCivil.FormattingEnabled = true;
             this.estadoCivil.Items.AddRange(new object[] {
             "Soltero(a)",
@@ -420,6 +428,7 @@
             // 
             // Telefono
             // 
+            this.Telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Telefono.Location = new System.Drawing.Point(533, 99);
             this.Telefono.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Telefono.Name = "Telefono";
@@ -466,6 +475,7 @@
             // 
             // Nombre
             // 
+            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nombre.Location = new System.Drawing.Point(192, 38);
             this.Nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Nombre.Name = "Nombre";
@@ -524,10 +534,10 @@
         private System.Windows.Forms.ComboBox DepartamentoTrabajo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton Femenino;
+        private System.Windows.Forms.RadioButton Masculino;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox pasaporte;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox Direcion;
@@ -542,10 +552,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Nombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton no;
+        private System.Windows.Forms.RadioButton si;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Puesto;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

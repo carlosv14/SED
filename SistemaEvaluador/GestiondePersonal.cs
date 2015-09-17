@@ -39,7 +39,9 @@ namespace SistemaEvaluador
         private void button2_Click(object sender, EventArgs e)
         {
             Dependientes depen = new Dependientes();
+            this.Hide();
             depen.ShowDialog();
+            this.Show();
             hijos.Add(depen.hijos[0]);
         }
 
@@ -75,6 +77,23 @@ namespace SistemaEvaluador
             }
         }
 
+        private void clear()
+        {
+            Nombre.Text = "";
+            Apellido.Text = "";
+            Direcion.Text = "";
+            Telefono.Text = "";
+            pasaporte.Text = "";
+            Puesto.Text = "";
+            estadoCivil.Items.Clear();
+            NivelEducacion.Items.Clear();
+            DepartamentoTrabajo.Items.Clear();
+            Jefe.Items.Clear();
+            Femenino.Checked = false;
+            Masculino.Checked = false;
+            si.Checked = false;
+            no.Checked = false;
+        }
         private void Agregar_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = null;
@@ -115,26 +134,26 @@ namespace SistemaEvaluador
                 else
                     cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.Text;
 
-                cmd.Parameters.Add("@PUESTO", SqlDbType.VarChar).Value =textBox2.Text;
-                if (radioButton3.Checked == true)
+                cmd.Parameters.Add("@PUESTO", SqlDbType.VarChar).Value =Puesto.Text;
+                if (si.Checked == true)
                 {
                     cmd.Parameters.Add("@ANTECEDENTES", SqlDbType.VarChar).Value = 'S';
                 }
-                else if (radioButton4.Checked == true)
+                else if (no.Checked == true)
                 {
                     cmd.Parameters.Add("@ANTECEDENTES", SqlDbType.VarChar).Value = 'N';
                 }
 
                 cmd.Parameters.Add("@TELEFONO", SqlDbType.Int).Value = int.Parse(Telefono.Text);
                 cmd.Parameters.Add("@FECHA_INGRESO", SqlDbType.DateTime).Value = dateTimePicker1.Value.ToShortDateString();
-                if (radioButton1.Checked == true) {
+                if (Masculino.Checked == true) {
                     cmd.Parameters.Add("@GENERO", SqlDbType.VarChar).Value = 'M';
                 }
-                else if (radioButton2.Checked == true)
+                else if (Femenino.Checked == true)
                 {
                     cmd.Parameters.Add("@GENERO", SqlDbType.VarChar).Value = 'F';
                 }
-                cmd.Parameters.Add("@N_IDENTIDAD", SqlDbType.VarChar).Value = textBox1.Text;
+                cmd.Parameters.Add("@N_IDENTIDAD", SqlDbType.VarChar).Value = pasaporte.Text;
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
@@ -167,6 +186,7 @@ namespace SistemaEvaluador
 
                 }
                 MessageBox.Show("Se agrego correctamente");
+                this.clear();
                 this.Close();
             }
             catch (Exception ene)
