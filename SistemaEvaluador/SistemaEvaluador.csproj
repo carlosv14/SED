@@ -88,6 +88,12 @@
     <Compile Include="Evaluacion.Designer.cs">
       <DependentUpon>Evaluacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="EvaluacionGrupal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluacionGrupal.Designer.cs">
+      <DependentUpon>EvaluacionGrupal.cs</DependentUpon>
+    </Compile>
     <Compile Include="EvaluacionNombre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     </Compile>
     <Compile Include="Grafica.Designer.cs">
       <DependentUpon>Grafica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraficaDepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraficaDepto.Designer.cs">
+      <DependentUpon>GraficaDepto.cs</DependentUpon>
     </Compile>
     <Compile Include="GraficoBarras.cs">
       <SubType>Form</SubType>
@@ -207,6 +219,9 @@
     <EmbeddedResource Include="Evaluacion.resx">
       <DependentUpon>Evaluacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EvaluacionGrupal.resx">
+      <DependentUpon>EvaluacionGrupal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EvaluacionNombre.resx">
       <DependentUpon>EvaluacionNombre.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Grafica.resx">
       <DependentUpon>Grafica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraficaDepto.resx">
+      <DependentUpon>GraficaDepto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GraficoBarras.resx">
       <DependentUpon>GraficoBarras.cs</DependentUpon>

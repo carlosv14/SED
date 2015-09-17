@@ -107,7 +107,7 @@ namespace SistemaEvaluador
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Departamento.Enabled = true;
-            id_depto = e.RowIndex + 1;
+            id_depto = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
 
 

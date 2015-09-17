@@ -25,5 +25,12 @@ namespace SistemaEvaluador
             Individual ind = new Individual(con);
             ind.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EvaluacionGrupal gru = new EvaluacionGrupal(con);
+            gru.ShowDialog();
+
+        }
     }
 }

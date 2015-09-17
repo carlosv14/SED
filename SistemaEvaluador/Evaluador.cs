@@ -211,7 +211,46 @@ namespace SistemaEvaluador
                     }
                 }
 
-           dataGridView1.Columns[1].Visible = false;
+                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+                {
+                    
+                        if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
+                        {
+
+                            
+                           DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1];
+                           int k = 0;
+                               
+                                for (int h = 2; h < dataGridView1.Columns.Count; h++)
+                                {
+                                    DataGridViewCheckBoxCell cellbox =
+                                        (DataGridViewCheckBoxCell) dataGridView1.Rows[i].Cells[h];
+                                    if (
+                                        cb.Items[k].ToString() !=
+                                        dataGridView1.Columns[h].HeaderText)
+                                    {
+                                        dataGridView1.Rows[i].Cells[h] = new DataGridViewTextBoxCell();
+                                        dataGridView1.Rows[i].Cells[h].ReadOnly = true;
+                                        //cellbox.ReadOnly = true;
+
+                                    }
+                                    else
+                                    {
+
+                                        cellbox.ReadOnly = false;
+                                        if(k<cb.Items.Count-1)
+                                            k++;
+                                    }
+                                    
+                                   
+                                
+                                
+                               
+                        }
+                    }
+                }
+
+          dataGridView1.Columns[1].Visible = false;
                
             }
             catch (Exception ex)
@@ -239,10 +278,11 @@ namespace SistemaEvaluador
             nbts = new List<CoordenadaTriangular>();
             try
             {
+                int CANTIDAD = 0;
                 List<string> GradosNombres = new List<string>();
                 for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
                 {
-                    DataGridViewComboBoxCell firstCell = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[1];
+                    CANTIDAD = dataGridView1.Columns.Count - 2;
                     string valor;
                     DataGridViewComboBoxCell currentCell = (DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1];
                     for (int j = 0; j < currentCell.Items.Count; j++)
@@ -253,7 +293,7 @@ namespace SistemaEvaluador
                     }
                     CoordenadaTriangular ct =
                           new CoordenadaTriangular(GradosNombres,
-                              firstCell.Items.Count,dataGridView1.Rows[i].Cells[0].Value.ToString(),cols);
+                              CANTIDAD,dataGridView1.Rows[i].Cells[0].Value.ToString(),cols);
                     if(dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
                         nbts.Add(ct);
                    
