@@ -214,9 +214,9 @@ namespace SistemaEvaluador
                 timer.Enabled = false;
 
                 Rangos r = new Rangos(grados,resx2, l, text,label15);
-                this.Hide();
                 r.ShowDialog();
-                this.Show();
+                
+              
                return;
             }
             if (!reverse)
