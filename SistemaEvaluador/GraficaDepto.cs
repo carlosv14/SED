@@ -114,5 +114,10 @@ cmd3.CommandText = "SELECT E.NOMBRES, EV.RESULTADO FROM EMPLEADOS AS E, DEPARTAM
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace SistemaEvaluador
         private void Evaluacion_Load(object sender, EventArgs e)
         {
             EvaluacionNombre Evanom = new EvaluacionNombre(con);
-            Evanom.ShowDialog();
+            //Evanom.ShowDialog();
             Nombre.Text = Evanom.nombreEvaluacion;
             Fecha.Text = DateTime.Today.ToString();
             System.Data.DataTable dt = new System.Data.DataTable();

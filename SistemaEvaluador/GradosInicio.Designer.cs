@@ -128,7 +128,7 @@
             this.Location = new System.Drawing.Point(285, 170);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GradosInicio";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "GradosInicio";
             this.Load += new System.EventHandler(this.GradosInicio_Load);
             this.LocationChanged += new System.EventHandler(this.GradosInicio_LocationChanged);
