@@ -34,6 +34,7 @@ namespace SistemaEvaluador
 
         private void GraficoBarras_Load(object sender, EventArgs e)
         {
+            button1.Visible = false;
             try
             {
                 DataTable dt3 = new DataTable();
@@ -172,7 +173,7 @@ namespace SistemaEvaluador
             if (checkBox1.Checked)
             {
                 comboBox1.Enabled = false;
-
+                button1.Visible = true;
                 try
                 {
                   
@@ -235,6 +236,7 @@ namespace SistemaEvaluador
             else
             {
                 comboBox1.Enabled = true;
+                button1.Visible = false;
                 datosGrafico();
             }
         }
@@ -246,6 +248,12 @@ namespace SistemaEvaluador
             chart1.ChartAreas.Clear();
             datosGrafico();
           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Meta met = new Meta(con);
+            met.ShowDialog();
         }
     }
 }

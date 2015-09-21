@@ -123,7 +123,6 @@ namespace SistemaEvaluador
         private string getFecha(string fecha)
         {
             string fe = "";
-            //6/9/2015 
             string dia = "", mes = "", year = "";
             int separador = 0, contYear=0;
             for (int i = 0; i < fecha.Length; i++)
