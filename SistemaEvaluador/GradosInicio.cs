@@ -23,7 +23,7 @@ namespace SistemaEvaluador
 
         private void GradosInicio_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,6 +68,11 @@ namespace SistemaEvaluador
         {
            
             index = int.Parse(listView1.SelectedIndices.ToString());
+            
+        }
+
+        private void GradosInicio_LocationChanged(object sender, EventArgs e)
+        {
             
         }
     }

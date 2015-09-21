@@ -114,8 +114,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(285, 170);
             this.Name = "Grados_NoAsumidos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Grados_NoAsumidos";
             this.Load += new System.EventHandler(this.Grados_NoAsumidos_Load);
             this.ResumeLayout(false);

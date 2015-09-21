@@ -215,6 +215,8 @@ namespace SistemaEvaluador
 
                 Rangos r = new Rangos(grados,resx2, l, text,label15);
                 r.ShowDialog();
+                     
+              
                return;
             }
             if (!reverse)
@@ -330,6 +332,11 @@ namespace SistemaEvaluador
                 g.DrawLine(new Pen(Color.Red, 2f), new Point(0, 0), new Point(pictureBox1.Size.Width, pictureBox1.Size.Height));
 
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
 

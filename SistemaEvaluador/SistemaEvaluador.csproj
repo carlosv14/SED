@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colorcito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Colorcito.Designer.cs">
+      <DependentUpon>Colorcito.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoordenadaTriangular.cs" />
     <Compile Include="Departamentos.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,12 @@
     <Compile Include="Evaluacion.Designer.cs">
       <DependentUpon>Evaluacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="EvaluacionGrupal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluacionGrupal.Designer.cs">
+      <DependentUpon>EvaluacionGrupal.cs</DependentUpon>
+    </Compile>
     <Compile Include="EvaluacionNombre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     <Compile Include="Grafica.Designer.cs">
       <DependentUpon>Grafica.cs</DependentUpon>
     </Compile>
+    <Compile Include="GraficaDepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraficaDepto.Designer.cs">
+      <DependentUpon>GraficaDepto.cs</DependentUpon>
+    </Compile>
     <Compile Include="GraficoBarras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +141,12 @@
     </Compile>
     <Compile Include="Individual.Designer.cs">
       <DependentUpon>Individual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Meta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Meta.Designer.cs">
+      <DependentUpon>Meta.cs</DependentUpon>
     </Compile>
     <Compile Include="NumeroTriangular.cs" />
     <Compile Include="Puntaje.cs">
@@ -189,6 +213,9 @@
     <Compile Include="Terminos y resultado.Designer.cs">
       <DependentUpon>Terminos y resultado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Colorcito.resx">
+      <DependentUpon>Colorcito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Evaluacion.resx">
       <DependentUpon>Evaluacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluacionGrupal.resx">
+      <DependentUpon>EvaluacionGrupal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EvaluacionNombre.resx">
       <DependentUpon>EvaluacionNombre.cs</DependentUpon>
@@ -228,6 +258,9 @@
     <EmbeddedResource Include="Grafica.resx">
       <DependentUpon>Grafica.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GraficaDepto.resx">
+      <DependentUpon>GraficaDepto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GraficoBarras.resx">
       <DependentUpon>GraficoBarras.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meta.resx">
+      <DependentUpon>Meta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -318,7 +354,7 @@
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
-      <VersionMinor>7</VersionMinor>
+      <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -327,7 +363,7 @@
     <COMReference Include="Microsoft.Office.Interop.Excel">
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
-      <VersionMinor>8</VersionMinor>
+      <VersionMinor>7</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -342,6 +378,30 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scientist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scientist1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indicadores1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evaluador1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
