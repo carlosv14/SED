@@ -38,6 +38,7 @@
             this.ClientSize = new System.Drawing.Size(711, 502);
             this.Name = "Meta";
             this.Text = "Meta";
+            this.Load += new System.EventHandler(this.Meta_Load);
             this.ResumeLayout(false);
 
         }

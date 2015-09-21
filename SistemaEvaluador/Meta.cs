@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,16 @@ namespace SistemaEvaluador
 {
     public partial class Meta : Form
     {
-        public Meta()
+        SqlConnection con;
+        public Meta(SqlConnection con)
         {
             InitializeComponent();
+            this.con = con;
+        }
+
+        private void Meta_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
