@@ -49,6 +49,7 @@ namespace SistemaEvaluador
 
         private void Departamentos_Click_1(object sender, EventArgs e)
         {
+            limpiar();
             Departamentos deptos = new Departamentos(con,false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
@@ -73,6 +74,7 @@ namespace SistemaEvaluador
 
         private void Agregar_Click(object sender, EventArgs e)
         {
+            limpiar();
             Departamentos deptos = new Departamentos(con,false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
@@ -81,6 +83,7 @@ namespace SistemaEvaluador
 
         private void Modificar_Click(object sender, EventArgs e)
         {
+            limpiar();
             Departamentos deptos = new Departamentos(con,true);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
@@ -89,6 +92,7 @@ namespace SistemaEvaluador
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
+            limpiar();
             Departamentos deptos = new Departamentos(con,false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
@@ -97,6 +101,7 @@ namespace SistemaEvaluador
 
         private void Agregargestion_Click(object sender, EventArgs e)
         {
+            limpiar();
             GestiondePersonal gp = new GestiondePersonal(con,false);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
@@ -105,11 +110,13 @@ namespace SistemaEvaluador
 
         private void indiadores_Click(object sender, EventArgs e)
         {
+            limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
             emp.textBox1.Visible = false;
             emp.ShowDialog();
             int id_eval = emp.id_eval;
+            limpiar();
             Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
             tabStrip1.MdiForm = this;
             ei.MdiParent = this;
@@ -119,6 +126,7 @@ namespace SistemaEvaluador
 
         private void Modificargestion_Click(object sender, EventArgs e)
         {
+            limpiar();
             GestiondePersonal gp = new GestiondePersonal(con,true);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
@@ -127,6 +135,7 @@ namespace SistemaEvaluador
 
         private void Eliminargestion_Click(object sender, EventArgs e)
         {
+            limpiar();
             GestiondePersonal gp = new GestiondePersonal(con,true);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
@@ -135,6 +144,7 @@ namespace SistemaEvaluador
 
         private void terminosyresultados_Click(object sender, EventArgs e)
         {
+            limpiar();
             Terminos_y_resultado tr = new Terminos_y_resultado();
             tabStrip1.MdiForm = this;
             tr.MdiParent = this;
@@ -143,11 +153,13 @@ namespace SistemaEvaluador
 
         private void grados_Click(object sender, EventArgs e)
         {
+            limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
             emp.textBox1.Visible = false;
             emp.ShowDialog();
             int id_eval = emp.id_eval;
+            limpiar();
             EditarGrados gr = new EditarGrados(con, id_eval);
             tabStrip1.MdiForm = this;
             gr.MdiParent = this;
@@ -157,9 +169,18 @@ namespace SistemaEvaluador
 
         }
 
+        private void limpiar()
+        {
+            Colorcito c = new Colorcito();
+            tabStrip1.MdiForm = this;
+            c.MdiParent = this;
+            c.Show();
+        }
+
         private void evaluacion_Click(object sender, EventArgs e)
         {
-          
+
+            limpiar();
             Evaluacion eva = new Evaluacion(con);
             tabStrip1.MdiForm = this;
             eva.MdiParent = this;
@@ -174,6 +195,7 @@ namespace SistemaEvaluador
 
         private void evaluador_Click(object sender, EventArgs e)
         {
+            limpiar();
             Evaluador i = new Evaluador(con);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
@@ -205,6 +227,7 @@ namespace SistemaEvaluador
 
         private void ribbonBar8_ItemClick(object sender, EventArgs e)
         {
+            limpiar();
             Individual ind = new Individual(con);
             tabStrip1.MdiForm = this;
             ind.MdiParent = this;
@@ -214,6 +237,7 @@ namespace SistemaEvaluador
 
         private void buttonItem3_Click_1(object sender, EventArgs e)
         {
+            limpiar();
             EvaluacionGrupal gru = new EvaluacionGrupal(con);
             tabStrip1.MdiForm = this;
             gru.MdiParent = this;

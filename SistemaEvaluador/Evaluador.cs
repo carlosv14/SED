@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
 using Excel = Microsoft.Office.Interop.Excel;
+using DevComponents.DotNetBar;
 
 
 namespace SistemaEvaluador
@@ -31,6 +32,8 @@ namespace SistemaEvaluador
             this.con = con;
             InitializeComponent();
             gradosesp = new DataTable();
+        
+          
         }
 
         private void Evaluador_Load(object sender, EventArgs e)
@@ -366,7 +369,9 @@ namespace SistemaEvaluador
 
                
                Grafica gf = new Grafica(cols.Count,resultante.x,resultante.y,resultante.z,cols);
-                gf.ShowDialog();
+               this.Hide();
+               gf.ShowDialog();
+               this.Show();
             }
             catch (Exception ex)
             {

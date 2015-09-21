@@ -215,7 +215,7 @@ namespace SistemaEvaluador
 
                 Rangos r = new Rangos(grados,resx2, l, text,label15);
                 r.ShowDialog();
-                
+                     
               
                return;
             }

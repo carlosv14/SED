@@ -64,7 +64,7 @@ namespace SistemaEvaluador
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
                 cmd3.CommandType = System.Data.CommandType.Text;
-cmd3.CommandText = "SELECT E.NOMBRES, EV.RESULTADO FROM EMPLEADOS AS E, DEPARTAMENTOS AS D, EVALUACION AS EV WHERE D.ID_DEPTO=E.ID_DEPTO AND E.ID_EMPLEADO=EV.ID_EMPLEADO AND D.ID_DEPTO="+id_depto+" AND EV.fecha_evaluacion='2015-09-10'";
+                cmd3.CommandText = "SELECT E.NOMBRES, EV.RESULTADO FROM EMPLEADOS AS E, DEPARTAMENTOS AS D, EVALUACION AS EV WHERE D.ID_DEPTO=E.ID_DEPTO AND E.ID_EMPLEADO=EV.ID_EMPLEADO AND D.ID_DEPTO=" + id_depto + " AND EV.fecha_evaluacion='" + getFecha(comboBox1.SelectedItem.ToString())+"'";
                 SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
 
                 DataSet ds3 = new DataSet();
@@ -118,6 +118,41 @@ cmd3.CommandText = "SELECT E.NOMBRES, EV.RESULTADO FROM EMPLEADOS AS E, DEPARTAM
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private string getFecha(string fecha)
+        {
+            string fe = "";
+            //6/9/2015 
+            string dia = "", mes = "", year = "";
+            int separador = 0, contYear=0;
+            for (int i = 0; i < fecha.Length; i++)
+            {
+                if (fecha[i] == '/')
+                {
+                    separador++;
+                }
+                else if(separador==0)
+                {
+                    dia += fecha[i];
+                }
+                else if(separador==1)
+                {
+                    mes += fecha[i];
+                }
+                else if(separador==2&&contYear<4)
+                {
+                    year += fecha[i];
+                    contYear++;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            fe = year + "-" + mes + "-" + dia;
+            return fe;
         }
     }
 }
