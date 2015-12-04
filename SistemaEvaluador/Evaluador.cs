@@ -25,6 +25,7 @@ namespace SistemaEvaluador
         public List<CoordenadaTriangular> nbts; 
         int id_eval;
         private DataTable gradosesp;
+        private List<string> resultadosPorCategoriaTexto;
         List<string> cols = new List<string>();
         List<Indicadores_Arr> indicadores = new List<Indicadores_Arr>();
         public Evaluador(SqlConnection con)
@@ -44,10 +45,12 @@ namespace SistemaEvaluador
             en.ShowDialog();
             id = en.id;
             id_eval = en.id_eval;
+            resultadosPorCategoriaTexto = new List<string>();
             Fecha.Text = DateTime.Now.ToString();
             try
             {
-                con.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 DataTable dt1 = new DataTable();
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.Connection = con;
@@ -216,45 +219,52 @@ namespace SistemaEvaluador
 
                 for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
                 {
-                    
-                        if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
+
+                    resultadosPorCategoriaTexto.Add(dataGridView1.Rows[i].Cells[0].Value.ToString());
+                    if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
+                    {
+
+
+                        DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1];
+                        int k = 0;
+
+                        for (int h = 2; h < dataGridView1.Columns.Count; h++)
                         {
-
-                            
-                           DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1];
-                           int k = 0;
-                               
-                                for (int h = 2; h < dataGridView1.Columns.Count; h++)
-                                {
-                                    DataGridViewCheckBoxCell cellbox =
-                                        (DataGridViewCheckBoxCell) dataGridView1.Rows[i].Cells[h];
-                                    if (
-                                        cb.Items[k].ToString() !=
-                                        dataGridView1.Columns[h].HeaderText)
-                                    {
-                                        dataGridView1.Rows[i].Cells[h] = new DataGridViewTextBoxCell();
-                                        dataGridView1.Rows[i].Cells[h].ReadOnly = true;
-                                        //cellbox.ReadOnly = true;
-
-                                    }
-                                    else
-                                    {
-
-                                        cellbox.ReadOnly = false;
-                                        if(k<cb.Items.Count-1)
-                                            k++;
-                                    }
-                                    
-                                   
+                            DataGridViewCheckBoxCell cellbox =
+                                (DataGridViewCheckBoxCell) dataGridView1.Rows[i].Cells[h];
+                            if (
+                                cb.Items[k].ToString() !=
+                                dataGridView1.Columns[h].HeaderText)
+                            {
+                                dataGridView1.Rows[i].Cells[h] = new DataGridViewTextBoxCell();
+                                dataGridView1.Rows[i].Cells[h].ReadOnly = true;
                                 
-                                
-                               
+
+                                //cellbox.ReadOnly = true;
+
+                            }
+                            else
+                            {
+
+                                cellbox.ReadOnly = false;
+                                if (k < cb.Items.Count - 1)
+                                    k++;
+                            }
+
+
+
+
+
                         }
                     }
-                }
+                 }
 
           dataGridView1.Columns[1].Visible = false;
-               
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i] = new DataGridViewTextBoxCell();
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i].ReadOnly = true;
+                }
             }
             catch (Exception ex)
             {
@@ -345,17 +355,24 @@ namespace SistemaEvaluador
                   
                 }
 
+                List<float> resultadosPorCategoria = new List<float>();
+              
                 NumeroTriangular resultante = new NumeroTriangular();
                 resultante.x = 0;
                 resultante.y = 0;
                 resultante.z = 0;
                 for (int i = 0; i < resultado.Count; i++)
                 {
+                    
                     resultante.x += resultado.ElementAt(i).x;
                     resultante.y += resultado.ElementAt(i).y;
                     resultante.z += resultado.ElementAt(i).z;
+                    resultadosPorCategoria.Add(resultado.ElementAt(i).y);
                 }
-                con.Open();
+
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd4 = new SqlCommand();
                 cmd4.Connection = con;
                 cmd4.CommandType = System.Data.CommandType.StoredProcedure;
@@ -368,7 +385,7 @@ namespace SistemaEvaluador
                 cmd4.Dispose();
 
                
-               Grafica gf = new Grafica(cols.Count,resultante.x,resultante.y,resultante.z,cols);
+               Grafica gf = new Grafica(cols.Count,resultante.x,resultante.y,resultante.z,cols,resultadosPorCategoria,resultadosPorCategoriaTexto);
                this.Hide();
                gf.ShowDialog();
                this.Show();

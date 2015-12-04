@@ -29,8 +29,10 @@ namespace SistemaEvaluador
 
             try
             {
-                con.Open();  
-                 DataTable dt = new DataTable();
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                DataTable dt = new DataTable();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
@@ -128,8 +130,10 @@ namespace SistemaEvaluador
             }
             try
             {
-                con.Open();   
-                for(int i = 0; i<indicadores.Count;i++){
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                for (int i = 0; i<indicadores.Count;i++){
                SqlCommand  cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

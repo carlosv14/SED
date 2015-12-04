@@ -27,6 +27,9 @@ namespace SistemaEvaluador
         {
             try
             {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
@@ -54,8 +57,10 @@ namespace SistemaEvaluador
             
             try
             {
-               con.Open();
-               for (int i = 0; i < dataGridView2.Rows.Count; i++)
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
@@ -86,6 +91,9 @@ namespace SistemaEvaluador
 
             try
             {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;

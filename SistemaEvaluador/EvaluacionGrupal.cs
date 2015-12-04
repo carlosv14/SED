@@ -25,7 +25,8 @@ namespace SistemaEvaluador
          
             try
             {
-                con.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 DataTable dt1 = new DataTable();
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.Connection = con;

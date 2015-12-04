@@ -41,8 +41,8 @@ namespace SistemaEvaluador
 
         private void Entrar_Click(object sender, EventArgs e)
         {
-            //setKey(usuario.Text, contrasena.Text);
-            setKey("sa", "12345");
+            setKey(usuario.Text, contrasena.Text);
+           
             try
             {
                 con.Open();

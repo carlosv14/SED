@@ -28,7 +28,10 @@ namespace SistemaEvaluador
             SqlCommand cmd = null;
             try
             {
-                con.Open();
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
                 id_Empleados = new List<int>();
                 cmd = new SqlCommand();
                 loading = true;
@@ -101,9 +104,12 @@ namespace SistemaEvaluador
         {
             if(loading)
                 return;
-            try { 
-              
-            DataTable dt1 = new DataTable();
+            try {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                DataTable dt1 = new DataTable();
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
             cmd1.CommandType = System.Data.CommandType.Text;

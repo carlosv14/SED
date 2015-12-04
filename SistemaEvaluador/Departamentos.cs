@@ -42,7 +42,9 @@ namespace SistemaEvaluador
                 dataGridView1.Visible = true;
               //  SqlCommand cmd = null;
                 try
-                {
+                {   
+                    if(con.State!=ConnectionState.Open)
+                        con.Open();
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.Connection = con;
                     cmd2.CommandType = System.Data.CommandType.Text;
@@ -82,7 +84,9 @@ namespace SistemaEvaluador
             try
             {
 
-                con.Open();
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -132,7 +136,9 @@ namespace SistemaEvaluador
             {
                 if (id_depto > 0)
                 {
-                    con.Open();
+
+                    if (con.State != ConnectionState.Open)
+                        con.Open();
                     cmd = new SqlCommand();
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;

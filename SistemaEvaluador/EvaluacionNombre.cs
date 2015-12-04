@@ -43,7 +43,8 @@ namespace SistemaEvaluador
             try
             {
 
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

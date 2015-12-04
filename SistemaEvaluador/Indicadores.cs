@@ -57,7 +57,11 @@ namespace SistemaEvaluador
            
             try
             {
-                 SqlCommand cmd2 = new SqlCommand();
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
                 cmd2.CommandText = "SELECT TOP 1 ID from INFORME_INDICADORES ORDER BY ID DESC";
@@ -69,7 +73,7 @@ namespace SistemaEvaluador
 
                 informe = int.Parse(dt.Rows[0][0].ToString());
 
-                con.Open();
+                
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

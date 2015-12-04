@@ -33,6 +33,9 @@ namespace SistemaEvaluador
         {
             try
             {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 DataTable dt3 = new DataTable();
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
@@ -51,6 +54,11 @@ namespace SistemaEvaluador
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
             }
         }
     }

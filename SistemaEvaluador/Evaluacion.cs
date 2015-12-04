@@ -47,7 +47,8 @@ namespace SistemaEvaluador
             System.Data.DataTable dt = new System.Data.DataTable();
             try
             {
-
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
@@ -62,6 +63,11 @@ namespace SistemaEvaluador
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
             }
 
             GradosInicio grad = new GradosInicio();

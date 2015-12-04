@@ -144,11 +144,11 @@ namespace SistemaEvaluador
 
         private void terminosyresultados_Click(object sender, EventArgs e)
         {
-            limpiar();
-            Terminos_y_resultado tr = new Terminos_y_resultado();
-            tabStrip1.MdiForm = this;
-            tr.MdiParent = this;
-            tr.Show();
+            //limpiar();
+            //Terminos_y_resultado tr = new Terminos_y_resultado();
+            //tabStrip1.MdiForm = this;
+            //tr.MdiParent = this;
+            //tr.Show();
         }
 
         private void grados_Click(object sender, EventArgs e)
