@@ -167,6 +167,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Criterios de Evaluacion";
             this.Load += new System.EventHandler(this.Evaluacion_Load);
+            this.Shown += new System.EventHandler(this.Evaluacion_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

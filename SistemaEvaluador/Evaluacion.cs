@@ -20,6 +20,7 @@ namespace SistemaEvaluador
         Indicadores indicador;
         Gradosindicadores grados;
         private SqlConnection con;
+        private bool shouldExit = false;
         List<String> gradosLista;
         List<Indicadores_Arr> indicadores;
         List<grados_Arr> gradosInsert;
@@ -42,6 +43,14 @@ namespace SistemaEvaluador
         {
             EvaluacionNombre Evanom = new EvaluacionNombre(con);
             Evanom.ShowDialog();
+            this.shouldExit = Evanom.exiting;
+            if (Evanom.exiting)
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+
+                return;
+            }
             Nombre.Text = Evanom.nombreEvaluacion;
             Fecha.Text = DateTime.Today.ToString();
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -75,12 +84,8 @@ namespace SistemaEvaluador
             gradosLista = grad.grados;
             for (int i = 0; i < gradosLista.Count; i++)
             {
-                gradosInsert.Add(new grados_Arr(0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));
-
-
+                gradosInsert.Add(new grados_Arr(0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));                
             }
-
-
 
             Indicadores ind = new Indicadores(con, gradosInsert);
             ind.ShowDialog();
@@ -335,6 +340,12 @@ namespace SistemaEvaluador
         private void bVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Evaluacion_Shown(object sender, EventArgs e)
+        {
+            if (this.shouldExit)
+                this.Close();
         }
     }
 }
