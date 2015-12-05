@@ -210,5 +210,11 @@ namespace SistemaEvaluador
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            con.Close();
+            login.Dispose();
+        }
     }
 }
