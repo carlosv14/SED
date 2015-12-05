@@ -128,5 +128,10 @@ namespace SistemaEvaluador
                 button1.Enabled = false;
             }
         }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

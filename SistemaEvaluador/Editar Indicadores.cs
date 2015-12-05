@@ -163,7 +163,12 @@ namespace SistemaEvaluador
                     con.Close();
             }
             this.Close();
-        }        
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

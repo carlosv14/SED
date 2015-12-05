@@ -15,8 +15,8 @@ namespace SistemaEvaluador
     {
         public string id;
         SqlConnection con;
-       public  int id_eval;
-        public EmpleadoNombre(  SqlConnection con)
+        public int id_eval;
+        public EmpleadoNombre(SqlConnection con)
         {
             this.con = con;
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            id = textBox1.Text;
+            id = (cbEmpleadoID.SelectedValue.ToString());
             id_eval = int.Parse(comboBox1.SelectedValue.ToString());
             this.Close();
         }
@@ -50,6 +50,20 @@ namespace SistemaEvaluador
                 comboBox1.DataSource = dt3;
                 comboBox1.DisplayMember = "NOMBRE";
                 comboBox1.ValueMember = "ID";
+
+                //Llenar cb con Empleados
+                DataTable dtEmpleados = new DataTable();
+                SqlCommand cmdEmpleados = new SqlCommand();
+                cmdEmpleados.Connection = con;
+                cmdEmpleados.CommandType = CommandType.Text;
+                cmdEmpleados.CommandText = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS";
+                SqlDataAdapter daEmpleados = new SqlDataAdapter(cmdEmpleados);
+                DataSet dsEmpleados = new DataSet();
+                daEmpleados.Fill(dsEmpleados);
+                dtEmpleados = dsEmpleados.Tables[0];
+                cbEmpleadoID.DataSource = dtEmpleados;
+                cbEmpleadoID.DisplayMember = "Nombre";
+                cbEmpleadoID.ValueMember = "ID_EMPLEADO";
             }
             catch (Exception ex)
             {
@@ -60,6 +74,11 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

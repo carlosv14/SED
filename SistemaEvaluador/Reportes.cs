@@ -32,5 +32,10 @@ namespace SistemaEvaluador
             gru.ShowDialog();
 
         }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

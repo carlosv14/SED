@@ -12,8 +12,7 @@ namespace SistemaEvaluador
         public String Parentesco;
 
         public DependientesEmpleados(String Nombre_Dependiente, String Parentesco)
-        {
-           
+        {           
             this.Parentesco = Parentesco;
             this.Nombre_Dependiente = Nombre_Dependiente;
         }
