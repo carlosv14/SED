@@ -199,7 +199,7 @@ namespace SistemaEvaluador
         {
             try
             {
-                Console.WriteLine("Addio!");
+                //Console.WriteLine("Addio!");
                 con.Close();
                 this.Dispose();
                 this.Close();

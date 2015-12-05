@@ -42,13 +42,13 @@
             // 
             this.contrasena.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contrasena.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.contrasena.Location = new System.Drawing.Point(60, 274);
-            this.contrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contrasena.Location = new System.Drawing.Point(45, 223);
             this.contrasena.Multiline = true;
             this.contrasena.Name = "contrasena";
             this.contrasena.PasswordChar = '•';
-            this.contrasena.Size = new System.Drawing.Size(359, 38);
+            this.contrasena.Size = new System.Drawing.Size(270, 32);
             this.contrasena.TabIndex = 29;
+            this.contrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.contrasena_KeyDown);
             // 
             // label4
             // 
@@ -56,10 +56,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 20F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(16, 11);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(247, 46);
+            this.label4.Size = new System.Drawing.Size(196, 37);
             this.label4.TabIndex = 27;
             this.label4.Text = "INICIAR SESION";
             // 
@@ -67,11 +66,10 @@
             // 
             this.usuario.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuario.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.usuario.Location = new System.Drawing.Point(60, 161);
-            this.usuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usuario.Location = new System.Drawing.Point(45, 131);
             this.usuario.Multiline = true;
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(359, 38);
+            this.usuario.Size = new System.Drawing.Size(270, 32);
             this.usuario.TabIndex = 28;
             // 
             // pictureBox1
@@ -79,10 +77,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::SistemaEvaluador.Properties.Resources.people;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 161);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(19, 131);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(29, 32);
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
@@ -91,10 +88,9 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::SistemaEvaluador.Properties.Resources.pass;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(25, 274);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(19, 223);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 39);
+            this.pictureBox2.Size = new System.Drawing.Size(29, 32);
             this.pictureBox2.TabIndex = 31;
             this.pictureBox2.TabStop = false;
             // 
@@ -104,27 +100,25 @@
             this.Entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Entrar.ForeColor = System.Drawing.Color.Black;
             this.Entrar.Image = global::SistemaEvaluador.Properties.Resources._lock;
-            this.Entrar.Location = new System.Drawing.Point(-1, 423);
-            this.Entrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Entrar.Location = new System.Drawing.Point(-1, 344);
             this.Entrar.Name = "Entrar";
-            this.Entrar.Size = new System.Drawing.Size(453, 114);
+            this.Entrar.Size = new System.Drawing.Size(340, 93);
             this.Entrar.TabIndex = 30;
             this.Entrar.UseVisualStyleBackColor = false;
             this.Entrar.Click += new System.EventHandler(this.Entrar_Click);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(449, 538);
+            this.ClientSize = new System.Drawing.Size(337, 437);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.contrasena);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Entrar);
             this.Controls.Add(this.usuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

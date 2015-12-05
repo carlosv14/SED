@@ -47,5 +47,11 @@ namespace SistemaEvaluador
                 MessageBox.Show(ex.Message);
             }**/
         }
+
+        private void contrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Entrar_Click(sender, e);
+        }
     }
 }
