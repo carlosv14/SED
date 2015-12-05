@@ -34,6 +34,7 @@
             this.Departamento = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.bCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,10 +92,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(119, 169);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 16);
+            this.label1.Size = new System.Drawing.Size(195, 16);
             this.label1.TabIndex = 28;
             this.label1.Text = "Nombre de Departamento: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label9
             // 
@@ -107,7 +107,17 @@
             this.label9.Size = new System.Drawing.Size(328, 39);
             this.label9.TabIndex = 34;
             this.label9.Text = "DEPARTAMENTOS";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // bCerrar
+            // 
+            this.bCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bCerrar.Location = new System.Drawing.Point(575, 381);
+            this.bCerrar.Name = "bCerrar";
+            this.bCerrar.Size = new System.Drawing.Size(81, 26);
+            this.bCerrar.TabIndex = 35;
+            this.bCerrar.Text = "Cerrar";
+            this.bCerrar.UseVisualStyleBackColor = true;
+            this.bCerrar.Click += new System.EventHandler(this.bCerrar_Click);
             // 
             // Departamentos
             // 
@@ -116,6 +126,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(774, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.bCerrar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -143,5 +154,6 @@
         private System.Windows.Forms.TextBox Departamento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button bCerrar;
     }
 }

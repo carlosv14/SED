@@ -131,7 +131,7 @@ namespace SistemaEvaluador
                 chart1.ChartAreas["draw"].AxisX.Interval = 1;
                 chart1.ChartAreas["draw"].AxisX.MajorGrid.LineColor = Color.White;
                 chart1.ChartAreas["draw"].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                int contador = 1;
+             
                 chart1.ChartAreas["draw"].BackColor = Color.White;
 
                 for (int j = 0; j < empleados_id.Count; j++)

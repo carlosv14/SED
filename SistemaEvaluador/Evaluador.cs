@@ -404,7 +404,7 @@ namespace SistemaEvaluador
         private void formatoEvaluadorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog fd = new OpenFileDialog();
-            string strfilename;
+           
             if (fd.ShowDialog(this) == DialogResult.OK)
             {
                 String filename = fd.FileName.ToString();

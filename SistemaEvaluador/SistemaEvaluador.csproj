@@ -36,7 +36,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=9.3.0.4, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=12.1.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="DocX, Version=1.0.0.18, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DocX.1.0.0.18\lib\net40\DocX.dll</HintPath>
       <Private>True</Private>
@@ -326,7 +326,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\App.config" />
+    <None Include="Resources\App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pass.png" />

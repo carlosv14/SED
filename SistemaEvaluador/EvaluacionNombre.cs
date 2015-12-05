@@ -39,7 +39,6 @@ namespace SistemaEvaluador
             
             nombreEvaluacion = textBox1.Text;
             SqlCommand cmd = null;
-            SqlCommand cmd2 = null;
             try
             {
 
@@ -75,6 +74,11 @@ namespace SistemaEvaluador
         private void EvaluacionNombre_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

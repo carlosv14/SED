@@ -16,7 +16,6 @@ namespace SistemaEvaluador
     {
         private SqlConnection con;
         private int id_empleado;
-        private int evaluacion;
         private List<int> idevals;
         private List<string> grados;
         private double meta;
@@ -27,7 +26,6 @@ namespace SistemaEvaluador
             InitializeComponent();
             this.con = con;
             grados = new List<string>();
-            evaluacion = 0;
             this.id_empleado = id_empleado;
             this.Text=
             "GRAFICA";

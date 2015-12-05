@@ -18,24 +18,17 @@ namespace SistemaEvaluador
         {
             InitializeComponent();
             hijos = new List<DependientesEmpleados>();
-        }
-
-        private void Dependientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        }        
         private void button1_Click(object sender, EventArgs e)
         {
             DependientesEmpleados depen = new DependientesEmpleados(nombredependiente.Text, textBox1.Text);
             hijos.Add(depen);
             this.Close();
             
-        }
+        }        
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bCerrar_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
     }
