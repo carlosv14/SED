@@ -34,9 +34,7 @@ namespace SistemaEvaluador
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-           
-            
+        {           
             nombreEvaluacion = textBox1.Text;
             SqlCommand cmd = null;
             try
@@ -53,10 +51,6 @@ namespace SistemaEvaluador
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Se agrego correctamente");
-
-              
-
-
             }
             catch (Exception ene)
             {
