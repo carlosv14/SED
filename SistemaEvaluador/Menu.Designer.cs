@@ -128,7 +128,6 @@
             this.ribbonControl1.TabGroupHeight = 14;
             this.ribbonControl1.TabIndex = 3;
             this.ribbonControl1.Text = "ribbonControl1";
-            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // ribbonPanel4
             // 
@@ -236,7 +235,6 @@
             this.buttonItem2.Name = "buttonItem2";
             this.buttonItem2.SubItemsExpandWidth = 14;
             this.buttonItem2.Text = "buttonItem2";
-            this.buttonItem2.Click += new System.EventHandler(this.buttonItem2_Click);
             // 
             // ribbonPanel3
             // 
@@ -420,7 +418,6 @@
             // 
             // 
             this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar1.ItemClick += new System.EventHandler(this.ribbonBar1_ItemClick);
             // 
             // buttonItem14
             // 
@@ -434,7 +431,6 @@
             this.Eliminar});
             this.buttonItem14.SubItemsExpandWidth = 14;
             this.buttonItem14.Text = "Departamento";
-            this.buttonItem14.Click += new System.EventHandler(this.buttonItem14_Click);
             // 
             // Agregar
             // 
@@ -625,7 +621,6 @@
             this.ribbonTabItem3.Name = "ribbonTabItem3";
             this.ribbonTabItem3.Panel = this.ribbonPanel3;
             this.ribbonTabItem3.Text = "Evaluacion";
-            this.ribbonTabItem3.Click += new System.EventHandler(this.ribbonTabItem3_Click);
             // 
             // ribbonTabItem4
             // 
@@ -664,7 +659,6 @@
             this.tabStrip1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005;
             this.tabStrip1.TabIndex = 5;
             this.tabStrip1.Text = "tabStrip1";
-            this.tabStrip1.Click += new System.EventHandler(this.tabStrip1_Click);
             // 
             // Menu
             // 
@@ -683,7 +677,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
             this.ribbonPanel4.ResumeLayout(false);
