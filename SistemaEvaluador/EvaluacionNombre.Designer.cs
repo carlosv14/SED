@@ -54,7 +54,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(212, 22);
             this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -109,7 +108,6 @@
             this.Name = "EvaluacionNombre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EvaluacionNombre";
-            this.Load += new System.EventHandler(this.EvaluacionNombre_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

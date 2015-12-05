@@ -16,9 +16,11 @@ namespace SistemaEvaluador
         public string id;
         SqlConnection con;
         public int id_eval;
+        public bool exiting;
         public EmpleadoNombre(SqlConnection con)
         {
             this.con = con;
+            this.exiting = false;
             InitializeComponent();
         }
 
@@ -33,7 +35,6 @@ namespace SistemaEvaluador
         {
             try
             {
-
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 DataTable dt3 = new DataTable();
@@ -78,6 +79,7 @@ namespace SistemaEvaluador
 
         private void bVolver_Click(object sender, EventArgs e)
         {
+            this.exiting = true;
             this.Close();
         }
     }

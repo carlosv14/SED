@@ -81,7 +81,6 @@ namespace SistemaEvaluador
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
-            emp.textBox1.Visible = false;
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             limpiar();
@@ -107,23 +106,13 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
-        }
-
-        private void terminosyresultados_Click(object sender, EventArgs e)
-        {
-            //limpiar();
-            //Terminos_y_resultado tr = new Terminos_y_resultado();
-            //tabStrip1.MdiForm = this;
-            //tr.MdiParent = this;
-            //tr.Show();
-        }
+        }        
 
         private void grados_Click(object sender, EventArgs e)
         {
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
-            emp.textBox1.Visible = false;
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             limpiar();
@@ -144,7 +133,6 @@ namespace SistemaEvaluador
 
         private void evaluacion_Click(object sender, EventArgs e)
         {
-
             limpiar();
             Evaluacion eva = new Evaluacion(con);
             tabStrip1.MdiForm = this;

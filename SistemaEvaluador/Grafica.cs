@@ -34,7 +34,6 @@ namespace SistemaEvaluador
         private Label l;
         private List<Label> labels1;
         string text;
-        private float calif;
         private List<float> resultadosporcat;
         private List<string> resultadosporcattexto;
         public Grafica(int cantidadGrados, float x, float y, float z, List<string> grados,List<float>resultadoporcat, List<string> resultadosporcattexto)

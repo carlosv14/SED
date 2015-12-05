@@ -15,24 +15,15 @@ namespace SistemaEvaluador
     {
         public string nombreEvaluacion;
         public SqlConnection conn;
+        public bool exiting;
+
         public EvaluacionNombre(SqlConnection conn)
         {
             InitializeComponent();
             this.conn = conn;
+            this.exiting = false;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                button1.Enabled = true;
-            }
-            else
-            {
-                button1.Enabled = false;
-            }
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {           
             nombreEvaluacion = textBox1.Text;
@@ -64,14 +55,10 @@ namespace SistemaEvaluador
 
             this.Close();
         }
-
-        private void EvaluacionNombre_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void bVolver_Click(object sender, EventArgs e)
         {
+            this.exiting = true;
             this.Close();
         }
     }
