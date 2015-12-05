@@ -146,6 +146,6 @@
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bVolver;
-        private System.Windows.Forms.ComboBox cbEmpleadoID;
+        public System.Windows.Forms.ComboBox cbEmpleadoID;
     }
 }

@@ -81,9 +81,12 @@ namespace SistemaEvaluador
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
-            emp.ShowDialog();
+            emp.cbEmpleadoID.Visible = false;
+            emp.ShowDialog();           
             int id_eval = emp.id_eval;
             limpiar();
+            if (emp.exiting)
+                return;
             Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
             tabStrip1.MdiForm = this;
             ei.MdiParent = this;
@@ -113,9 +116,12 @@ namespace SistemaEvaluador
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
+            emp.cbEmpleadoID.Visible = false;
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             limpiar();
+            if (emp.exiting)
+                return;
             EditarGrados gr = new EditarGrados(con, id_eval);
             tabStrip1.MdiForm = this;
             gr.MdiParent = this;
