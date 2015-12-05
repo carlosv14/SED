@@ -33,12 +33,11 @@ namespace SistemaEvaluador
         {
             float result = 0;
             int contador = 0;
-            
-            bool gen = false;
-            List<int>fin = new List<int>();
+
+            List<int> fin = new List<int>();
             for (int i = 0; i < cats.Count; i++)
             {
-                
+
                 if (i > 0)
                 {
                     if (cats.ElementAt(i).Contains("--"))
@@ -50,9 +49,9 @@ namespace SistemaEvaluador
                         fin.Add(contador);
                         contador = 0;
                     }
-                    if(i==cats.Count-1)
+                    if (i == cats.Count - 1)
                         fin.Add(contador);
-                   
+
                 }
             }
 
@@ -63,28 +62,28 @@ namespace SistemaEvaluador
             {
                 for (int j = 0; j < fin.ElementAt(i); j++)
                 {
-                    result += results.ElementAt(pos+j);
+                    result += results.ElementAt(pos + j);
                 }
-                results.Insert(parainsertar,result);
+                results.Insert(parainsertar, result);
                 result = 0;
                 if (pos == 0)
                     pos += fin.ElementAt(i) + 1;
                 else
                     pos += fin.ElementAt(i);
-                    parainsertar += fin.ElementAt(i) + 1;
+                parainsertar += fin.ElementAt(i) + 1;
 
             }
 
             Resultadofinal.Text = indice.ToString();
             Idesempeño.Text = calif.ToString();
-            richTextBox1.Font = new Font(richTextBox1.Font.FontFamily,16);
+            richTextBox1.Font = new Font(richTextBox1.Font.FontFamily, 16);
             for (int i = 0; i < cats.Count; i++)
                 richTextBox1.Text += cats.ElementAt(i) + ": " + results.ElementAt(i).ToString() + "\n";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string fileName = @System.IO.Directory.GetCurrentDirectory()+"\\Doc";
+            string fileName = @System.IO.Directory.GetCurrentDirectory() + "\\Doc";
             string headlineText = "Resultado";
             string paraOne = richTextBox1.Text;
 
@@ -103,12 +102,12 @@ namespace SistemaEvaluador
 
             // Create the document in memory:
             var doc = DocX.Create(fileName);
-           
+
             // Insert the now text obejcts;
-           
+
             Paragraph headline = doc.InsertParagraph(headlineText);
-            headline.Color(System.Drawing.Color.Blue);
-            headline.Font(new System.Drawing.FontFamily("Comic Sans MS"));
+            headline.Color(Color.Black);
+            headline.Font(new FontFamily("Tahoma"));
             headline.Bold();
             headline.Position(12D);
             headline.FontSize(18D);

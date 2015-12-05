@@ -37,6 +37,7 @@
             this.guardarEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.bVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             this.label1.Location = new System.Drawing.Point(11, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 16);
+            this.label1.Size = new System.Drawing.Size(182, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de la evaluación";
             // 
@@ -58,7 +59,7 @@
             this.Nombre.Location = new System.Drawing.Point(227, 42);
             this.Nombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(91, 16);
+            this.Nombre.Size = new System.Drawing.Size(92, 16);
             this.Nombre.TabIndex = 1;
             this.Nombre.Text = "---------------------";
             // 
@@ -68,7 +69,7 @@
             this.Fecha.Location = new System.Drawing.Point(227, 71);
             this.Fecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Fecha.Name = "Fecha";
-            this.Fecha.Size = new System.Drawing.Size(91, 16);
+            this.Fecha.Size = new System.Drawing.Size(92, 16);
             this.Fecha.TabIndex = 3;
             this.Fecha.Text = "---------------------";
             // 
@@ -79,7 +80,7 @@
             this.label4.Location = new System.Drawing.Point(11, 71);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Fecha";
             // 
@@ -134,12 +135,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // bVolver
+            // 
+            this.bVolver.Location = new System.Drawing.Point(631, 42);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Size = new System.Drawing.Size(75, 23);
+            this.bVolver.TabIndex = 7;
+            this.bVolver.Text = "Volver";
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
+            // 
             // Evaluacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(758, 547);
+            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Fecha);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.ToolStripMenuItem guardarEvaluacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelarEvaluacionToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bVolver;
     }
 }

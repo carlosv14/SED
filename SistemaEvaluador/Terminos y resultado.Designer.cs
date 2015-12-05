@@ -127,7 +127,7 @@
             this.Controls.Add(this.Resultadofinal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Terminos_y_resultado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Terminos_y_resultado";
