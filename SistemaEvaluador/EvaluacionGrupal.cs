@@ -25,7 +25,8 @@ namespace SistemaEvaluador
          
             try
             {
-                con.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 DataTable dt1 = new DataTable();
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.Connection = con;
@@ -64,6 +65,11 @@ namespace SistemaEvaluador
             this.Hide();
             gb.ShowDialog();
             this.Show();
+            this.Close();
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

@@ -21,61 +21,29 @@ namespace SistemaEvaluador
         }
         SqlConnection con;
         Login login;
-         
-        
-     
+
         public Menu(SqlConnection con, Login login)
         {
             InitializeComponent();
             this.Enabled = true;
             this.con = con;
-         
+
             this.login = login;
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void ribbonControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabStrip1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Departamentos_Click_1(object sender, EventArgs e)
         {
             limpiar();
-            Departamentos deptos = new Departamentos(con,false);
+            Departamentos deptos = new Departamentos(con, false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
-
-        }
-
-        private void buttonItem3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ribbonBar1_ItemClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ribbonTabItem3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Agregar_Click(object sender, EventArgs e)
         {
             limpiar();
-            Departamentos deptos = new Departamentos(con,false);
+            Departamentos deptos = new Departamentos(con, false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -84,7 +52,7 @@ namespace SistemaEvaluador
         private void Modificar_Click(object sender, EventArgs e)
         {
             limpiar();
-            Departamentos deptos = new Departamentos(con,true);
+            Departamentos deptos = new Departamentos(con, true);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -93,7 +61,7 @@ namespace SistemaEvaluador
         private void Eliminar_Click(object sender, EventArgs e)
         {
             limpiar();
-            Departamentos deptos = new Departamentos(con,false);
+            Departamentos deptos = new Departamentos(con, false);
             tabStrip1.MdiForm = this;
             deptos.MdiParent = this;
             deptos.Show();
@@ -102,7 +70,7 @@ namespace SistemaEvaluador
         private void Agregargestion_Click(object sender, EventArgs e)
         {
             limpiar();
-            GestiondePersonal gp = new GestiondePersonal(con,false);
+            GestiondePersonal gp = new GestiondePersonal(con, false);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
@@ -113,21 +81,22 @@ namespace SistemaEvaluador
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
-            emp.textBox1.Visible = false;
-            emp.ShowDialog();
+            emp.cbEmpleadoID.Visible = false;
+            emp.ShowDialog();           
             int id_eval = emp.id_eval;
             limpiar();
+            if (emp.exiting)
+                return;
             Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
             tabStrip1.MdiForm = this;
             ei.MdiParent = this;
             ei.Show();
-            
         }
 
         private void Modificargestion_Click(object sender, EventArgs e)
         {
             limpiar();
-            GestiondePersonal gp = new GestiondePersonal(con,true);
+            GestiondePersonal gp = new GestiondePersonal(con, true);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
@@ -136,37 +105,28 @@ namespace SistemaEvaluador
         private void Eliminargestion_Click(object sender, EventArgs e)
         {
             limpiar();
-            GestiondePersonal gp = new GestiondePersonal(con,true);
+            GestiondePersonal gp = new GestiondePersonal(con, true);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
-        }
-
-        private void terminosyresultados_Click(object sender, EventArgs e)
-        {
-            limpiar();
-            Terminos_y_resultado tr = new Terminos_y_resultado();
-            tabStrip1.MdiForm = this;
-            tr.MdiParent = this;
-            tr.Show();
-        }
+        }        
 
         private void grados_Click(object sender, EventArgs e)
         {
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
-            emp.textBox1.Visible = false;
+            emp.cbEmpleadoID.Visible = false;
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             limpiar();
+            if (emp.exiting)
+                return;
             EditarGrados gr = new EditarGrados(con, id_eval);
             tabStrip1.MdiForm = this;
             gr.MdiParent = this;
             gr.Show();
             //gr.ShowDialog();
-
-
         }
 
         private void limpiar()
@@ -179,18 +139,11 @@ namespace SistemaEvaluador
 
         private void evaluacion_Click(object sender, EventArgs e)
         {
-
             limpiar();
             Evaluacion eva = new Evaluacion(con);
             tabStrip1.MdiForm = this;
             eva.MdiParent = this;
             eva.Show();
-
-          
-
-          
-
-            
         }
 
         private void evaluador_Click(object sender, EventArgs e)
@@ -200,7 +153,6 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
-            
         }
 
         private void ribbonPanel4_Click(object sender, EventArgs e)
@@ -217,12 +169,6 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             r.MdiParent = this;
             r.Show();
-            
-        }
-
-        private void buttonItem14_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ribbonBar8_ItemClick(object sender, EventArgs e)
@@ -232,7 +178,6 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             ind.MdiParent = this;
             ind.Show();
-
         }
 
         private void buttonItem3_Click_1(object sender, EventArgs e)
@@ -242,13 +187,22 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             gru.MdiParent = this;
             gru.Show();
-         
-
         }
-
-        private void buttonItem2_Click(object sender, EventArgs e)
+        
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            try
+            {
+                //Console.WriteLine("Addio!");
+                con.Close();
+                this.Dispose();
+                this.Close();
+                login.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

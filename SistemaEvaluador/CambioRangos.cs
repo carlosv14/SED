@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
 
 namespace SistemaEvaluador
 {
-    public partial class Rangos : Form
+    public partial class CambioRangos : Form
     {
         private List<Label> labels;
         private List<TextBox> textBoxs;
@@ -20,16 +19,17 @@ namespace SistemaEvaluador
         private Label l;
         private string text;
         private Label cal;
-        public Rangos(List<string> grados,float resul, Label l, string text, Label calificacion)
+
+        public CambioRangos(List<string> grados, float resul, Label l, string text, Label calificacion)
         {
-           this.labels = new List<Label>();
+            InitializeComponent();
+            this.labels = new List<Label>();
             this.grados = grados;
             this.l = l;
             this.cal = calificacion;
             this.resul = resul;
             this.text = text;
             this.textBoxs = new List<TextBox>();
-            InitializeComponent();
             labels.Add(label1);
             labels.Add(label2);
             labels.Add(label3);
@@ -74,6 +74,13 @@ namespace SistemaEvaluador
             asignarGrados();
         }
 
+        private void CambioRangos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        
         private void asignarGrados()
         {
             for (int i = 0; i < grados.Count; i++)
@@ -81,7 +88,7 @@ namespace SistemaEvaluador
                 labels.ElementAt(i).Text = grados.ElementAt(i);
                 labels.ElementAt(i).Visible = true;
             }
-            for (int i = 0; i < grados.Count*2; i++)
+            for (int i = 0; i < grados.Count * 2; i++)
             {
                 textBoxs.ElementAt(i).Visible = true;
             }
@@ -97,45 +104,40 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<float>resultados = new List<float>();
-            for (int i = 0; i < grados.Count-1; i++)
+            List<float> resultados = new List<float>();
+            for (int i = 0; i < grados.Count - 1; i++)
             {
-                resultados.Add((float)1/(grados.Count+(grados.Count-2))+(float)1/(grados.Count-1)*i);
+                resultados.Add((float)1 / (grados.Count + (grados.Count - 2)) + (float)1 / (grados.Count - 1) * i);
             }
 
             float n = 0;
             string texto = text;
             for (int i = 0; i < grados.Count; i++)
             {
-               
-                    if ( i== 0 && resul<resultados.ElementAt(i) && resul>0)
-                    {
-                        n = ((2*(grados.Count)) - 2)*(int.Parse(textBoxs.ElementAt(i+1).Text)-int.Parse(textBoxs.ElementAt(i).Text))* resul/((2*i)+1);
-                        break;
-                    }
+
+                if (i == 0 && resul < resultados.ElementAt(i) && resul > 0)
+                {
+                    n = ((2 * (grados.Count)) - 2) * (int.Parse(textBoxs.ElementAt(i + 1).Text) - int.Parse(textBoxs.ElementAt(i).Text)) * resul / ((2 * i) + 1);
+                    break;
+                }
 
 
-                    if (i!= grados.Count-1 && resul < resultados.ElementAt(i))
-                    {
-                      n = ((float)((int.Parse(textBoxs.ElementAt(i*2+1).Text) - int.Parse(textBoxs.ElementAt(i*2).Text)) *(grados.Count -1)* resul) + int.Parse(textBoxs.ElementAt(i*2).Text) - (float)((int.Parse(textBoxs.ElementAt(i*2+1).Text) - int.Parse(textBoxs.ElementAt(i*2).Text)) * (grados.Count - 1)*((2*i)-1))/((2*grados.Count)-2));
-                        break;
-                    }
-                    else if (i == grados.Count-1 && resul>resultados.ElementAt(i-1) && resul<1)
-                    {
-                        n = ((((int.Parse(textBoxs.ElementAt(i*2+1).Text) - int.Parse(textBoxs.ElementAt(i*2).Text)) * ((2*grados.Count) - 2) * resul))/((2*grados.Count)-(2*i)-1) + int.Parse(textBoxs.ElementAt(i*2).Text) - (float)((int.Parse(textBoxs.ElementAt(i*2+1).Text) - int.Parse(textBoxs.ElementAt(i*2).Text)) * ((2 * i) - 1)) / ((2 * grados.Count) - (2 * i) - 1));
-                        break;
-                    }
-                
+                if (i != grados.Count - 1 && resul < resultados.ElementAt(i))
+                {
+                    n = ((float)((int.Parse(textBoxs.ElementAt(i * 2 + 1).Text) - int.Parse(textBoxs.ElementAt(i * 2).Text)) * (grados.Count - 1) * resul) + int.Parse(textBoxs.ElementAt(i * 2).Text) - (float)((int.Parse(textBoxs.ElementAt(i * 2 + 1).Text) - int.Parse(textBoxs.ElementAt(i * 2).Text)) * (grados.Count - 1) * ((2 * i) - 1)) / ((2 * grados.Count) - 2));
+                    break;
+                }
+                else if (i == grados.Count - 1 && resul > resultados.ElementAt(i - 1) && resul <= 1)
+                {
+                    n = ((((int.Parse(textBoxs.ElementAt(i * 2 + 1).Text) - int.Parse(textBoxs.ElementAt(i * 2).Text)) * ((2 * grados.Count) - 2) * resul)) / ((2 * grados.Count) - (2 * i) - 1) + int.Parse(textBoxs.ElementAt(i * 2).Text) - (float)((int.Parse(textBoxs.ElementAt(i * 2 + 1).Text) - int.Parse(textBoxs.ElementAt(i * 2).Text)) * ((2 * i) - 1)) / ((2 * grados.Count) - (2 * i) - 1));
+                    break;
+                }
+
             }
-            this.l.Text = texto+" "+ n.ToString();
+            this.l.Text = texto + " " + n.ToString();
             this.cal.Text = n.ToString();
             this.Close();
-            
-        }
 
-        private void bVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

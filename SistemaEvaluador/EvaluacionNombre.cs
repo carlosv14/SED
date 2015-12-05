@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,35 +15,24 @@ namespace SistemaEvaluador
     {
         public string nombreEvaluacion;
         public SqlConnection conn;
+        public bool exiting;
+
         public EvaluacionNombre(SqlConnection conn)
         {
             InitializeComponent();
             this.conn = conn;
+            this.exiting = false;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                button1.Enabled = true;
-            }
-            else
-            {
-                button1.Enabled = false;
-            }
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
-        {
-           
-            
+        {           
             nombreEvaluacion = textBox1.Text;
             SqlCommand cmd = null;
-            SqlCommand cmd2 = null;
             try
             {
 
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -53,10 +42,6 @@ namespace SistemaEvaluador
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Se agrego correctamente");
-
-              
-
-
             }
             catch (Exception ene)
             {
@@ -70,10 +55,11 @@ namespace SistemaEvaluador
 
             this.Close();
         }
-
-        private void EvaluacionNombre_Load(object sender, EventArgs e)
+        
+        private void bVolver_Click(object sender, EventArgs e)
         {
-
+            this.exiting = true;
+            this.Close();
         }
     }
 }

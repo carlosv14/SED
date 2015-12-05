@@ -54,5 +54,10 @@ namespace SistemaEvaluador
                 MessageBox.Show("Defina grados para Indicador");
             }
         }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

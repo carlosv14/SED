@@ -27,10 +27,13 @@ namespace SistemaEvaluador
         {
             try
             {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "select NOMBRE from GRADOS where ID="+id_eva+" group by NOMBRE;";
+                cmd2.CommandText = "select NOMBRE from GRADOS where ID=" + id_eva + " group by NOMBRE;";
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 DataTable dt = new DataTable();
                 DataSet ds = new DataSet();
@@ -51,16 +54,18 @@ namespace SistemaEvaluador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
-               con.Open();
-               for (int i = 0; i < dataGridView2.Rows.Count; i++)
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = "UPDATE GRADOS SET NOMBRE= '"+Grados.Text+ "' WHERE ID_GRADO = '"+dataGridView2.Rows[i].Cells[0].Value.ToString()+"'";
+                    cmd.CommandText = "UPDATE GRADOS SET NOMBRE= '" + Grados.Text + "' WHERE ID_GRADO = '" + dataGridView2.Rows[i].Cells[0].Value.ToString() + "'";
 
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
@@ -83,9 +88,11 @@ namespace SistemaEvaluador
             Grados.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             gradoMod = Grados.Text;
 
-
             try
             {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
@@ -105,9 +112,9 @@ namespace SistemaEvaluador
             {
                 if (con.State != ConnectionState.Closed)
                     con.Close();
-               
+
             }
-           
+
         }
 
         private void Grados_TextChanged(object sender, EventArgs e)
@@ -120,6 +127,11 @@ namespace SistemaEvaluador
             {
                 button1.Enabled = false;
             }
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

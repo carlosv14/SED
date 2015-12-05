@@ -50,7 +50,8 @@ namespace SistemaEvaluador
             SqlCommand cmd = null;
             try
             {
-                con.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.Text;
@@ -85,10 +86,6 @@ namespace SistemaEvaluador
             Telefono.Text = "";
             pasaporte.Text = "";
             Puesto.Text = "";
-            estadoCivil.Items.Clear();
-            NivelEducacion.Items.Clear();
-            DepartamentoTrabajo.Items.Clear();
-            Jefe.Items.Clear();
             Femenino.Checked = false;
             Masculino.Checked = false;
             si.Checked = false;
@@ -99,7 +96,8 @@ namespace SistemaEvaluador
             SqlCommand cmd = null;
             try
             {
-                con.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
 
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
@@ -216,7 +214,8 @@ namespace SistemaEvaluador
 
             try
             {
-
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
@@ -249,6 +248,11 @@ namespace SistemaEvaluador
         private void Modificar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

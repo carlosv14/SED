@@ -32,7 +32,8 @@ namespace SistemaEvaluador
             {
 
 
-                con.Open();
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -55,6 +56,11 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

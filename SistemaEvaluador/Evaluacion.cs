@@ -20,6 +20,7 @@ namespace SistemaEvaluador
         Indicadores indicador;
         Gradosindicadores grados;
         private SqlConnection con;
+        private bool shouldExit = false;
         List<String> gradosLista;
         List<Indicadores_Arr> indicadores;
         List<grados_Arr> gradosInsert;
@@ -42,12 +43,21 @@ namespace SistemaEvaluador
         {
             EvaluacionNombre Evanom = new EvaluacionNombre(con);
             Evanom.ShowDialog();
+            this.shouldExit = Evanom.exiting;
+            if (Evanom.exiting)
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+
+                return;
+            }
             Nombre.Text = Evanom.nombreEvaluacion;
             Fecha.Text = DateTime.Today.ToString();
             System.Data.DataTable dt = new System.Data.DataTable();
             try
             {
-
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
@@ -63,18 +73,19 @@ namespace SistemaEvaluador
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
 
             GradosInicio grad = new GradosInicio();
             grad.ShowDialog();
             gradosLista = grad.grados;
             for (int i = 0; i < gradosLista.Count; i++)
             {
-                gradosInsert.Add(new grados_Arr(0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));
-
-
+                gradosInsert.Add(new grados_Arr(0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));                
             }
-
-
 
             Indicadores ind = new Indicadores(con, gradosInsert);
             ind.ShowDialog();
@@ -109,7 +120,7 @@ namespace SistemaEvaluador
 
         private void AddIndicadoresDataGrid()
         {
-            string[] rows = new string[gradosLista.Count()+1];
+            string[] rows = new string[gradosLista.Count() + 1];
             for (int i = 0; i < indicadores.Count(); i++)
             {
                 //Agregar indicador General, luego un for para el especifico de este
@@ -120,7 +131,7 @@ namespace SistemaEvaluador
                 {
                     rows[0] = indicadores.ElementAt(i).IndicadoresEspecificos.ElementAt(x).peso.ToString();
                     rows[1] = "   ------" + indicadores.ElementAt(i).IndicadoresEspecificos.ElementAt(x).descp;
-                    
+
                     dataGridView1.Rows.Add(rows);
                     for (int j = 1; j < dataGridView1.Columns.Count; j++)
                     {
@@ -146,8 +157,8 @@ namespace SistemaEvaluador
             }
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                 dataGridView1.Rows[i].Cells[0].ReadOnly = true;
-                 dataGridView1.Rows[i].Cells[1].ReadOnly = true;
+                dataGridView1.Rows[i].Cells[0].ReadOnly = true;
+                dataGridView1.Rows[i].Cells[1].ReadOnly = true;
             }
 
         }
@@ -159,7 +170,7 @@ namespace SistemaEvaluador
             Worksheet ws = (Worksheet)Excel.ActiveSheet;
 
             Excel.Visible = true;
-          
+
             ws.Cells[3, 2] = "Pesos";
             ws.Cells[3, 3] = "Indicadores";
 
@@ -173,7 +184,7 @@ namespace SistemaEvaluador
             {
                 for (int x = 0; x < gradosLista.Count() + 2; x++)
                 {
-                    ws.Cells[i + 4, x+2] = dataGridView1.Rows[i].Cells[x].Value;
+                    ws.Cells[i + 4, x + 2] = dataGridView1.Rows[i].Cells[x].Value;
                 }
             }
 
@@ -187,21 +198,21 @@ namespace SistemaEvaluador
 
                 if (count == 0)
                 {
-                    row.Interior.Color = System.Drawing.Color.SeaGreen;
-                    row.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+                    row.Interior.Color = Color.SeaGreen;
+                    row.Font.Color = ColorTranslator.ToOle(Color.White);
                     row.Font.Size = 12;
-                    
+
                 }
                 //row.Cells.AutoFit();
 
                 border[XlBordersIndex.xlEdgeLeft].LineStyle =
-               Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+              XlLineStyle.xlContinuous;
                 border[XlBordersIndex.xlEdgeTop].LineStyle =
-                    Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                   XlLineStyle.xlContinuous;
                 border[XlBordersIndex.xlEdgeBottom].LineStyle =
-                    Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                    XlLineStyle.xlContinuous;
                 border[XlBordersIndex.xlEdgeRight].LineStyle =
-                    Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                   XlLineStyle.xlContinuous;
                 //row.Cells.AutoFit();
                 count++;
             }
@@ -210,13 +221,13 @@ namespace SistemaEvaluador
 
             usedRange.Columns.Rows[0].Merge(false);
             chartRange = usedRange.Columns.Rows[0];
-            chartRange.FormulaR1C1 = "Sistema Evaluador del Desempeño\n"+ "Evaluacion: "+Nombre.Text+"\n"+"Fecha: "+DateTime.Today;
+            chartRange.FormulaR1C1 = "Sistema Evaluador del Desempeño\n" + "Evaluacion: " + Nombre.Text + "\n" + "Fecha: " + DateTime.Today;
             chartRange.HorizontalAlignment = 3;
             chartRange.VerticalAlignment = 2;
-            chartRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.SeaGreen);
-            chartRange.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+            chartRange.Interior.Color = ColorTranslator.ToOle(Color.SeaGreen);
+            chartRange.Font.Color = ColorTranslator.ToOle(Color.White);
             chartRange.Font.Size = 16;
-            
+
         }
 
         private void indicadoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -297,12 +308,12 @@ namespace SistemaEvaluador
             chartRange = xlWorkSheet.get_Range("b2", "e9");
             chartRange.BorderAround(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlMedium, Excel.XlColorIndex.xlColorIndexAutomatic, Excel.XlColorIndex.xlColorIndexAutomatic);
 
-            xlWorkBook.SaveAs("C:\\Users\\Dannyel Perez\\Documents\\GitHub\\SED\\test.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.SaveAs("", XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
 
-           // releaseObject(xlApp);
-           // releaseObject(xlWorkBook);
+            // releaseObject(xlApp);
+            // releaseObject(xlWorkBook);
             //releaseObject(xlWorkSheet);
 
             MessageBox.Show("File created !");
@@ -324,7 +335,17 @@ namespace SistemaEvaluador
             {
                 GC.Collect();
             }
-        } 
+        }
 
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Evaluacion_Shown(object sender, EventArgs e)
+        {
+            if (this.shouldExit)
+                this.Close();
+        }
     }
 }

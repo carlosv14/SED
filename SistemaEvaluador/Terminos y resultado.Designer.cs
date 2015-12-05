@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Idesempeño = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Resultadofinal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label9
@@ -49,27 +49,16 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "TERMINOS Y RESULTADOS";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 185);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(644, 324);
-            this.dataGridView1.TabIndex = 33;
-            // 
             // Idesempeño
             // 
             this.Idesempeño.AutoSize = true;
             this.Idesempeño.BackColor = System.Drawing.Color.Transparent;
             this.Idesempeño.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Idesempeño.ForeColor = System.Drawing.Color.Black;
-            this.Idesempeño.Location = new System.Drawing.Point(215, 142);
+            this.Idesempeño.Location = new System.Drawing.Point(214, 124);
             this.Idesempeño.Name = "Idesempeño";
-            this.Idesempeño.Size = new System.Drawing.Size(44, 16);
+            this.Idesempeño.Size = new System.Drawing.Size(0, 16);
             this.Idesempeño.TabIndex = 32;
-            this.Idesempeño.Text = "label3";
             // 
             // label2
             // 
@@ -77,11 +66,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(48, 142);
+            this.label2.Location = new System.Drawing.Point(47, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 16);
+            this.label2.Size = new System.Drawing.Size(93, 16);
             this.label2.TabIndex = 31;
-            this.label2.Text = "Indice de desempeño:";
+            this.label2.Text = "Calificacion:";
             // 
             // Resultadofinal
             // 
@@ -89,11 +78,10 @@
             this.Resultadofinal.BackColor = System.Drawing.Color.Transparent;
             this.Resultadofinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Resultadofinal.ForeColor = System.Drawing.Color.Black;
-            this.Resultadofinal.Location = new System.Drawing.Point(243, 120);
+            this.Resultadofinal.Location = new System.Drawing.Point(217, 102);
             this.Resultadofinal.Name = "Resultadofinal";
-            this.Resultadofinal.Size = new System.Drawing.Size(44, 16);
+            this.Resultadofinal.Size = new System.Drawing.Size(0, 16);
             this.Resultadofinal.TabIndex = 30;
-            this.Resultadofinal.Text = "label2";
             // 
             // label1
             // 
@@ -101,29 +89,49 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(48, 120);
+            this.label1.Location = new System.Drawing.Point(47, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 16);
+            this.label1.Size = new System.Drawing.Size(164, 16);
             this.label1.TabIndex = 29;
-            this.label1.Text = "Resultado lingüístico final:";
+            this.label1.Text = "Indice de Desempeño:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(50, 165);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(690, 374);
+            this.richTextBox1.TabIndex = 33;
+            this.richTextBox1.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(371, 555);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Terminos_y_resultado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(758, 547);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(798, 599);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Idesempeño);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Resultadofinal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Terminos_y_resultado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Terminos_y_resultado";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Terminos_y_resultado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,10 +140,11 @@
         #endregion
 
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label Idesempeño;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Resultadofinal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

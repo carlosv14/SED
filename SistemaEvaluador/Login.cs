@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SistemaEvaluador
 {
@@ -26,37 +20,38 @@ namespace SistemaEvaluador
             m.ShowDialog();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void setKey(string user, string pass)
         {
-
-            con.ConnectionString = "Data Source=localhost;Initial Catalog=SISTEMA_EVALUADOR;User Id=" + user + ";Password=" + pass + ";";
-
-
+            con.ConnectionString = "Data Source=localhost;Initial Catalog=SISTEMA_EVALUADOR;User Id="
+                + user + ";Password=" + pass + ";";
         }
 
         private void Entrar_Click(object sender, EventArgs e)
         {
-            //setKey(usuario.Text, contrasena.Text);
-            setKey("sa", "12345");
+            setKey(usuario.Text, contrasena.Text);
+
             try
             {
                 con.Open();
-               con.Close();
+                con.Close();
                 Menu menu = new Menu(con, this);
                 this.Hide();
                 menu.ShowDialog();
-            
-
             }
-            catch (Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            /**catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }**/
+        }
+
+        private void contrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Entrar_Click(sender, e);
         }
     }
 }

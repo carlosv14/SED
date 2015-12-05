@@ -18,7 +18,7 @@ namespace SistemaEvaluador
         int buttony = 169;
         public bool modificar = false;
         int id_depto;
-        public Departamentos(SqlConnection con,bool modificar)
+        public Departamentos(SqlConnection con, bool modificar)
         {
             InitializeComponent();
             this.con = con;
@@ -40,9 +40,11 @@ namespace SistemaEvaluador
                 this.Size = new Size(774, 585);
                 this.Refresh();
                 dataGridView1.Visible = true;
-              //  SqlCommand cmd = null;
+                //  SqlCommand cmd = null;
                 try
                 {
+                    if (con.State != ConnectionState.Open)
+                        con.Open();
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.Connection = con;
                     cmd2.CommandType = System.Data.CommandType.Text;
@@ -53,10 +55,6 @@ namespace SistemaEvaluador
                     da.Fill(ds);
                     dt = ds.Tables[0];
                     dataGridView1.DataSource = dt;
-                    
-                    //this.Close();
-
-                   
                 }
                 catch (Exception ene)
                 {
@@ -72,7 +70,7 @@ namespace SistemaEvaluador
             {
                 Agregar.Location = new Point(buttonx, buttony);
                 Agregar.Visible = true;
-                this.Departamento.Enabled = true ;
+                this.Departamento.Enabled = true;
             }
         }
 
@@ -82,7 +80,9 @@ namespace SistemaEvaluador
             try
             {
 
-                con.Open();
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -109,8 +109,7 @@ namespace SistemaEvaluador
             Departamento.Enabled = true;
             id_depto = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
-
-
+        
         private void Departamento_Click(object sender, EventArgs e)
         {
             if (Departamento.Enabled == false)
@@ -132,7 +131,9 @@ namespace SistemaEvaluador
             {
                 if (id_depto > 0)
                 {
-                    con.Open();
+
+                    if (con.State != ConnectionState.Open)
+                        con.Open();
                     cmd = new SqlCommand();
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -156,16 +157,9 @@ namespace SistemaEvaluador
             }
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void bCerrar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }
