@@ -72,6 +72,9 @@ namespace SistemaEvaluador
                 Agregar.Visible = true;
                 this.Departamento.Enabled = true;
             }
+
+            bVolver.Location = new Point(buttonx, buttony - 40);
+            bVolver.Visible = true;
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -158,6 +161,11 @@ namespace SistemaEvaluador
         }
 
         private void bCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
