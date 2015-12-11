@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
+            this.delete_button = new System.Windows.Forms.Button();
+            this.c_evaluacion = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -92,12 +94,34 @@
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
+            // delete_button
+            // 
+            this.delete_button.Enabled = false;
+            this.delete_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_button.Location = new System.Drawing.Point(316, 263);
+            this.delete_button.Name = "delete_button";
+            this.delete_button.Size = new System.Drawing.Size(90, 41);
+            this.delete_button.TabIndex = 43;
+            this.delete_button.Text = "Borrar";
+            this.delete_button.UseVisualStyleBackColor = true;
+            this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
+            // 
+            // c_evaluacion
+            // 
+            this.c_evaluacion.FormattingEnabled = true;
+            this.c_evaluacion.Location = new System.Drawing.Point(305, 190);
+            this.c_evaluacion.Name = "c_evaluacion";
+            this.c_evaluacion.Size = new System.Drawing.Size(212, 21);
+            this.c_evaluacion.TabIndex = 44;
+            // 
             // EvaluacionNombre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(630, 315);
+            this.Controls.Add(this.c_evaluacion);
+            this.Controls.Add(this.delete_button);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
@@ -120,5 +144,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bVolver;
+        private System.Windows.Forms.Button delete_button;
+        private System.Windows.Forms.ComboBox c_evaluacion;
     }
 }

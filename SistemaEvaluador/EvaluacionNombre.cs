@@ -61,5 +61,10 @@ namespace SistemaEvaluador
             this.exiting = true;
             this.Close();
         }
+
+        private void delete_button_Click(object sender, EventArgs e)
+        {
+            //AQUI VA LOGICA BOTON BORRAR
+        }
     }
 }
