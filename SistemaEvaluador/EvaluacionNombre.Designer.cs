@@ -35,6 +35,7 @@
             this.bVolver = new System.Windows.Forms.Button();
             this.delete_button = new System.Windows.Forms.Button();
             this.c_evaluacion = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -44,18 +45,19 @@
             this.label1.Location = new System.Drawing.Point(90, 151);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 16);
+            this.label1.Size = new System.Drawing.Size(215, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de la evaluación:";
+            this.label1.Text = "Nombre de nueva evaluación:";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(305, 151);
+            this.textBox1.Location = new System.Drawing.Point(341, 151);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(212, 22);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -108,11 +110,24 @@
             // 
             // c_evaluacion
             // 
+            this.c_evaluacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.c_evaluacion.Enabled = false;
             this.c_evaluacion.FormattingEnabled = true;
-            this.c_evaluacion.Location = new System.Drawing.Point(305, 190);
+            this.c_evaluacion.Location = new System.Drawing.Point(341, 190);
             this.c_evaluacion.Name = "c_evaluacion";
             this.c_evaluacion.Size = new System.Drawing.Size(212, 21);
             this.c_evaluacion.TabIndex = 44;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(90, 195);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(235, 16);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Nombre de evaluación existente:";
             // 
             // EvaluacionNombre
             // 
@@ -120,6 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(630, 315);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.c_evaluacion);
             this.Controls.Add(this.delete_button);
             this.Controls.Add(this.bVolver);
@@ -146,5 +162,6 @@
         private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Button delete_button;
         private System.Windows.Forms.ComboBox c_evaluacion;
+        private System.Windows.Forms.Label label2;
     }
 }
