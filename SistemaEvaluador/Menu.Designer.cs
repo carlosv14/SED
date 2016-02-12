@@ -32,14 +32,14 @@
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.styleManager2 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
+            this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
+            this.evaluador = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel4 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar9 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar8 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
-            this.evaluador = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem15 = new DevComponents.DotNetBar.ButtonItem();
@@ -50,7 +50,6 @@
             this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
             this.Agregar = new DevComponents.DotNetBar.ButtonItem();
             this.Modificar = new DevComponents.DotNetBar.ButtonItem();
-            this.Eliminar = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
             this.grados = new DevComponents.DotNetBar.ButtonItem();
@@ -67,8 +66,8 @@
             this.styleManager3 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
             this.ribbonControl1.SuspendLayout();
-            this.ribbonPanel4.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
+            this.ribbonPanel4.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -90,9 +89,9 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -102,13 +101,14 @@
             this.ribbonTabItem4});
             this.ribbonControl1.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonControl1.MdiSystemItemVisible = false;
             this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.ribbonControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.ribbonControl1.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem1,
             this.qatCustomizeItem1});
-            this.ribbonControl1.Size = new System.Drawing.Size(626, 128);
+            this.ribbonControl1.Size = new System.Drawing.Size(835, 158);
             this.ribbonControl1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonControl1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
             this.ribbonControl1.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
@@ -129,16 +129,84 @@
             this.ribbonControl1.TabIndex = 3;
             this.ribbonControl1.Text = "ribbonControl1";
             // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel3.Controls.Add(this.ribbonBar6);
+            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel3.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
+            this.ribbonPanel3.Size = new System.Drawing.Size(835, 101);
+            // 
+            // 
+            // 
+            this.ribbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel3.TabIndex = 3;
+            this.ribbonPanel3.Visible = false;
+            // 
+            // ribbonBar6
+            // 
+            this.ribbonBar6.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar6.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar6.ContainerControlProcessDialogKey = true;
+            this.ribbonBar6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar6.DragDropSupport = true;
+            this.ribbonBar6.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.evaluador});
+            this.ribbonBar6.Location = new System.Drawing.Point(4, 0);
+            this.ribbonBar6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ribbonBar6.Name = "ribbonBar6";
+            this.ribbonBar6.Size = new System.Drawing.Size(133, 97);
+            this.ribbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar6.TabIndex = 0;
+            this.ribbonBar6.Text = "Evaluador";
+            // 
+            // 
+            // 
+            this.ribbonBar6.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // evaluador
+            // 
+            this.evaluador.Image = global::SistemaEvaluador.Properties.Resources.evaluador1;
+            this.evaluador.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
+            this.evaluador.ImagePaddingHorizontal = 50;
+            this.evaluador.Name = "evaluador";
+            this.evaluador.SubItemsExpandWidth = 14;
+            this.evaluador.Text = "buttonItem16";
+            this.evaluador.Click += new System.EventHandler(this.evaluador_Click);
+            // 
             // ribbonPanel4
             // 
             this.ribbonPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonPanel4.Controls.Add(this.ribbonBar9);
             this.ribbonPanel4.Controls.Add(this.ribbonBar8);
             this.ribbonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel4.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel4.Location = new System.Drawing.Point(0, 65);
+            this.ribbonPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonPanel4.Name = "ribbonPanel4";
-            this.ribbonPanel4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel4.Size = new System.Drawing.Size(626, 72);
+            this.ribbonPanel4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
+            this.ribbonPanel4.Size = new System.Drawing.Size(835, 89);
             // 
             // 
             // 
@@ -171,9 +239,10 @@
             this.ribbonBar9.DragDropSupport = true;
             this.ribbonBar9.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem3});
-            this.ribbonBar9.Location = new System.Drawing.Point(118, 0);
+            this.ribbonBar9.Location = new System.Drawing.Point(157, 0);
+            this.ribbonBar9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar9.Name = "ribbonBar9";
-            this.ribbonBar9.Size = new System.Drawing.Size(100, 69);
+            this.ribbonBar9.Size = new System.Drawing.Size(133, 85);
             this.ribbonBar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar9.TabIndex = 1;
             this.ribbonBar9.Text = "Grupales";
@@ -212,9 +281,10 @@
             this.ribbonBar8.DragDropSupport = true;
             this.ribbonBar8.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem2});
-            this.ribbonBar8.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar8.Location = new System.Drawing.Point(4, 0);
+            this.ribbonBar8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar8.Name = "ribbonBar8";
-            this.ribbonBar8.Size = new System.Drawing.Size(115, 69);
+            this.ribbonBar8.Size = new System.Drawing.Size(153, 85);
             this.ribbonBar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar8.TabIndex = 0;
             this.ribbonBar8.Text = "Individuales";
@@ -237,70 +307,6 @@
             this.buttonItem2.SubItemsExpandWidth = 14;
             this.buttonItem2.Text = "buttonItem2";
             // 
-            // ribbonPanel3
-            // 
-            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel3.Controls.Add(this.ribbonBar6);
-            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel3.Location = new System.Drawing.Point(0, 53);
-            this.ribbonPanel3.Name = "ribbonPanel3";
-            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel3.Size = new System.Drawing.Size(626, 72);
-            // 
-            // 
-            // 
-            this.ribbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel3.TabIndex = 3;
-            // 
-            // ribbonBar6
-            // 
-            this.ribbonBar6.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar6.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar6.ContainerControlProcessDialogKey = true;
-            this.ribbonBar6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar6.DragDropSupport = true;
-            this.ribbonBar6.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.evaluador});
-            this.ribbonBar6.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar6.Name = "ribbonBar6";
-            this.ribbonBar6.Size = new System.Drawing.Size(100, 69);
-            this.ribbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar6.TabIndex = 0;
-            this.ribbonBar6.Text = "Evaluador";
-            // 
-            // 
-            // 
-            this.ribbonBar6.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // evaluador
-            // 
-            this.evaluador.Image = global::SistemaEvaluador.Properties.Resources.evaluador1;
-            this.evaluador.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Large;
-            this.evaluador.ImagePaddingHorizontal = 50;
-            this.evaluador.Name = "evaluador";
-            this.evaluador.SubItemsExpandWidth = 14;
-            this.evaluador.Text = "buttonItem16";
-            this.evaluador.Click += new System.EventHandler(this.evaluador_Click);
-            // 
             // ribbonPanel1
             // 
             this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -308,9 +314,10 @@
             this.ribbonPanel1.Controls.Add(this.ribbonBar1);
             this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonPanel1.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel1.Size = new System.Drawing.Size(626, 73);
+            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
+            this.ribbonPanel1.Size = new System.Drawing.Size(835, 101);
             // 
             // 
             // 
@@ -324,7 +331,6 @@
             // 
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
-            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar2
             // 
@@ -342,9 +348,10 @@
             this.ribbonBar2.DragDropSupport = true;
             this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem15});
-            this.ribbonBar2.Location = new System.Drawing.Point(103, 0);
+            this.ribbonBar2.Location = new System.Drawing.Point(137, 0);
+            this.ribbonBar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(132, 70);
+            this.ribbonBar2.Size = new System.Drawing.Size(176, 97);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar2.TabIndex = 1;
             this.ribbonBar2.Text = "Gestion de Personal";
@@ -404,9 +411,10 @@
             this.ribbonBar1.DragDropSupport = true;
             this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem14});
-            this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar1.Location = new System.Drawing.Point(4, 0);
+            this.ribbonBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(100, 70);
+            this.ribbonBar1.Size = new System.Drawing.Size(133, 97);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar1.TabIndex = 0;
             this.ribbonBar1.Text = "Departamentos";
@@ -427,8 +435,7 @@
             this.buttonItem14.Name = "buttonItem14";
             this.buttonItem14.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.Agregar,
-            this.Modificar,
-            this.Eliminar});
+            this.Modificar});
             this.buttonItem14.SubItemsExpandWidth = 14;
             this.buttonItem14.Text = "Departamento";
             // 
@@ -446,14 +453,8 @@
             // Modificar
             // 
             this.Modificar.Name = "Modificar";
-            this.Modificar.Text = "Modificar";
+            this.Modificar.Text = "Modificar o Eliminar";
             this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             // 
             // ribbonPanel2
             // 
@@ -462,10 +463,11 @@
             this.ribbonPanel2.Controls.Add(this.ribbonBar4);
             this.ribbonPanel2.Controls.Add(this.ribbonBar3);
             this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel2.Location = new System.Drawing.Point(0, 43);
+            this.ribbonPanel2.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel2.Size = new System.Drawing.Size(626, 84);
+            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
+            this.ribbonPanel2.Size = new System.Drawing.Size(835, 103);
             // 
             // 
             // 
@@ -497,9 +499,10 @@
             this.ribbonBar5.DragDropSupport = true;
             this.ribbonBar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.grados});
-            this.ribbonBar5.Location = new System.Drawing.Point(203, 0);
+            this.ribbonBar5.Location = new System.Drawing.Point(270, 0);
+            this.ribbonBar5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(100, 81);
+            this.ribbonBar5.Size = new System.Drawing.Size(133, 99);
             this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar5.TabIndex = 2;
             this.ribbonBar5.Text = "Grados";
@@ -538,9 +541,10 @@
             this.ribbonBar4.DragDropSupport = true;
             this.ribbonBar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.indiadores});
-            this.ribbonBar4.Location = new System.Drawing.Point(103, 0);
+            this.ribbonBar4.Location = new System.Drawing.Point(137, 0);
+            this.ribbonBar4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar4.Name = "ribbonBar4";
-            this.ribbonBar4.Size = new System.Drawing.Size(100, 81);
+            this.ribbonBar4.Size = new System.Drawing.Size(133, 99);
             this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar4.TabIndex = 1;
             this.ribbonBar4.Text = "Indicadores";
@@ -579,9 +583,10 @@
             this.ribbonBar3.DragDropSupport = true;
             this.ribbonBar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.evaluacion});
-            this.ribbonBar3.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar3.Location = new System.Drawing.Point(4, 0);
+            this.ribbonBar3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(100, 81);
+            this.ribbonBar3.Size = new System.Drawing.Size(133, 99);
             this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar3.TabIndex = 0;
             this.ribbonBar3.Text = "Evaluacion";
@@ -606,6 +611,7 @@
             // 
             // ribbonTabItem1
             // 
+            this.ribbonTabItem1.Checked = true;
             this.ribbonTabItem1.Name = "ribbonTabItem1";
             this.ribbonTabItem1.Panel = this.ribbonPanel1;
             this.ribbonTabItem1.Text = "Administracion de recurso";
@@ -618,7 +624,6 @@
             // 
             // ribbonTabItem3
             // 
-            this.ribbonTabItem3.Checked = true;
             this.ribbonTabItem3.Name = "ribbonTabItem3";
             this.ribbonTabItem3.Panel = this.ribbonPanel3;
             this.ribbonTabItem3.Text = "Evaluacion";
@@ -651,26 +656,28 @@
             this.tabStrip1.CloseButtonOnTabsVisible = true;
             this.tabStrip1.CloseButtonVisible = true;
             this.tabStrip1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabStrip1.Location = new System.Drawing.Point(0, 128);
+            this.tabStrip1.Location = new System.Drawing.Point(0, 158);
+            this.tabStrip1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabStrip1.MdiForm = this;
             this.tabStrip1.Name = "tabStrip1";
             this.tabStrip1.SelectedTab = null;
-            this.tabStrip1.Size = new System.Drawing.Size(626, 23);
+            this.tabStrip1.Size = new System.Drawing.Size(835, 28);
             this.tabStrip1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005;
             this.tabStrip1.TabIndex = 5;
             this.tabStrip1.Text = "tabStrip1";
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(626, 621);
+            this.ClientSize = new System.Drawing.Size(835, 764);
             this.ControlBox = false;
             this.Controls.Add(this.tabStrip1);
             this.Controls.Add(this.ribbonControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Menu";
@@ -679,8 +686,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
-            this.ribbonPanel4.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
+            this.ribbonPanel4.ResumeLayout(false);
             this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -709,7 +716,6 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem14;
         private DevComponents.DotNetBar.ButtonItem Agregar;
         private DevComponents.DotNetBar.ButtonItem Modificar;
-        private DevComponents.DotNetBar.ButtonItem Eliminar;
         private DevComponents.DotNetBar.ButtonItem buttonItem15;
         private DevComponents.DotNetBar.ButtonItem Agregargestion;
         private DevComponents.DotNetBar.ButtonItem Modificargestion;

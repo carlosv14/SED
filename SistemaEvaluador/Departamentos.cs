@@ -14,8 +14,8 @@ namespace SistemaEvaluador
     public partial class Departamentos : Form
     {
         SqlConnection con;
-        int buttonx = 580;
-        int buttony = 169;
+        //int buttonx = 580;
+        //int buttony = 169;
         public bool modificar = false;
         int id_depto;
         public Departamentos(SqlConnection con, bool modificar)
@@ -31,13 +31,15 @@ namespace SistemaEvaluador
         {
             Agregar.Visible = false;
             button1.Visible = false;
-            this.Size = new Size(774, 585);
-            dataGridView1.Visible = false;
+            bEliminar.Visible = false;
+            //this.Size = new Size(774, 585);
+            //dataGridView1.Visible = false;
             if (modificar)
             {
-                button1.Location = new Point(buttonx, buttony);
+                //button1.Location = new Point(buttonx, buttony);
                 button1.Visible = true;
-                this.Size = new Size(774, 585);
+                bEliminar.Visible = true;
+                // this.Size = new Size(774, 585);
                 this.Refresh();
                 dataGridView1.Visible = true;
                 //  SqlCommand cmd = null;
@@ -68,12 +70,12 @@ namespace SistemaEvaluador
             }
             else
             {
-                Agregar.Location = new Point(buttonx, buttony);
+                //Agregar.Location = new Point(buttonx, buttony);
                 Agregar.Visible = true;
                 this.Departamento.Enabled = true;
             }
 
-            bVolver.Location = new Point(buttonx, buttony - 40);
+            //bVolver.Location = new Point(buttonx, buttony - 40);
             bVolver.Visible = true;
         }
 
@@ -82,8 +84,6 @@ namespace SistemaEvaluador
             SqlCommand cmd = null;
             try
             {
-
-
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 cmd = new SqlCommand();
@@ -93,7 +93,7 @@ namespace SistemaEvaluador
                 cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Departamento.Text;
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                MessageBox.Show("Se agrego correctamente");
+                MessageBox.Show("Se agregó correctamente");
                 this.Close();
             }
             catch (Exception ene)
@@ -111,8 +111,9 @@ namespace SistemaEvaluador
         {
             Departamento.Enabled = true;
             id_depto = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            Departamento.Text = Convert.ToString(id_depto); 
         }
-        
+
         private void Departamento_Click(object sender, EventArgs e)
         {
             if (Departamento.Enabled == false)
@@ -145,7 +146,7 @@ namespace SistemaEvaluador
                     cmd.Parameters.Add("@NUEVON", SqlDbType.VarChar).Value = Departamento.Text;
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
-                    MessageBox.Show("Se Modifico Correctamente");
+                    MessageBox.Show("Se Modificó Correctamente");
                     this.Close();
                 }
             }
@@ -168,6 +169,40 @@ namespace SistemaEvaluador
         private void bVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            if (Departamento.Enabled == false)
+                MessageBox.Show("Seleccione el departamento a eliminar de la tabla");
+            SqlCommand cmd = null;
+            try
+            {
+                if (id_depto > 0)
+                {
+
+                    if (con.State != ConnectionState.Open)
+                        con.Open();
+                    cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandText = "SP_DELETE_DEPARTAMENTO";
+                    cmd.Parameters.Add("@ID_DEP", SqlDbType.Int).Value = id_depto;
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                    MessageBox.Show("Se eliminó correctamente");
+                    this.Close();
+                }
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
         }
     }
 }
