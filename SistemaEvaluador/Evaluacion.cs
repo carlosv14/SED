@@ -84,7 +84,7 @@ namespace SistemaEvaluador
             gradosLista = grad.grados;
             for (int i = 0; i < gradosLista.Count; i++)
             {
-                gradosInsert.Add(new grados_Arr(0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));                
+                gradosInsert.Add(new grados_Arr(0, int.Parse(dt.Rows[0][0].ToString()), gradosLista.ElementAt(i), i + 1));
             }
 
             Indicadores ind = new Indicadores(con, gradosInsert);
