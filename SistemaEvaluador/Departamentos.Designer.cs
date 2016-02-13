@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
+            this.bEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,15 +49,15 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(567, 390);
+            this.dataGridView1.Size = new System.Drawing.Size(567, 289);
             this.dataGridView1.TabIndex = 33;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(868, 397);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(636, 325);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 32);
             this.button1.TabIndex = 32;
@@ -67,8 +68,8 @@
             // Agregar
             // 
             this.Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Agregar.Location = new System.Drawing.Point(868, 327);
-            this.Agregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Agregar.Location = new System.Drawing.Point(636, 265);
+            this.Agregar.Margin = new System.Windows.Forms.Padding(4);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(108, 32);
             this.Agregar.TabIndex = 30;
@@ -80,7 +81,7 @@
             // 
             this.Departamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Departamento.Location = new System.Drawing.Point(347, 206);
-            this.Departamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Departamento.Margin = new System.Windows.Forms.Padding(4);
             this.Departamento.Name = "Departamento";
             this.Departamento.Size = new System.Drawing.Size(280, 26);
             this.Departamento.TabIndex = 29;
@@ -116,7 +117,7 @@
             // bVolver
             // 
             this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bVolver.Location = new System.Drawing.Point(868, 460);
+            this.bVolver.Location = new System.Drawing.Point(635, 445);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(108, 31);
             this.bVolver.TabIndex = 35;
@@ -124,13 +125,26 @@
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
+            // bEliminar
+            // 
+            this.bEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEliminar.Location = new System.Drawing.Point(635, 385);
+            this.bEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.bEliminar.Name = "bEliminar";
+            this.bEliminar.Size = new System.Drawing.Size(108, 32);
+            this.bEliminar.TabIndex = 36;
+            this.bEliminar.Text = "Eliminar";
+            this.bEliminar.UseVisualStyleBackColor = true;
+            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
+            // 
             // Departamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1032, 720);
+            this.ClientSize = new System.Drawing.Size(786, 577);
             this.ControlBox = false;
+            this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
@@ -141,7 +155,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Departamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Departamentos";
@@ -161,5 +175,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bVolver;
+        private System.Windows.Forms.Button bEliminar;
     }
 }
