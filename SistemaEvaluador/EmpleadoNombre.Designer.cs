@@ -35,6 +35,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.bVolver = new System.Windows.Forms.Button();
             this.cbEmpleadoID = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -115,12 +116,24 @@
             this.cbEmpleadoID.Size = new System.Drawing.Size(201, 24);
             this.cbEmpleadoID.TabIndex = 42;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(175, 261);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 30);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Visualizar Evaluacion";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // EmpleadoNombre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(630, 315);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.cbEmpleadoID);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.label9);
@@ -140,13 +153,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bVolver;
         public System.Windows.Forms.ComboBox cbEmpleadoID;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button2;
     }
 }

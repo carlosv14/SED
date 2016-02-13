@@ -21,6 +21,7 @@ namespace SistemaEvaluador
         }
         SqlConnection con;
         Login login;
+        private bool grade = false;
 
         public Menu(SqlConnection con, Login login)
         {
@@ -81,6 +82,7 @@ namespace SistemaEvaluador
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
+            emp.button1.Visible = false;
             emp.cbEmpleadoID.Visible = false;
             emp.ShowDialog();           
             int id_eval = emp.id_eval;
@@ -116,7 +118,10 @@ namespace SistemaEvaluador
             limpiar();
             EmpleadoNombre emp = new EmpleadoNombre(con);
             emp.label1.Visible = false;
+            emp.button1.Text = "Editar";
+            emp.button2.Visible = false;
             emp.cbEmpleadoID.Visible = false;
+            
             emp.ShowDialog();
             int id_eval = emp.id_eval;
             limpiar();
@@ -230,6 +235,16 @@ namespace SistemaEvaluador
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
+        }
+
+        private void ribbonPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ribbonBar7_ItemClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

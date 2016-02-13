@@ -52,6 +52,35 @@ namespace SistemaEvaluador
             }
         }
 
+        private void load()
+        {
+            try
+            {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                SqlCommand cmd2 = new SqlCommand();
+                cmd2.Connection = con;
+                cmd2.CommandType = System.Data.CommandType.Text;
+                cmd2.CommandText = "select NOMBRE from GRADOS where ID=" + id_eva + " group by NOMBRE;";
+                SqlDataAdapter da = new SqlDataAdapter(cmd2);
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dt = ds.Tables[0];
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -80,7 +109,8 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
-            this.Close();
+            //this.Close();
+            load();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -132,6 +162,36 @@ namespace SistemaEvaluador
         private void bVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "SP.DELETE_GRADO";
+                cmd.Parameters.Add("@ID_GRADO)", SqlDbType.Int).Value = DBNull.Value;
+                cmd.Parameters.Add("@ID_IND)", SqlDbType.Int).Value = DBNull.Value;
+                cmd.Parameters.Add("@ID)", SqlDbType.Int).Value = id_eva;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
         }
     }
 }

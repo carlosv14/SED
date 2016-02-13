@@ -35,6 +35,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.bVolver = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button_borrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +104,7 @@
             // bVolver
             // 
             this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bVolver.Location = new System.Drawing.Point(580, 103);
+            this.bVolver.Location = new System.Drawing.Point(566, 103);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(81, 28);
             this.bVolver.TabIndex = 41;
@@ -114,7 +115,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(488, 103);
+            this.button1.Location = new System.Drawing.Point(481, 103);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 28);
             this.button1.TabIndex = 37;
@@ -122,12 +123,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button_borrar
+            // 
+            this.button_borrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_borrar.Location = new System.Drawing.Point(651, 103);
+            this.button_borrar.Name = "button_borrar";
+            this.button_borrar.Size = new System.Drawing.Size(79, 28);
+            this.button_borrar.TabIndex = 42;
+            this.button_borrar.Text = "Borrar";
+            this.button_borrar.UseVisualStyleBackColor = true;
+            this.button_borrar.Click += new System.EventHandler(this.button2_Click);
+            // 
             // EditarGrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(758, 547);
+            this.Controls.Add(this.button_borrar);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label9);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_borrar;
     }
 }

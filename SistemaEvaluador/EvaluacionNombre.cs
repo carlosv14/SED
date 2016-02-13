@@ -149,5 +149,10 @@ namespace SistemaEvaluador
             else
                 button1.Enabled = false;
         }
+
+        private void c_evaluacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
