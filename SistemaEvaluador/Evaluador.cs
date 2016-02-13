@@ -354,7 +354,7 @@ namespace SistemaEvaluador
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Debe chequear todos los campos indicadores.");
             }
             finally
             {
