@@ -273,9 +273,9 @@
             this.groupBox3.Controls.Add(this.Femenino);
             this.groupBox3.Controls.Add(this.Masculino);
             this.groupBox3.Location = new System.Drawing.Point(223, 154);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(264, 37);
             this.groupBox3.TabIndex = 40;
             this.groupBox3.TabStop = false;
@@ -375,7 +375,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(556, 235);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(268, 47);
             this.button2.TabIndex = 29;
@@ -395,6 +395,7 @@
             // 
             // NivelEducacion
             // 
+            this.NivelEducacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NivelEducacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NivelEducacion.FormattingEnabled = true;
             this.NivelEducacion.Items.AddRange(new object[] {
@@ -409,6 +410,7 @@
             // 
             // estadoCivil
             // 
+            this.estadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.estadoCivil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estadoCivil.FormattingEnabled = true;
             this.estadoCivil.Items.AddRange(new object[] {
@@ -540,7 +542,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestiondePersonal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestiondePersonal";
