@@ -117,6 +117,7 @@
             this.c_evaluacion.Name = "c_evaluacion";
             this.c_evaluacion.Size = new System.Drawing.Size(212, 21);
             this.c_evaluacion.TabIndex = 44;
+            this.c_evaluacion.SelectedIndexChanged += new System.EventHandler(this.c_evaluacion_SelectedIndexChanged);
             // 
             // label2
             // 

@@ -87,5 +87,13 @@ namespace SistemaEvaluador
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            id = (cbEmpleadoID.SelectedValue.ToString());
+            id_eval = int.Parse(comboBox1.SelectedValue.ToString());
+            Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
+            ei.Show();
+        }
     }
 }
