@@ -98,19 +98,19 @@ namespace SistemaEvaluador
         private void Modificargestion_Click(object sender, EventArgs e)
         {
             limpiar();
-            GestiondePersonal gp = new GestiondePersonal(con, true);
+            ListaEmpleados lEmp = new ListaEmpleados(con, true);
             tabStrip1.MdiForm = this;
-            gp.MdiParent = this;
-            gp.Show();
+            lEmp.MdiParent = this;
+            lEmp.Show();
         }
 
         private void Eliminargestion_Click(object sender, EventArgs e)
         {
             limpiar();
-            GestiondePersonal gp = new GestiondePersonal(con, true);
+            ListaEmpleados lEmp = new ListaEmpleados(con, false);
             tabStrip1.MdiForm = this;
-            gp.MdiParent = this;
-            gp.Show();
+            lEmp.MdiParent = this;
+            lEmp.Show();
         }        
 
         private void grados_Click(object sender, EventArgs e)

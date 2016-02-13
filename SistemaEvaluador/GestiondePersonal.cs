@@ -16,24 +16,19 @@ namespace SistemaEvaluador
         SqlConnection con;
         bool modificar;
         private List<DependientesEmpleados> hijos;
-        private List<int> idsJefes; 
+        private List<int> idsJefes;
+
         public GestiondePersonal(SqlConnection con, bool modificar)
         {
             InitializeComponent();
             this.con = con;
-        this.idsJefes = new List<int>();
+            this.idsJefes = new List<int>();
             this.hijos = new List<DependientesEmpleados>();
             this.modificar = modificar;
-            if (modificar)
-            {
-                Agregar.Visible = false;
-            }
-            else
-            {
-                Modificar.Visible = false;
-                Eliminar.Visible = false;
-            }
-
+            if (modificar)           
+                Agregar.Visible = false;            
+            else            
+                Modificar.Visible = false;                
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -63,9 +58,6 @@ namespace SistemaEvaluador
                 dt = ds.Tables[0];
                 DepartamentoTrabajo.DataSource = dt;
                 DepartamentoTrabajo.DisplayMember = "NOMBRE";
-
-
-
             }
             catch (Exception ene)
             {
@@ -91,6 +83,7 @@ namespace SistemaEvaluador
             si.Checked = false;
             no.Checked = false;
         }
+
         private void Agregar_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = null;
@@ -127,12 +120,12 @@ namespace SistemaEvaluador
                 cmd.Parameters.Add("@APELLIDOS", SqlDbType.VarChar).Value = Apellido.Text;
                 cmd.Parameters.Add("@DIRECCION", SqlDbType.VarChar).Value = Direcion.Text;
                 cmd.Parameters.Add("@ESTADO_CIVIL", SqlDbType.Char).Value = 'c';
-                if(NivelEducacion.SelectedIndex>-1)
-                cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.GetItemText(NivelEducacion.SelectedItem);
+                if (NivelEducacion.SelectedIndex > -1)
+                    cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.GetItemText(NivelEducacion.SelectedItem);
                 else
                     cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.Text;
 
-                cmd.Parameters.Add("@PUESTO", SqlDbType.VarChar).Value =Puesto.Text;
+                cmd.Parameters.Add("@PUESTO", SqlDbType.VarChar).Value = Puesto.Text;
                 if (si.Checked == true)
                 {
                     cmd.Parameters.Add("@ANTECEDENTES", SqlDbType.VarChar).Value = 'S';
@@ -144,7 +137,8 @@ namespace SistemaEvaluador
 
                 cmd.Parameters.Add("@TELEFONO", SqlDbType.Int).Value = int.Parse(Telefono.Text);
                 cmd.Parameters.Add("@FECHA_INGRESO", SqlDbType.DateTime).Value = dateTimePicker1.Value.ToShortDateString();
-                if (Masculino.Checked == true) {
+                if (Masculino.Checked == true)
+                {
                     cmd.Parameters.Add("@GENERO", SqlDbType.VarChar).Value = 'M';
                 }
                 else if (Femenino.Checked == true)
@@ -157,18 +151,16 @@ namespace SistemaEvaluador
 
                 if (hijos != null)
                 {
-                SqlCommand cmd2 = new SqlCommand();
-                cmd2.Connection = con;
-                cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "select top 1 ID_EMPLEADO  from EMPLEADOS order by ID_EMPLEADO desc ";
-                SqlDataAdapter da = new SqlDataAdapter(cmd2);
-                DataTable dt = new DataTable();
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dt = ds.Tables[0];
-
-               
-
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = con;
+                    cmd2.CommandType = System.Data.CommandType.Text;
+                    cmd2.CommandText = "select top 1 ID_EMPLEADO  from EMPLEADOS order by ID_EMPLEADO desc ";
+                    SqlDataAdapter da = new SqlDataAdapter(cmd2);
+                    DataTable dt = new DataTable();
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dt = ds.Tables[0];
+                                        
                     for (int x = 0; x < hijos.Count(); x++)
                     {
                         SqlCommand cmd4 = new SqlCommand();
@@ -198,12 +190,7 @@ namespace SistemaEvaluador
             }
 
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void DepartamentoTrabajo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Jefe.Items.Count != 0)
@@ -228,11 +215,9 @@ namespace SistemaEvaluador
                 Jefe.DataSource = dt2;
                 for (int i = 0; i < dt2.Rows.Count; i++)
                 {
-                    idsJefes.Add(int.Parse( dt2.Rows[i][1].ToString()));
+                    idsJefes.Add(int.Parse(dt2.Rows[i][1].ToString()));
                 }
                 Jefe.DisplayMember = "NOMBRECOMPLETO";
-
-
             }
             catch (Exception ene)
             {
@@ -253,11 +238,6 @@ namespace SistemaEvaluador
         private void bVolver_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Eliminar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

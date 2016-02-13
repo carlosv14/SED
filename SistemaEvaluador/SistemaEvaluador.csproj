@@ -98,6 +98,7 @@
     <Compile Include="EmpleadoNombre.Designer.cs">
       <DependentUpon>EmpleadoNombre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Empleado.cs" />
     <Compile Include="Evaluacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +152,12 @@
     </Compile>
     <Compile Include="Individual.Designer.cs">
       <DependentUpon>Individual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaEmpleados.Designer.cs">
+      <DependentUpon>ListaEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Meta.cs">
       <SubType>Form</SubType>
@@ -282,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Individual.resx">
       <DependentUpon>Individual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaEmpleados.resx">
+      <DependentUpon>ListaEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
