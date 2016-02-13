@@ -45,9 +45,9 @@
             this.label1.Location = new System.Drawing.Point(90, 151);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 16);
+            this.label1.Size = new System.Drawing.Size(238, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de nueva evaluación:";
+            this.label1.Text = "Nombre o Periodo de Evaluación";
             // 
             // textBox1
             // 
@@ -125,9 +125,9 @@
             this.label2.Location = new System.Drawing.Point(90, 195);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(235, 16);
+            this.label2.Size = new System.Drawing.Size(181, 16);
             this.label2.TabIndex = 45;
-            this.label2.Text = "Nombre de evaluación existente:";
+            this.label2.Text = "Evaluaciones Existentes:";
             // 
             // EvaluacionNombre
             // 
