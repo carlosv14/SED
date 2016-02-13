@@ -204,5 +204,23 @@ namespace SistemaEvaluador
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ribbonTabItem3_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            Evaluador i = new Evaluador(con);
+            tabStrip1.MdiForm = this;
+            i.MdiParent = this;
+            i.Show();
+        }
+
+        private void ribbonTabItem3_Click_1(object sender, EventArgs e)
+        {
+            limpiar();
+            Evaluador i = new Evaluador(con);
+            tabStrip1.MdiForm = this;
+            i.MdiParent = this;
+            i.Show();
+        }
     }
 }

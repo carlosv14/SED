@@ -82,5 +82,10 @@ namespace SistemaEvaluador
             this.exiting = true;
             this.Close();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
