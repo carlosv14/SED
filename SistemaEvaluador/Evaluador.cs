@@ -71,9 +71,7 @@ namespace SistemaEvaluador
                 DataTable dt = new DataTable();//casi para el final la usamos
                 string n_gen = "";
                 //Loaders
-                loadFirstDataSets();
-                //cargar de la base de datos los indicadores y los grados!! 
-                //Temporal, solo como ejemplo                                
+                loadFirstDataSets();                             
                 //cargando otros datos
                 loadDataTableTre();
                 loadCosmeticDetails();
@@ -107,13 +105,54 @@ namespace SistemaEvaluador
             dt1 = ds1.Tables[0];
             Nombre.Text = dt1.Rows[0][0].ToString();
         }
+        
+        //Methods for simplifying Load
+        private void loadDataTableTre()
+        {
+            DataTable dt3 = new DataTable();
+            SqlCommand cmd3 = new SqlCommand();
+            cmd3.Connection = con;
+            cmd3.CommandType = CommandType.Text;//recordar que I.ID se refiere al ID de la evaluación
+            cmd3.CommandText = "select g.NOMBRE, I.NOMBRE as n from INDICADORES I INNER JOIN GRADOS g on I.ID_IND = g.ID_IND WHERE I.ID = " + id_eval;
+            SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
+
+            DataSet ds3 = new DataSet();
+            da3.Fill(ds3);
+            dt3 = ds3.Tables[0];
+            gradosesp = dt3;
+            dataGridView1.Columns.Add("Indicadores", "Indicadores");
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+
+                Console.WriteLine("\n\nFila: " + i + "\n");
+
+                if (cols.Count == 0)
+                    cols.Add(dt3.Rows[0][0].ToString());
+                else
+                    for (int j = 0; j < cols.Count; j++)
+                    {
+                        Console.WriteLine("\nIteration: " + j);
+                        Console.WriteLine("Cols: " + cols.ElementAt(j));
+                        Console.WriteLine("Data: " + dt3.Rows[i][0].ToString());
+                        if (cols.ElementAt(j).Equals(dt3.Rows[i][0].ToString()))
+                            break;
+                        if ( !cols.ElementAt(j).Equals(dt3.Rows[i][0].ToString()) && j == cols.Count - 1)
+                            cols.Add(dt3.Rows[i][0].ToString());
+                    }
+            }
+        }
 
         private DataTable loadSecondPart(DataTable dt)
         {
             SqlCommand cmd2 = new SqlCommand("", con);
             cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "SELECT I.NOMBRE,I.PESO, IE.NOMBRE, IE.PESO,I.ID_IND,IE.ID_IND "
-                + "from INDICADORES I INNER JOIN INDICADORES IE ON I.ID_IND = IE.ID_GEN WHERE I.ID = " + id_eval;
+            string valuesToQuery = 
+                "I.NOMBRE As \"Ind General\", I.PESO AS \"Peso General\"," +
+                "IE.NOMBRE AS \"Ind Especifico\", IE.PESO AS \"Peso Especifico\"," + 
+				"I.ID_IND AS \"ID General\", IE.ID_IND AS \"ID Especifico\"";
+            
+            cmd2.CommandText = "SELECT " + valuesToQuery + " from INDICADORES I INNER JOIN INDICADORES IE" 
+                + " ON I.ID_IND = IE.ID_GEN WHERE I.ID = " + id_eval;
             SqlDataAdapter da = new SqlDataAdapter(cmd2);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -136,39 +175,8 @@ namespace SistemaEvaluador
             columnHeaderStyle.BackColor = Color.Beige;
             columnHeaderStyle.Font = new System.Drawing.Font("Verdana", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
-
         }
-
-        //Methods for simplifying Load
-        private void loadDataTableTre()
-        {
-            DataTable dt3 = new DataTable();
-            SqlCommand cmd3 = new SqlCommand();
-            cmd3.Connection = con;
-            cmd3.CommandType = CommandType.Text;
-            cmd3.CommandText = "select g.NOMBRE,I.NOMBRE as n from INDICADORES I INNER JOIN GRADOS g on I.ID_IND = g.ID_IND WHERE I.ID = " + id_eval;
-            SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
-
-            DataSet ds3 = new DataSet();
-            da3.Fill(ds3);
-            dt3 = ds3.Tables[0];
-            gradosesp = dt3;
-            dataGridView1.Columns.Add("Indicadores", "Indicadores");
-            for (int i = 0; i < dt3.Rows.Count; i++)
-            {
-                if (cols.Count == 0)
-                    cols.Add(dt3.Rows[0][0].ToString());
-                else
-                    for (int j = 0; j < cols.Count; j++)
-                    {
-                        if (cols.ElementAt(j) == dt3.Rows[i][0].ToString())
-                            break;
-                        if (cols.ElementAt(j) != dt3.Rows[i][0].ToString() && j == cols.Count - 1)
-                            cols.Add(dt3.Rows[i][0].ToString());
-                    }
-            }
-        }
-
+        
         private void loadCheckBeforeDataGrid(DataTable dt, string n_gen)
         {
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -182,7 +190,7 @@ namespace SistemaEvaluador
 
                     indicadores.Add(new Indicadores_Arr(n_gen, float.Parse(dt.Rows[i][1].ToString()), int.Parse(dt.Rows[i][4].ToString()), null));
                 }
-                //ver aca
+                //ver acá
                 if (dt.Rows[i][0].ToString() == n_gen)
                 {
                     dataGridView1.Rows.Add();
@@ -197,7 +205,11 @@ namespace SistemaEvaluador
                         }
                     }
                     dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells["Grado"] = cell;
-                    indicadores.ElementAt(indicadores.Count - 1).IndicadoresEspecificos.Add(new Indicadores_Arr(dt.Rows[i][2].ToString(), float.Parse(dt.Rows[i][3].ToString()), int.Parse(dt.Rows[i][4].ToString()), null));
+                    indicadores.ElementAt(indicadores.Count - 1).IndicadoresEspecificos.Add(
+                        new Indicadores_Arr(dt.Rows[i][2].ToString(), 
+                        float.Parse(dt.Rows[i][3].ToString()), 
+                        int.Parse(dt.Rows[i][4].ToString()), 
+                        null));
                 }
             }
         }
@@ -205,8 +217,7 @@ namespace SistemaEvaluador
         private void loadCheckDataGrid()
         {
             DataTable dt4 = new DataTable();
-            SqlCommand cmd4 = new SqlCommand();
-            cmd4.Connection = con;
+            SqlCommand cmd4 = new SqlCommand("", con);
             cmd4.CommandType = System.Data.CommandType.Text;
             cmd4.CommandText = "SELECT NOMBRE FROM GRADOS WHERE ID_IND= (SELECT TOP 1 ID_IND FROM INDICADORES WHERE ID='" + id_eval + "' AND ID_GEN IS NULL)";
             SqlDataAdapter da4 = new SqlDataAdapter(cmd4);
@@ -238,11 +249,16 @@ namespace SistemaEvaluador
                 }
             }
 
+            loadFinalThings();
+        }
+
+        private void loadFinalThings()
+        {
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
 
                 resultadosPorCategoriaTexto.Add(dataGridView1.Rows[i].Cells[0].Value.ToString());
-                if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
+                if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))//si es indicador específico
                 {
                     DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1];
                     int k = 0;
@@ -251,9 +267,7 @@ namespace SistemaEvaluador
                     {
                         DataGridViewCheckBoxCell cellbox =
                             (DataGridViewCheckBoxCell)dataGridView1.Rows[i].Cells[h];
-                        if (
-                            cb.Items[k].ToString() !=
-                            dataGridView1.Columns[h].HeaderText)
+                        if (cb.Items[k].ToString() != dataGridView1.Columns[h].HeaderText)
                         {
                             dataGridView1.Rows[i].Cells[h] = new DataGridViewTextBoxCell();
                             dataGridView1.Rows[i].Cells[h].ReadOnly = true;
@@ -261,7 +275,7 @@ namespace SistemaEvaluador
                         }
                         else
                         {
-                            cellbox.ReadOnly = false;
+                             cellbox.ReadOnly = false;
                             if (k < cb.Items.Count - 1)
                                 k++;
                         }
@@ -275,9 +289,9 @@ namespace SistemaEvaluador
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i] = new DataGridViewTextBoxCell();
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i].ReadOnly = true;
             }
-        }        
-                  
-       //Ver resultado
+        }
+
+        //Ver resultado
         private void button1_Click(object sender, EventArgs e)
         {
 
