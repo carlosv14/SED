@@ -33,7 +33,8 @@ namespace SistemaEvaluador
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "select NOMBRE from GRADOS where ID=" + id_eva + " group by NOMBRE;";
+                cmd2.CommandText = "select NOMBRE from GRADOS where ID=" 
+                    + id_eva + " group by NOMBRE;";
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 DataTable dt = new DataTable();
                 DataSet ds = new DataSet();
@@ -116,6 +117,8 @@ namespace SistemaEvaluador
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Grados.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //Grados.Text = "Nada";
+            
             gradoMod = Grados.Text;
 
             try
@@ -166,6 +169,12 @@ namespace SistemaEvaluador
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if (Grados.Text == "")
+            {
+                MessageBox.Show("No ha seleccionado un grado.");
+                return;
+            }
             try
             {
 
@@ -175,12 +184,13 @@ namespace SistemaEvaluador
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "SP.DELETE_GRADO";
-                cmd.Parameters.Add("@ID_GRADO)", SqlDbType.Int).Value = DBNull.Value;
-                cmd.Parameters.Add("@ID_IND)", SqlDbType.Int).Value = DBNull.Value;
-                cmd.Parameters.Add("@ID)", SqlDbType.Int).Value = id_eva;
+                cmd.CommandText = "DELETE FROM GRADOS WHERE NOMBRE='"
+                                  + dataGridView2["NOMBRE", dataGridView1.CurrentRow.Index].Value.ToString()
+                                  + "' AND ID ='"
+                                  + dataGridView2["ID", dataGridView1.CurrentRow.Index].Value + "'";
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
+                load();
                 
             }
             catch (Exception ene)
@@ -192,6 +202,11 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

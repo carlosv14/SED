@@ -114,7 +114,7 @@
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(106, 45);
             this.bVolver.TabIndex = 44;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 

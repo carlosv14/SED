@@ -39,6 +39,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nuevaEvaluacion = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -56,9 +59,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -156,6 +157,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.nuevaEvaluacion);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label16);
@@ -188,6 +190,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grados";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // nuevaEvaluacion
+            // 
+            this.nuevaEvaluacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nuevaEvaluacion.Location = new System.Drawing.Point(38, 476);
+            this.nuevaEvaluacion.Name = "nuevaEvaluacion";
+            this.nuevaEvaluacion.Size = new System.Drawing.Size(108, 35);
+            this.nuevaEvaluacion.TabIndex = 26;
+            this.nuevaEvaluacion.Text = "Evaluar otro empleado";
+            this.nuevaEvaluacion.UseVisualStyleBackColor = true;
+            this.nuevaEvaluacion.Click += new System.EventHandler(this.nuevaEvaluacion_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(38, 438);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 34);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Generar Reporte";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(38, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Cambiar Rango";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label16
             // 
@@ -344,16 +379,6 @@
             this.label11.TabIndex = 11;
             this.label11.Text = "label11";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(38, 432);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Cambiar Rango";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(9, 24);
@@ -363,16 +388,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(38, 461);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Generar Reporte";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Grafica
             // 
@@ -385,7 +400,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(285, 170);
             this.Name = "Grafica";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grafica";
             this.Load += new System.EventHandler(this.Grafica_Load);
             this.groupBox1.ResumeLayout(false);
@@ -430,5 +445,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button nuevaEvaluacion;
     }
 }

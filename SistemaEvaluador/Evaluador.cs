@@ -30,8 +30,10 @@ namespace SistemaEvaluador
         List<string> cols = new List<string>();
         List<Indicadores_Arr> indicadores = new List<Indicadores_Arr>();
 
-        public Evaluador(SqlConnection con)
+        public Evaluador(SqlConnection con, string id_emp, int id_eva)
         {
+            id = id_emp;
+            id_eval = id_eva;
             this.con = con;
             InitializeComponent();
             gradosesp = new DataTable();
@@ -39,20 +41,24 @@ namespace SistemaEvaluador
 
         private void Evaluador_Load(object sender, EventArgs e)
         {
-            EmpleadoNombre en = new EmpleadoNombre(con);
             List<string> bloquear = new List<string>();
-            en.ShowDialog();
-            shouldExit = en.exiting;
-            if (en.exiting)
+            if (id.Equals(""))
             {
-                if (con.State != ConnectionState.Closed)
-                    con.Close();
+                EmpleadoNombre en = new EmpleadoNombre(con);
                 
-                return;
-            }
+                en.ShowDialog();
+                shouldExit = en.exiting;
+                if (en.exiting)
+                {
+                    if (con.State != ConnectionState.Closed)
+                        con.Close();
 
-            id = en.id;
-            id_eval = en.id_eval;
+                    return;
+                }
+
+                id = en.id;
+                id_eval = en.id_eval;
+            }
             resultadosPorCategoriaTexto = new List<string>();
             Fecha.Text = DateTime.Now.ToString();
             try
@@ -259,7 +265,7 @@ namespace SistemaEvaluador
                 {
                     CANTIDAD = dataGridView1.Columns.Count - 2;
                     string valor;
-                    DataGridViewComboBoxCell currentCell = (DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1];
+                    DataGridViewComboBoxCell currentCell = (DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1];
                     for (int j = 0; j < currentCell.Items.Count; j++)
                     {
                         valor = currentCell.Items[j].ToString();
@@ -267,8 +273,8 @@ namespace SistemaEvaluador
 
                     }
                     CoordenadaTriangular ct =
-                          new CoordenadaTriangular(GradosNombres,
-                              CANTIDAD, dataGridView1.Rows[i].Cells[0].Value.ToString(), cols);
+                        new CoordenadaTriangular(GradosNombres,
+                            CANTIDAD, dataGridView1.Rows[i].Cells[0].Value.ToString(), cols);
                     if (dataGridView1.Rows[i].Cells[0].Value.ToString().Contains("---"))
                         nbts.Add(ct);
 
@@ -291,21 +297,23 @@ namespace SistemaEvaluador
                             if (dataGridView1.Rows[i].Cells[0].Value.ToString() == " ---" +
                                 indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).descp)
                             {
-                                int pos = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[1]).Items.IndexOf(dataGridView1.Rows[i].Cells[1].Value.ToString());
+                                int pos =
+                                    ((DataGridViewComboBoxCell) dataGridView1.Rows[i].Cells[1]).Items.IndexOf(
+                                        dataGridView1.Rows[i].Cells[1].Value.ToString());
 
                                 for (int w = 0; w < nbts.Count; w++)
                                 {
                                     if (nbts[w].Indicador ==
                                         " ---" + indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).descp)
                                     {
-                                        nt.x = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso) / (100) *
-                                               (indicadores.ElementAt(j).peso) / (100) *
+                                        nt.x = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                               (indicadores.ElementAt(j).peso)/(100)*
                                                nbts[w].NumeroBorrosoTriangular.ElementAt(pos).x;
-                                        nt.y = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso) / (100) *
-                                               (indicadores.ElementAt(j).peso) / (100) *
+                                        nt.y = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                               (indicadores.ElementAt(j).peso)/(100)*
                                                nbts[w].NumeroBorrosoTriangular.ElementAt(pos).y;
-                                        nt.z = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso) / (100) *
-                                               (indicadores.ElementAt(j).peso) / (100) *
+                                        nt.z = (indicadores.ElementAt(j).IndicadoresEspecificos.ElementAt(k).peso)/(100)*
+                                               (indicadores.ElementAt(j).peso)/(100)*
                                                nbts[w].NumeroBorrosoTriangular.ElementAt(pos).z;
                                         resultado.Add(nt);
                                         break;
@@ -347,20 +355,28 @@ namespace SistemaEvaluador
                 cmd4.Dispose();
 
 
-                Grafica gf = new Grafica(cols.Count, resultante.x, resultante.y, resultante.z, cols, resultadosPorCategoria, resultadosPorCategoriaTexto);
-                this.Hide();
+                Grafica gf = new Grafica(cols.Count, resultante.x, resultante.y, resultante.z, cols,
+                    resultadosPorCategoria, resultadosPorCategoriaTexto);
+                this.Close();
+                gf.set_id_evalucion(id_eval);
+                gf.set_con(con);
+                gf.MdiParent = this.MdiParent;
                 gf.ShowDialog();
-                this.Show();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Debe chequear todos los campos indicadores.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe chequear todos los campos indicadores.");
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
+            
         }
 
         private void formatoEvaluadorToolStripMenuItem_Click(object sender, EventArgs e)

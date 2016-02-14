@@ -98,6 +98,12 @@
     <Compile Include="EmpleadoNombre.Designer.cs">
       <DependentUpon>EmpleadoNombre.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmpleadosComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadosComboBox.Designer.cs">
+      <DependentUpon>EmpleadosComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Evaluacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmpleadoNombre.resx">
       <DependentUpon>EmpleadoNombre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadosComboBox.resx">
+      <DependentUpon>EmpleadosComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evaluacion.resx">
       <DependentUpon>Evaluacion.cs</DependentUpon>

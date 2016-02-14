@@ -100,15 +100,16 @@
             this.dataGridView2.Size = new System.Drawing.Size(10, 13);
             this.dataGridView2.TabIndex = 40;
             this.dataGridView2.Visible = false;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // bVolver
             // 
             this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bVolver.Location = new System.Drawing.Point(566, 103);
+            this.bVolver.Location = new System.Drawing.Point(666, 486);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(81, 28);
+            this.bVolver.Size = new System.Drawing.Size(81, 42);
             this.bVolver.TabIndex = 41;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
@@ -126,7 +127,7 @@
             // button_borrar
             // 
             this.button_borrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_borrar.Location = new System.Drawing.Point(651, 103);
+            this.button_borrar.Location = new System.Drawing.Point(573, 103);
             this.button_borrar.Name = "button_borrar";
             this.button_borrar.Size = new System.Drawing.Size(79, 28);
             this.button_borrar.TabIndex = 42;

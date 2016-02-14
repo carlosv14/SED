@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -26,7 +27,9 @@ namespace SistemaEvaluador
 
         private List<float> puntas;
         Timer timer = new Timer();
-        private List<string> grados; 
+        private List<string> grados;
+        SqlConnection con;
+        private int id_evaluacion;
         private int i = 0;
         private bool lastLine;
         private int cantidadGrados;
@@ -133,6 +136,11 @@ namespace SistemaEvaluador
         private void picturebox1_MouseDown(object sender, MouseEventArgs e)
         {
 
+        }
+
+        public void set_id_evalucion(int id)
+        {
+            id_evaluacion = id;
         }
 
         private void Timer_Tick(object sender, EventArgs p)
@@ -427,6 +435,19 @@ namespace SistemaEvaluador
 
                 bitmap.Save(path, imageFormat);
             }
+        }
+
+        private void nuevaEvaluacion_Click(object sender, EventArgs e)
+        {
+            EmpleadosComboBox emp = new EmpleadosComboBox(con,id_evaluacion);
+            emp.MdiParent = this.MdiParent;
+            emp.Show();
+            this.Close();
+        }
+
+        public void set_con(SqlConnection con)
+        {
+            this.con = con;
         }
     }
 }

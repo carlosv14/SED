@@ -267,13 +267,10 @@
             // 
             this.groupBox3.Controls.Add(this.Femenino);
             this.groupBox3.Controls.Add(this.Masculino);
-            this.groupBox3.Location = new System.Drawing.Point(223, 154);
+            this.groupBox3.Location = new System.Drawing.Point(167, 125);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(264, 37);
-            this.groupBox3.Location = new System.Drawing.Point(167, 125);
-            this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(198, 30);
             this.groupBox3.TabIndex = 40;
             this.groupBox3.TabStop = false;
@@ -369,9 +366,8 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(556, 235);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Location = new System.Drawing.Point(417, 191);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 38);
             this.button2.TabIndex = 29;
@@ -463,7 +459,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(15, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 16);
+            this.label4.Size = new System.Drawing.Size(74, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Dirección";
             // 
@@ -512,9 +508,9 @@
             this.bVolver.Location = new System.Drawing.Point(578, 517);
             this.bVolver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(99, 34);
+            this.bVolver.Size = new System.Drawing.Size(99, 43);
             this.bVolver.TabIndex = 28;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = false;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 

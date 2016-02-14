@@ -136,10 +136,10 @@ namespace SistemaEvaluador
 
         private void limpiar()
         {
-            Colorcito c = new Colorcito();
-            tabStrip1.MdiForm = this;
-            c.MdiParent = this;
-            c.Show();
+            //Colorcito c = new Colorcito();
+            //tabStrip1.MdiForm = this;
+            //c.MdiParent = this;
+            //c.Show();
         }
 
         private void evaluacion_Click(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace SistemaEvaluador
         private void evaluador_Click(object sender, EventArgs e)
         {
             limpiar();
-            Evaluador i = new Evaluador(con);
+            Evaluador i = new Evaluador(con,"",0);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
@@ -213,7 +213,7 @@ namespace SistemaEvaluador
         private void ribbonTabItem3_Click(object sender, EventArgs e)
         {
             limpiar();
-            Evaluador i = new Evaluador(con);
+            Evaluador i = new Evaluador(con,"",0);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
@@ -222,7 +222,7 @@ namespace SistemaEvaluador
         private void ribbonTabItem3_Click_1(object sender, EventArgs e)
         {
             limpiar();
-            Evaluador i = new Evaluador(con);
+            Evaluador i = new Evaluador(con,"",0);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
@@ -231,10 +231,15 @@ namespace SistemaEvaluador
         private void ribbonTabItem3_Click_2(object sender, EventArgs e)
         {
             limpiar();
-            Evaluador i = new Evaluador(con);
+            Evaluador i = new Evaluador(con,"",0);
             tabStrip1.MdiForm = this;
             i.MdiParent = this;
             i.Show();
+            //limpiar();
+            //Evaluacion eva = new Evaluacion(con);
+            //tabStrip1.MdiForm = this;
+            //eva.MdiParent = this;
+            //eva.Show();
         }
 
         private void ribbonPanel2_Click(object sender, EventArgs e)
