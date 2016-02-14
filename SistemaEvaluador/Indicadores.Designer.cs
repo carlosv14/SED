@@ -46,6 +46,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.bVolver = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.LabelBarra = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -227,12 +229,30 @@
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(594, 136);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(168, 23);
+            this.progressBar1.TabIndex = 51;
+            // 
+            // LabelBarra
+            // 
+            this.LabelBarra.AutoSize = true;
+            this.LabelBarra.Location = new System.Drawing.Point(594, 117);
+            this.LabelBarra.Name = "LabelBarra";
+            this.LabelBarra.Size = new System.Drawing.Size(91, 13);
+            this.LabelBarra.TabIndex = 52;
+            this.LabelBarra.Text = "Barra de progreso";
+            // 
             // Indicadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(774, 585);
+            this.Controls.Add(this.LabelBarra);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.bVolver);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -281,5 +301,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button bVolver;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label LabelBarra;
     }
 }
