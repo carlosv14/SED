@@ -21,14 +21,21 @@ namespace SistemaEvaluador
         }        
         private void button1_Click(object sender, EventArgs e)
         {
+            if (nombredependiente.Text.Equals("") || textBox1.Text.Equals(""))
+            {
+                MessageBox.Show("No puedes agregar con campos vacios");
+                return;
+            }
             DependientesEmpleados depen = new DependientesEmpleados(nombredependiente.Text, textBox1.Text);
             hijos.Add(depen);
-            this.Close();
-            
+            MessageBox.Show("Agregado exitosamente");
+            textBox1.Text = "";
+            nombredependiente.Text = "";
         }        
 
         private void bCerrar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }
