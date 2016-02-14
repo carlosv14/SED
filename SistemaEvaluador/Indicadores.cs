@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,9 +18,12 @@ namespace SistemaEvaluador
         public List<Indicadores_Arr> indicadoresEspecificos;
         private float peso = 100;
         int id_gen = 0;
+        private int bar=0;
         private int indicador = 0;
         private bool indEspecificos;
         SqlConnection con;
+        private List<int> pesos_generales;
+        private int contador = 0;
         int informe;
         List<grados_Arr> gradosInsert;
         List<grados_Arr> gradosTable;
@@ -32,6 +36,7 @@ namespace SistemaEvaluador
             this.gradosInsert = gradosInsert;
             this.gradosTable = new List<grados_Arr>();
             indicadoresEspecificos = new List<Indicadores_Arr>();
+            pesos_generales = new List<int>();
             indEspecificos = false;
             listView2.Visible = false;
             listView3.Visible = false;
@@ -47,8 +52,11 @@ namespace SistemaEvaluador
 
         private void agregar_Click(object sender, EventArgs e)
         {
-            if (peso.Equals(""))
+            if (Peso.Text.Equals(""))
+            {
+                MessageBox.Show("No ha agregado un peso");
                 return;
+            }
             if (float.Parse(Peso.Text) > peso)
             {
                 MessageBox.Show("No puedes agregar un grado con un peso mayor a " + peso.ToString());
@@ -86,6 +94,7 @@ namespace SistemaEvaluador
                 {
                     cmd.Parameters.Add("@INDICADORES_ID", SqlDbType.Int).Value = DBNull.Value;
                     cmd.Parameters.Add("@ID_GEN", SqlDbType.Int).Value = DBNull.Value;
+                    pesos_generales.Add(int.Parse(Peso.Text));
                 }
                 else
                 {
@@ -97,6 +106,19 @@ namespace SistemaEvaluador
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Se agrego correctamente");
+                if (!indEspecificos)
+                {
+                    bar += int.Parse(Peso.Text);
+                    Console.WriteLine("Barra indGe" + bar);
+                }
+                else
+                {
+                    float total = pesos_generales[contador];
+                    float dividendo = float.Parse(Peso.Text);
+                    float divisor = (float)dividendo/100;
+                    bar += (int)(total*divisor);
+                }
+                progressBar1.Value = bar;
 
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
@@ -181,6 +203,8 @@ namespace SistemaEvaluador
                         button1.Enabled = true;
                         agregar.Enabled = false;
                         indEspecificos = true;
+                        progressBar1.Value=100;
+                        bar = 0;
                     }
                 }
                 else
@@ -202,6 +226,7 @@ namespace SistemaEvaluador
                         button1.Enabled = true;
                         agregar.Enabled = false;
                         indicador++;
+                        contador++;
                     }
                 }
             }
@@ -279,7 +304,8 @@ namespace SistemaEvaluador
                 label3.Text = "Especificos " + indicadoresEspecificos.ElementAt(indicador).descp;
                 label2.Text = "(Peso disponible " + peso + "%)";
                 listView1.Items.Clear();
-
+                progressBar1.Value = bar;
+                
 
 
             }
