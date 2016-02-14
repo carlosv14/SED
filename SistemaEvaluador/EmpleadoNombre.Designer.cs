@@ -52,7 +52,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(344, 261);
+            this.button1.Location = new System.Drawing.Point(315, 261);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 30);
@@ -97,12 +97,12 @@
             // bVolver
             // 
             this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bVolver.Location = new System.Drawing.Point(514, 261);
+            this.bVolver.Location = new System.Drawing.Point(481, 261);
             this.bVolver.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(81, 30);
+            this.bVolver.Size = new System.Drawing.Size(117, 30);
             this.bVolver.TabIndex = 41;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
@@ -115,11 +115,12 @@
             this.cbEmpleadoID.Name = "cbEmpleadoID";
             this.cbEmpleadoID.Size = new System.Drawing.Size(201, 24);
             this.cbEmpleadoID.TabIndex = 42;
+            this.cbEmpleadoID.SelectedIndexChanged += new System.EventHandler(this.cbEmpleadoID_SelectedIndexChanged);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(175, 261);
+            this.button2.Location = new System.Drawing.Point(147, 261);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 30);
             this.button2.TabIndex = 2;

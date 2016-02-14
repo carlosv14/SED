@@ -221,9 +221,9 @@
             this.bVolver.Location = new System.Drawing.Point(539, 486);
             this.bVolver.Margin = new System.Windows.Forms.Padding(2);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(106, 36);
+            this.bVolver.Size = new System.Drawing.Size(106, 40);
             this.bVolver.TabIndex = 50;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 

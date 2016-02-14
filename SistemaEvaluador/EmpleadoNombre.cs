@@ -95,5 +95,10 @@ namespace SistemaEvaluador
             Editar_Indicadores ei = new Editar_Indicadores(con, id_eval);
             ei.Show();
         }
+
+        private void cbEmpleadoID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,12 +34,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.guardarEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.bVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -100,29 +97,12 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guardarEvaluacionToolStripMenuItem,
-            this.cancelarEvaluacionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStrip1.Size = new System.Drawing.Size(758, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // guardarEvaluacionToolStripMenuItem
-            // 
-            this.guardarEvaluacionToolStripMenuItem.Name = "guardarEvaluacionToolStripMenuItem";
-            this.guardarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.guardarEvaluacionToolStripMenuItem.Text = "Guardar Evaluación";
-            this.guardarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.guardarEvaluacionToolStripMenuItem_Click);
-            // 
-            // cancelarEvaluacionToolStripMenuItem
-            // 
-            this.cancelarEvaluacionToolStripMenuItem.Name = "cancelarEvaluacionToolStripMenuItem";
-            this.cancelarEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.cancelarEvaluacionToolStripMenuItem.Text = "Cancelar Evaluación";
-            this.cancelarEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.cancelarEvaluacionToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -137,11 +117,12 @@
             // 
             // bVolver
             // 
+            this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bVolver.Location = new System.Drawing.Point(631, 42);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(75, 23);
+            this.bVolver.Size = new System.Drawing.Size(75, 45);
             this.bVolver.TabIndex = 7;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
@@ -169,8 +150,6 @@
             this.Load += new System.EventHandler(this.Evaluacion_Load);
             this.Shown += new System.EventHandler(this.Evaluacion_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,8 +163,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem guardarEvaluacionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarEvaluacionToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bVolver;
     }

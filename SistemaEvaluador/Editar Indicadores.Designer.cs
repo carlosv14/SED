@@ -60,9 +60,9 @@
             this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bVolver.Location = new System.Drawing.Point(374, 498);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(91, 37);
+            this.bVolver.Size = new System.Drawing.Size(115, 37);
             this.bVolver.TabIndex = 2;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 

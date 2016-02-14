@@ -62,12 +62,12 @@
             // bVolver
             // 
             this.bVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bVolver.Location = new System.Drawing.Point(636, 48);
+            this.bVolver.Location = new System.Drawing.Point(636, 37);
             this.bVolver.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(81, 30);
+            this.bVolver.Size = new System.Drawing.Size(81, 41);
             this.bVolver.TabIndex = 41;
-            this.bVolver.Text = "Volver";
+            this.bVolver.Text = "Volver a menu";
             this.bVolver.UseVisualStyleBackColor = true;
             this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
             // 
