@@ -15,6 +15,7 @@ namespace SistemaEvaluador
     {
         private SqlConnection conexion;
         private bool modify;
+        public Empleado emp;
 
         public ListaEmpleados(SqlConnection con, bool modificar)
         {
@@ -75,13 +76,17 @@ namespace SistemaEvaluador
                 tEmpleado.Text = empId;
             else
             {
-                Empleado emp = getEmpleadoInfo(empId);
+                emp = getEmpleadoInfo(empId);
                 Console.WriteLine(emp.ToString());
-                //Llamar a gestión de personal después de settear el objeto emp
-                //Llenar ese form con los datos necesarios y utilizar el update
+                this.DialogResult = DialogResult.OK;//para saber si ya salimos de acá
+                this.Hide();
             }
         }
 
+        /**
+            Este método obtiene la información del empleado y retorna un objeto de Empleado para que
+            este pueda ser utilizado fácilmente en el GestionDePersonal form
+        **/
         private Empleado getEmpleadoInfo(string empId)
         {
             SqlCommand cmdGetEmp = null;
@@ -101,12 +106,7 @@ namespace SistemaEvaluador
 
                 dt = ds.Tables[0];
                 emp = new Empleado();
-                Object[] empleado = dt.Rows[0].ItemArray;
-                
-                //foreach (Object i in empleado)
-                //{
-                //    Console.WriteLine(i.ToString());
-                //}
+                Object[] empleado = dt.Rows[0].ItemArray;                
 
                 emp.idEmpleado = int.Parse(empleado[0].ToString());
                 emp.idJefe = String.IsNullOrEmpty((empleado[1].ToString())) ? 0 : int.Parse(empleado[1].ToString());//a veces no tiene jefe, así que es null, por lo que decide si dar un cero o no

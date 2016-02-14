@@ -71,7 +71,7 @@ namespace SistemaEvaluador
         private void Agregargestion_Click(object sender, EventArgs e)
         {
             limpiar();
-            GestiondePersonal gp = new GestiondePersonal(con, false);
+            GestiondePersonal gp = new GestiondePersonal(con, false, null);
             tabStrip1.MdiForm = this;
             gp.MdiParent = this;
             gp.Show();
@@ -98,10 +98,18 @@ namespace SistemaEvaluador
         private void Modificargestion_Click(object sender, EventArgs e)
         {
             limpiar();
+
             ListaEmpleados lEmp = new ListaEmpleados(con, true);
+            Empleado emp = null;
+            var result = lEmp.ShowDialog();
+            if (result == DialogResult.OK)
+                emp = lEmp.emp;
+            lEmp.Close();
+            
+            GestiondePersonal gEmp = new GestiondePersonal(con, true, emp);
             tabStrip1.MdiForm = this;
-            lEmp.MdiParent = this;
-            lEmp.Show();
+            gEmp.MdiParent = this;
+            gEmp.Show();
         }
 
         private void Eliminargestion_Click(object sender, EventArgs e)

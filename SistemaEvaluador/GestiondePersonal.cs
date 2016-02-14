@@ -17,18 +17,21 @@ namespace SistemaEvaluador
         bool modificar;
         private List<DependientesEmpleados> hijos;
         private List<int> idsJefes;
-
-        public GestiondePersonal(SqlConnection con, bool modificar)
+        private Empleado emp;
+        
+        public GestiondePersonal(SqlConnection con, bool modificar, Empleado emp)
         {
             InitializeComponent();
             this.con = con;
             this.idsJefes = new List<int>();
-            this.hijos = new List<DependientesEmpleados>();
             this.modificar = modificar;
-            if (modificar)           
+            this.hijos = new List<DependientesEmpleados>();
+            if (modificar)                            
                 Agregar.Visible = false;            
             else            
-                Modificar.Visible = false;                
+                Modificar.Visible = false;
+
+            this.emp = emp;                
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,9 +43,38 @@ namespace SistemaEvaluador
             hijos.Add(depen.hijos[0]);
         }
 
+        private void modifyValues()
+        {
+            if (modificar)
+            {
+                this.Nombre.Text = emp.nombres;
+                this.Apellido.Text = emp.apellidos;
+                this.pasaporte.Text = emp.identidad;
+                this.Direcion.Text = emp.direccion;
+                this.estadoCivil.SelectedText = emp.estadoCivil.ToString().Equals("S") ? "Soltero(a)" : "Casado(a)";
+                this.NivelEducacion.Text = emp.nivelEducacional;
+                this.Puesto.Text = emp.puesto;
+                this.Telefono.Text = emp.telefono.ToString();
+                if (emp.antecedentes == 'N')
+                    this.no.Checked = true;
+                else
+                    this.si.Checked = true;
+                this.dateTimePicker1.Value = emp.fechaIngreso;
+                if (emp.genero == 'M')
+                    this.Masculino.Checked = true;
+                else
+                    this.Femenino.Checked = true;
+                Console.WriteLine(emp.idDepto);
+                Console.Write(emp.idJefe);
+                this.DepartamentoTrabajo.SelectedValue = emp.idDepto;
+                this.Jefe.SelectedValue = emp.idJefe > 0 ? emp.idJefe : Jefe.SelectedIndex;
+            }
+        }
+
         private void GestiondePersonal_Load(object sender, EventArgs e)
         {
-            SqlCommand cmd = null;
+            SqlCommand cmd = null;                     
+
             try
             {
                 if (con.State != ConnectionState.Open)
@@ -58,6 +90,10 @@ namespace SistemaEvaluador
                 dt = ds.Tables[0];
                 DepartamentoTrabajo.DataSource = dt;
                 DepartamentoTrabajo.DisplayMember = "NOMBRE";
+                DepartamentoTrabajo.ValueMember = "ID_DEPTO";
+
+                //Llenar datos por si hay que modificar
+                modifyValues();
             }
             catch (Exception ene)
             {
@@ -95,7 +131,8 @@ namespace SistemaEvaluador
                 SqlCommand cmd3 = new SqlCommand();
                 cmd3.Connection = con;
                 cmd3.CommandType = System.Data.CommandType.Text;
-                cmd3.CommandText = "SELECT ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" + idsJefes[(DepartamentoTrabajo.SelectedIndex)] + " AND CONCAT(NOMBRES,' ',APELLIDOS)=" + "'" + Jefe.GetItemText(Jefe.SelectedItem) + "'";
+                cmd3.CommandText = "SELECT ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" 
+                    + idsJefes[(DepartamentoTrabajo.SelectedIndex)] + " AND CONCAT(NOMBRES,' ',APELLIDOS)=" + "'" + Jefe.GetItemText(Jefe.SelectedItem) + "'";
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd3);
                 DataTable dt1 = new DataTable();
                 DataSet ds1 = new DataSet();
@@ -119,7 +156,7 @@ namespace SistemaEvaluador
                 cmd.Parameters.Add("@NOMBRES", SqlDbType.VarChar).Value = Nombre.Text;
                 cmd.Parameters.Add("@APELLIDOS", SqlDbType.VarChar).Value = Apellido.Text;
                 cmd.Parameters.Add("@DIRECCION", SqlDbType.VarChar).Value = Direcion.Text;
-                cmd.Parameters.Add("@ESTADO_CIVIL", SqlDbType.Char).Value = 'c';
+                cmd.Parameters.Add("@ESTADO_CIVIL", SqlDbType.Char).Value = estadoCivil.SelectedValue.ToString()[0];
                 if (NivelEducacion.SelectedIndex > -1)
                     cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.GetItemText(NivelEducacion.SelectedItem);
                 else
@@ -218,6 +255,7 @@ namespace SistemaEvaluador
                     idsJefes.Add(int.Parse(dt2.Rows[i][1].ToString()));
                 }
                 Jefe.DisplayMember = "NOMBRECOMPLETO";
+                Jefe.ValueMember = "ID_EMPLEADO";
             }
             catch (Exception ene)
             {
@@ -232,7 +270,53 @@ namespace SistemaEvaluador
 
         private void Modificar_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                cmd = new SqlCommand("", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "SP_UPDATE_EMPLEADO";
+                cmd.Parameters.Add("@ID_EMP", SqlDbType.Int).Value = emp.idEmpleado;
+                cmd.Parameters.Add("@ID_JEFE", SqlDbType.Int).Value = Jefe.SelectedValue;
 
+                if (NivelEducacion.SelectedIndex > -1)
+                    cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.GetItemText(NivelEducacion.SelectedItem);
+                else
+                    cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.Text;
+
+                if (si.Checked == true)
+                {
+                    cmd.Parameters.Add("@ANTECEDENTES", SqlDbType.VarChar).Value = 'S';
+                }
+                else if (no.Checked == true)
+                {
+                    cmd.Parameters.Add("@ANTECEDENTES", SqlDbType.VarChar).Value = 'N';
+                }
+                
+                cmd.Parameters.Add("@ID_DEPTO", SqlDbType.Int).Value = DepartamentoTrabajo.SelectedValue;
+                cmd.Parameters.Add("@NOMBRES", SqlDbType.VarChar).Value = Nombre.Text;
+                cmd.Parameters.Add("@APELLIDOS", SqlDbType.VarChar).Value = Apellido.Text;
+                cmd.Parameters.Add("@DIRECCION", SqlDbType.VarChar).Value = Direcion.Text;
+                cmd.Parameters.Add("@ESTADO_CIVIL", SqlDbType.Char).Value = estadoCivil.SelectedText.Equals("Soltero(a)") ? 'S' : 'C';
+                cmd.Parameters.Add("@PUESTO", SqlDbType.VarChar).Value = Puesto.Text;
+                cmd.Parameters.Add("@TELEFONO", SqlDbType.Int).Value = int.Parse(Telefono.Text);
+                cmd.Parameters.Add("@NUM_ID", SqlDbType.VarChar).Value = pasaporte.Text;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                MessageBox.Show("Se actualizó correctamente.");
+                //loadDataGrid();
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
         }
 
         private void bVolver_Click(object sender, EventArgs e)
