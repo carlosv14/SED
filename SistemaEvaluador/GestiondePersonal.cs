@@ -156,7 +156,7 @@ namespace SistemaEvaluador
                 cmd.Parameters.Add("@NOMBRES", SqlDbType.VarChar).Value = Nombre.Text;
                 cmd.Parameters.Add("@APELLIDOS", SqlDbType.VarChar).Value = Apellido.Text;
                 cmd.Parameters.Add("@DIRECCION", SqlDbType.VarChar).Value = Direcion.Text;
-                cmd.Parameters.Add("@ESTADO_CIVIL", SqlDbType.Char).Value = estadoCivil.SelectedValue.ToString()[0];
+                cmd.Parameters.Add("@ESTADO_CIVIL", SqlDbType.Char).Value = estadoCivil.SelectedText.Equals("Soltero(a)") ? 'S' : 'C';
                 if (NivelEducacion.SelectedIndex > -1)
                     cmd.Parameters.Add("@NIVEL_EDUCACIONAL", SqlDbType.VarChar).Value = NivelEducacion.GetItemText(NivelEducacion.SelectedItem);
                 else
