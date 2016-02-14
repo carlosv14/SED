@@ -38,9 +38,12 @@ namespace SistemaEvaluador
         {
             Dependientes depen = new Dependientes();
             this.Hide();
-            depen.ShowDialog();
-            this.Show();
-            hijos.Add(depen.hijos[0]);
+            var result = depen.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                this.Show();
+                hijos = depen.hijos;
+            }
         }
 
         private void modifyValues()
