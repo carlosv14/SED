@@ -147,10 +147,28 @@ namespace SistemaEvaluador
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = "SP_INSERT_INFORME_INDICADORES";
                 cmd.Parameters.Add("@FECHA", SqlDbType.DateTime).Value = DateTime.Today;
-                cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value =nombreEvaluacion;
+                cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = nombreEvaluacion;
+                int valueToCheck = getCheckedValue();
+                cmd.Parameters.Add("@paraEmp", SqlDbType.Int).Value = valueToCheck;
+                switch (valueToCheck)
+                {
+                    case 0:
+                        cmd.Parameters.Add("@ID_DEPT", SqlDbType.Int).Value = -1;
+                        cmd.Parameters.Add("@ID_EMP", SqlDbType.Int).Value = -1;
+                        break;
+                    case 1:
+                        cmd.Parameters.Add("@ID_EMP", SqlDbType.Int).Value = cbEmpleado.SelectedValue;
+                        cmd.Parameters.Add("@ID_DEPT", SqlDbType.Int).Value = -1;
+                        break;
+                    case 2:
+                        cmd.Parameters.Add("@ID_EMP", SqlDbType.Int).Value = -1;
+                        cmd.Parameters.Add("@ID_DEPT", SqlDbType.Int).Value = cbDepartamento.SelectedValue;
+                        break;
+                }
+                
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                MessageBox.Show("Se agrego correctamente");
+                MessageBox.Show("Se agregó correctamente.");
             }
             catch (Exception ene)
             {
@@ -164,7 +182,19 @@ namespace SistemaEvaluador
 
             this.Close();
         }
-        
+
+        private int getCheckedValue()
+        {
+            if (rbTodos.Checked)
+                return 0;
+            if (rbEmpleado.Checked)
+                return 1;
+            if (rbDepto.Checked)
+                return 2;
+
+            return -1;
+        }
+
         private void bVolver_Click(object sender, EventArgs e)
         {
             this.exiting = true;

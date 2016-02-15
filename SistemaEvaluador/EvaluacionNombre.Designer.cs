@@ -160,7 +160,6 @@
             this.rbDepto.Name = "rbDepto";
             this.rbDepto.Size = new System.Drawing.Size(145, 24);
             this.rbDepto.TabIndex = 0;
-            this.rbDepto.TabStop = true;
             this.rbDepto.Text = "Departamento";
             this.rbDepto.UseVisualStyleBackColor = true;
             this.rbDepto.CheckedChanged += new System.EventHandler(this.rbDepto_CheckedChanged);
@@ -180,6 +179,7 @@
             // rbTodos
             // 
             this.rbTodos.AutoSize = true;
+            this.rbTodos.Checked = true;
             this.rbTodos.Location = new System.Drawing.Point(6, 93);
             this.rbTodos.Name = "rbTodos";
             this.rbTodos.Size = new System.Drawing.Size(79, 24);
