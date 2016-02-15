@@ -70,6 +70,69 @@ namespace SistemaEvaluador
             check_cEvaluacion();
         }
         
+        public void fillCbEmpleados()
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                //Llenar cb con Empleados
+                DataTable dtEmpleados = new DataTable();
+                SqlCommand cmdEmpleados = new SqlCommand();
+                cmdEmpleados.Connection = conn;
+                cmdEmpleados.CommandType = CommandType.Text;
+                cmdEmpleados.CommandText = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS";
+                SqlDataAdapter daEmpleados = new SqlDataAdapter(cmdEmpleados);
+                DataSet dsEmpleados = new DataSet();
+                daEmpleados.Fill(dsEmpleados);
+                dtEmpleados = dsEmpleados.Tables[0];
+                cbEmpleado.DataSource = dtEmpleados;
+                cbEmpleado.DisplayMember = "Nombre";
+                cbEmpleado.ValueMember = "ID_EMPLEADO";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+        }
+
+        public void fillCbDeptos()
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM DEPARTAMENTOS";
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dt = ds.Tables[0];
+                cbDepartamento.DataSource = dt;
+                cbDepartamento.DisplayMember = "NOMBRE";
+                cbDepartamento.ValueMember = "ID_DEPTO";                
+            }
+            catch (Exception ene)
+            {
+                MessageBox.Show(ene.ToString());
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {           
             nombreEvaluacion = textBox1.Text;
@@ -153,6 +216,42 @@ namespace SistemaEvaluador
         private void c_evaluacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void EvaluacionNombre_Load(object sender, EventArgs e)
+        {
+            cbDepartamento.Enabled = false;
+            cbEmpleado.Enabled = false;
+
+            fillCbDeptos();
+            fillCbEmpleados();
+        }
+
+        private void rbDepto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDepto.Checked)
+            {
+                cbDepartamento.Enabled = true;
+                cbEmpleado.Enabled = false;
+            }
+        }
+
+        private void rbEmpleado_CheckedChanged(object sender, EventArgs e)
+        {            
+            if(rbEmpleado.Checked)
+            {
+                cbDepartamento.Enabled = false;
+                cbEmpleado.Enabled = true;
+            }
+        }
+
+        private void rbTodos_CheckedChanged(object sender, EventArgs e)
+        {            
+            if(rbTodos.Checked)
+            {
+                cbDepartamento.Enabled = false;
+                cbEmpleado.Enabled = false;
+            }
         }
     }
 }
