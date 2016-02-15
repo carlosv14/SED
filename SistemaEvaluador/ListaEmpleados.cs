@@ -27,6 +27,7 @@ namespace SistemaEvaluador
 
         private void bVolver_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Abort;
             this.Close();
         }
 

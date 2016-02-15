@@ -104,8 +104,13 @@ namespace SistemaEvaluador
             var result = lEmp.ShowDialog();
             if (result == DialogResult.OK)
                 emp = lEmp.emp;
-            lEmp.Close();
+            else if (result == DialogResult.Abort)
+            {
+                lEmp.Close();
+                return;
+            }
             
+            lEmp.Close();
             GestiondePersonal gEmp = new GestiondePersonal(con, true, emp);
             tabStrip1.MdiForm = this;
             gEmp.MdiParent = this;
