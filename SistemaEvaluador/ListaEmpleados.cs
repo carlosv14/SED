@@ -110,7 +110,9 @@ namespace SistemaEvaluador
                 Object[] empleado = dt.Rows[0].ItemArray;                
 
                 emp.idEmpleado = int.Parse(empleado[0].ToString());
-                emp.idJefe = String.IsNullOrEmpty((empleado[1].ToString())) ? 0 : int.Parse(empleado[1].ToString());//a veces no tiene jefe, así que es null, por lo que decide si dar un cero o no
+                //a veces no tiene jefe, así que es null, por lo que decide si dar un cero o no
+                emp.idJefe = String.IsNullOrEmpty((empleado[1].ToString())) ? 0 : int.Parse(empleado[1].ToString());
+                emp.isJefe = emp.idJefe > 0 ? true : false;
                 emp.idDepto = int.Parse(empleado[2].ToString()); 
                 emp.nombres = empleado[3].ToString();
                 emp.apellidos = (empleado[4].ToString());

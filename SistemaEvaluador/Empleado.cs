@@ -24,5 +24,6 @@ namespace SistemaEvaluador
         public string identidad;
         public bool activo;
         public string razonDespido;
+        public bool isJefe;
     }
 }
