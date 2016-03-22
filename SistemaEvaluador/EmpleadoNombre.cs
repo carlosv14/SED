@@ -31,40 +31,52 @@ namespace SistemaEvaluador
             this.Close();
         }
 
+        private void loadCmbEmpleados(string query)
+        {
+            //Llenar cb con Empleados
+            if (String.IsNullOrEmpty(query))
+                query = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS";
+            DataTable dtEmpleados = new DataTable();
+            SqlCommand cmdEmpleados = new SqlCommand();
+            cmdEmpleados.Connection = con;
+            cmdEmpleados.CommandType = CommandType.Text;
+            cmdEmpleados.CommandText = query;
+            SqlDataAdapter daEmpleados = new SqlDataAdapter(cmdEmpleados);
+            DataSet dsEmpleados = new DataSet();
+            daEmpleados.Fill(dsEmpleados);
+            dtEmpleados = dsEmpleados.Tables[0];
+            cbEmpleadoID.DataSource = dtEmpleados;
+            cbEmpleadoID.DisplayMember = "Nombre";
+            cbEmpleadoID.ValueMember = "ID_EMPLEADO";
+        }
+
+        private void loadCbEvaluaciones()
+        {
+            DataTable dt3 = new DataTable();
+            SqlCommand cmd3 = new SqlCommand();
+            cmd3.Connection = con;
+            cmd3.CommandType = System.Data.CommandType.Text;
+            cmd3.CommandText = "SELECT * from INFORME_INDICADORES";
+            SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
+
+            DataSet ds3 = new DataSet();
+            da3.Fill(ds3);
+            dt3 = ds3.Tables[0];
+
+            comboBox1.DataSource = dt3;
+            comboBox1.DisplayMember = "NOMBRE";
+            comboBox1.ValueMember = "ID";
+        }
+
         private void EmpleadoNombre_Load(object sender, EventArgs e)
         {
             try
             {
                 if (con.State != ConnectionState.Open)
                     con.Open();
-                DataTable dt3 = new DataTable();
-                SqlCommand cmd3 = new SqlCommand();
-                cmd3.Connection = con;
-                cmd3.CommandType = System.Data.CommandType.Text;
-                cmd3.CommandText = "SELECT * from INFORME_INDICADORES";
-                SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
 
-                DataSet ds3 = new DataSet();
-                da3.Fill(ds3);
-                dt3 = ds3.Tables[0];
-
-                comboBox1.DataSource = dt3;
-                comboBox1.DisplayMember = "NOMBRE";
-                comboBox1.ValueMember = "ID";
-
-                //Llenar cb con Empleados
-                DataTable dtEmpleados = new DataTable();
-                SqlCommand cmdEmpleados = new SqlCommand();
-                cmdEmpleados.Connection = con;
-                cmdEmpleados.CommandType = CommandType.Text;
-                cmdEmpleados.CommandText = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS";
-                SqlDataAdapter daEmpleados = new SqlDataAdapter(cmdEmpleados);
-                DataSet dsEmpleados = new DataSet();
-                daEmpleados.Fill(dsEmpleados);
-                dtEmpleados = dsEmpleados.Tables[0];
-                cbEmpleadoID.DataSource = dtEmpleados;
-                cbEmpleadoID.DisplayMember = "Nombre";
-                cbEmpleadoID.ValueMember = "ID_EMPLEADO";
+                loadCbEvaluaciones();
+                loadCmbEmpleados("");
             }
             catch (Exception ex)
             {
@@ -84,8 +96,29 @@ namespace SistemaEvaluador
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
+            //0 es para todos, 1 es para empleados y 2 es para deptos
+            DataTable dt = (DataTable)comboBox1.DataSource;
+            int index_elegido = comboBox1.SelectedIndex;
+            int valor_eval = int.Parse(dt.Rows[index_elegido]["evalParaEmp"].ToString());
+            
+            string query = "";
+            switch (valor_eval)
+            {
+                case 0:
+                    query = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS";
+                    break;
+                case 1:
+                    int valor_empleado = int.Parse(dt.Rows[index_elegido]["ID_Empleado"].ToString());
+                    query = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS WHERE ID_EMPLEADO =" + valor_empleado;
+                    break;
+                case 2:
+                    int valor_depto = int.Parse(dt.Rows[index_elegido]["ID_DEPTO"].ToString());
+                    query = "SELECT ID_EMPLEADO, (NOMBRES + ' ' + APELLIDOS) AS Nombre FROM EMPLEADOS WHERE ID_DEPTO =" + valor_depto;
+                    break;
+            }
 
+            loadCmbEmpleados(query);
         }
 
         private void button2_Click(object sender, EventArgs e)

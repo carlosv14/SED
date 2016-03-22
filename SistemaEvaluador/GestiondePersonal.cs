@@ -131,21 +131,27 @@ namespace SistemaEvaluador
                 if (con.State != ConnectionState.Open)
                     con.Open();
 
-                SqlCommand cmd3 = new SqlCommand();
-                cmd3.Connection = con;
-                cmd3.CommandType = System.Data.CommandType.Text;
-                cmd3.CommandText = "SELECT ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" 
-                    + idsJefes[(DepartamentoTrabajo.SelectedIndex)] + " AND CONCAT(NOMBRES,' ',APELLIDOS)=" + "'" + Jefe.GetItemText(Jefe.SelectedItem) + "'";
-                SqlDataAdapter da1 = new SqlDataAdapter(cmd3);
-                DataTable dt1 = new DataTable();
-                DataSet ds1 = new DataSet();
-                da1.Fill(ds1);
-                dt1 = ds1.Tables[0];
+                SqlCommand cmd3;
                 int idJefe;
-                if (dt1.Rows.Count == 0)
+                if (idsJefes.Count == 0)
                     idJefe = 0;
                 else
-                    idJefe = int.Parse(dt1.Rows[0][0].ToString());
+                {
+                    cmd3 = new SqlCommand("", con);
+                    cmd3.CommandType = CommandType.Text;
+                    cmd3.CommandText = "SELECT ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO="
+                        + idsJefes[(DepartamentoTrabajo.SelectedIndex)] + " AND CONCAT(NOMBRES,' ',APELLIDOS)="
+                        + "'" + Jefe.GetItemText(Jefe.SelectedItem) + "'";
+                    SqlDataAdapter da1 = new SqlDataAdapter(cmd3);
+                    DataTable dt1 = new DataTable();
+                    DataSet ds1 = new DataSet();
+                    da1.Fill(ds1);
+                    dt1 = ds1.Tables[0];
+                    if (dt1.Rows.Count == 0)
+                        idJefe = 0;
+                    else
+                        idJefe = int.Parse(dt1.Rows[0][0].ToString());
+                }
 
                 cmd = new SqlCommand();
                 cmd.Connection = con;
@@ -215,7 +221,7 @@ namespace SistemaEvaluador
                     }
 
                 }
-                MessageBox.Show("Se agrego correctamente");
+                MessageBox.Show("Se agregó correctamente");
                 this.clear();
                 this.Close();
             }
@@ -246,7 +252,8 @@ namespace SistemaEvaluador
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRECOMPLETO, ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" + (DepartamentoTrabajo.SelectedIndex + 1);
+                cmd2.CommandText = "SELECT CONCAT(NOMBRES,' ',APELLIDOS) AS NOMBRECOMPLETO, ID_EMPLEADO FROM EMPLEADOS WHERE ID_DEPTO=" 
+                    + (DepartamentoTrabajo.SelectedIndex + 1);
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 DataTable dt2 = new DataTable();
                 DataSet ds2 = new DataSet();
