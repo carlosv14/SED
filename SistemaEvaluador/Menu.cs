@@ -260,9 +260,24 @@ namespace SistemaEvaluador
 
         }
 
+
+        //Evaluar Departamento ribbonBar 7 y buttonItem4
         private void ribbonBar7_ItemClick(object sender, EventArgs e)
         {
+            limpiar();
+            EvaluarDepartamento i = new EvaluarDepartamento(con);
+            tabStrip1.MdiForm = this;
+            i.MdiParent = this;
+            i.Show();
+        }
 
+        private void buttonItem4_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            EvaluarDepartamento i = new EvaluarDepartamento(con);
+            tabStrip1.MdiForm = this;
+            i.MdiParent = this;
+            i.Show();
         }
     }
 }
