@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
 
 namespace SistemaEvaluador
 {
@@ -70,6 +72,16 @@ namespace SistemaEvaluador
         private void Ponderar_Button_Click(object sender, EventArgs e)
         {
             //AQUI CODIGO AL DARLE AL BOTON PONDERAR
+            var proc = new Process();
+            string directory = Path.Combine(Environment.CurrentDirectory, "PPP");
+            string pathPPP = Path.Combine(directory, "PPP.exe");
+            proc.StartInfo.FileName = pathPPP;
+            proc.StartInfo.Arguments = CBName.SelectedValue.ToString();
+            proc.Start();
+            proc.WaitForExit();
+            var exitCode = proc.ExitCode;
+            proc.Close();
+            //Process.Start(pathPPP);            
         }
 
         private void Volver_Click(object sender, EventArgs e)
