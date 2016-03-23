@@ -133,6 +133,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EvaluarDepartamento.Designer.cs" />
+    <Compile Include="EvaluarDepartamento1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EvaluarDepartamento.resx</DependentUpon>
+    </Compile>
     <Compile Include="Grados_NoAsumidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +181,12 @@
       <DependentUpon>Meta.cs</DependentUpon>
     </Compile>
     <Compile Include="NumeroTriangular.cs" />
+    <Compile Include="Ponderador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ponderador.Designer.cs">
+      <DependentUpon>Ponderador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Puntaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,7 +287,10 @@
     <EmbeddedResource Include="Evaluador.resx">
       <DependentUpon>Evaluador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EvaluarDepartamento.resx" />
+    <EmbeddedResource Include="EvaluarDepartamento.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EvaluarDepartamento1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestiondePersonal.resx">
       <DependentUpon>GestiondePersonal.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Meta.resx">
       <DependentUpon>Meta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ponderador.resx">
+      <DependentUpon>Ponderador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

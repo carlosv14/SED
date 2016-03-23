@@ -279,5 +279,15 @@ namespace SistemaEvaluador
             i.MdiParent = this;
             i.Show();
         }
+
+        private void buttonItem5_Click(object sender, EventArgs e)
+        {
+            //AQUI CODIGO DE BOTON PONDERAR INDICADORES 
+            limpiar();
+            Ponderador pon = new Ponderador(con);
+            tabStrip1.MdiForm = this;
+            pon.MdiParent = this;
+            pon.Show();
+        }
     }
 }
