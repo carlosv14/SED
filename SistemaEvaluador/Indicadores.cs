@@ -16,14 +16,14 @@ namespace SistemaEvaluador
     {
 
         public List<Indicadores_Arr> indicadoresEspecificos;
-        private float peso = 100;
+        private float peso = 0;
         int id_gen = 0;
-        private int bar = 0;
         private int indicador = 0;
         private bool indEspecificos;
         SqlConnection con;
         private List<int> pesos_generales;
         private int contador = 0;
+        private bool first = false;
         int informe;
         List<grados_Arr> gradosInsert;
         List<grados_Arr> gradosTable;
@@ -46,16 +46,16 @@ namespace SistemaEvaluador
         
         private void agregar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Peso.Text))
-            {
-                MessageBox.Show("No ha agregado un peso");
-                return;
-            }
-            if (float.Parse(Peso.Text) > peso)
-            {
-                MessageBox.Show("No puedes agregar un grado con un peso mayor a " + peso.ToString());
-                return;
-            }
+            //if (String.IsNullOrEmpty(Peso.Text))
+            //{
+            //    MessageBox.Show("No ha agregado un peso");
+            //    return;
+            //}
+            //if (float.Parse(Peso.Text) > peso)
+            //{
+            //    MessageBox.Show("No puedes agregar un grado con un peso mayor a " + peso.ToString());
+            //    return;
+            //}
                         
             try
             {
@@ -102,7 +102,7 @@ namespace SistemaEvaluador
             {
                 cmd.Parameters.Add("@INDICADORES_ID", SqlDbType.Int).Value = DBNull.Value;
                 cmd.Parameters.Add("@ID_GEN", SqlDbType.Int).Value = DBNull.Value;
-                pesos_generales.Add(int.Parse(Peso.Text));
+                pesos_generales.Add(0); //int.Parse(Peso.Text));
             }
             else
             {
@@ -110,23 +110,10 @@ namespace SistemaEvaluador
                 cmd.Parameters.Add("@ID_GEN", SqlDbType.Int).Value = indicadoresEspecificos.ElementAt(indicador).id_gen;
             }
             cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre.Text;
-            cmd.Parameters.Add("@PESO", SqlDbType.Float).Value = float.Parse(Peso.Text);
+            cmd.Parameters.Add("@PESO", SqlDbType.Float).Value = 0;//float.Parse(Peso.Text);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             MessageBox.Show("Se agrego correctamente");
-            if (!indEspecificos)
-            {
-                bar += int.Parse(Peso.Text);
-                Console.WriteLine("Barra indGe" + bar);
-            }
-            else
-            {
-                float total = pesos_generales[contador];
-                float dividendo = float.Parse(Peso.Text);
-                float divisor = (float)dividendo / 100;
-                bar += (int)(total * divisor);
-            }
-            progressBar1.Value = bar;
 
         }
 
@@ -197,7 +184,7 @@ namespace SistemaEvaluador
 
         private void insertIndicadoresArr()
         {
-            Indicadores_Arr ind = new Indicadores_Arr(Nombre.Text, float.Parse(Peso.Text), id_gen, gradosTable);
+            Indicadores_Arr ind = new Indicadores_Arr(Nombre.Text, 0, id_gen, gradosTable);
             gradosTable = new List<grados_Arr>();
 
             if (!indEspecificos)
@@ -212,16 +199,16 @@ namespace SistemaEvaluador
                     listView1.Items.Add(item);
                 }
 
-                label2.Text = "(Peso disponible " + (peso -= float.Parse(Peso.Text)) + "%)";
+                //label2.Text = "(Peso disponible " + (peso -= float.Parse(Peso.Text)) + "%)";
 
-                if (peso == 0)
-                {
+                //if (peso == 0)
+                //{
                     button1.Enabled = true;
-                    agregar.Enabled = false;
-                    indEspecificos = true;
-                    progressBar1.Value = 100;
-                    bar = 0;
-                }
+                    agregar.Enabled = true;
+                    //indEspecificos = true;
+                    //progressBar1.Value = 100;
+                    //bar = 0;
+                //}
             }
             else
             {
@@ -235,15 +222,15 @@ namespace SistemaEvaluador
                     listView1.Items.Add(item);
                 }
 
-                label2.Text = "(Peso disponible " + (peso -= float.Parse(Peso.Text)) + "%)";
+               // label2.Text = "(Peso disponible " + (peso -= float.Parse(Peso.Text)) + "%)";
 
-                if (peso == 0)
-                {
+                //if (peso == 0)
+                //{
                     button1.Enabled = true;
-                    agregar.Enabled = false;
-                    indicador++;
-                    contador++;
-                }
+                    agregar.Enabled = true;
+                    //indicador++;
+                    //contador++;
+                //}
             }
         }
         //Terminan los métodos para agregar
@@ -253,23 +240,29 @@ namespace SistemaEvaluador
             cbGradosAsumidos.Checked = true;            
         }
 
+        
         private void button1_Click(object sender, EventArgs e)
         {
+            if (first != false)
+            {
+                indicador++;
+                contador++;
+            }
+            first = true;
             if (indicador == indicadoresEspecificos.Count())
             {
                 this.Close();
             }
             else
             {
-                peso = 100;
+                indEspecificos = true;
+                //peso = 0;
                 agregar.Enabled = true;
-                button1.Enabled = false;
+                button1.Enabled = true;
                 label3.Text = "Especificos " + indicadoresEspecificos.ElementAt(indicador).descp;
-                label2.Text = "(Peso disponible " + peso + "%)";
+                //label2.Text = "(Peso disponible " + peso + "%)";
                 listView1.Items.Clear();
-                progressBar1.Value = bar;
-
-
+               
 
             }
             limpiar();
@@ -278,7 +271,7 @@ namespace SistemaEvaluador
         private void limpiar()
         {
             Nombre.Text = "";
-            Peso.Text = "";
+            //Peso.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
