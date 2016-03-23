@@ -33,6 +33,8 @@
             this.styleManager2 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
+            this.EvaluarDpt = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
             this.evaluador = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
@@ -65,8 +67,6 @@
             this.qatCustomizeItem1 = new DevComponents.DotNetBar.QatCustomizeItem();
             this.styleManager3 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.tabStrip1 = new DevComponents.DotNetBar.TabStrip();
-            this.EvaluarDpt = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -91,8 +91,8 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -153,6 +153,45 @@
             // 
             this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel3.TabIndex = 3;
+            this.ribbonPanel3.Visible = false;
+            // 
+            // EvaluarDpt
+            // 
+            this.EvaluarDpt.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.EvaluarDpt.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.EvaluarDpt.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.EvaluarDpt.ContainerControlProcessDialogKey = true;
+            this.EvaluarDpt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.EvaluarDpt.DragDropSupport = true;
+            this.EvaluarDpt.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem4});
+            this.EvaluarDpt.Location = new System.Drawing.Point(103, 0);
+            this.EvaluarDpt.Name = "EvaluarDpt";
+            this.EvaluarDpt.Size = new System.Drawing.Size(119, 69);
+            this.EvaluarDpt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.EvaluarDpt.TabIndex = 1;
+            this.EvaluarDpt.Text = "Evaluar Departamento";
+            // 
+            // 
+            // 
+            this.EvaluarDpt.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.EvaluarDpt.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem4
+            // 
+            this.buttonItem4.Name = "buttonItem4";
+            this.buttonItem4.SubItemsExpandWidth = 14;
+            this.buttonItem4.Text = "EvaluarDepartamento";
+            this.buttonItem4.Click += new System.EventHandler(this.buttonItem4_Click);
             // 
             // ribbonBar6
             // 
@@ -615,7 +654,6 @@
             // 
             // ribbonTabItem3
             // 
-            this.ribbonTabItem3.Checked = true;
             this.ribbonTabItem3.Name = "ribbonTabItem3";
             this.ribbonTabItem3.Panel = this.ribbonPanel3;
             this.ribbonTabItem3.Text = "Evaluacion";
@@ -657,44 +695,6 @@
             this.tabStrip1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005;
             this.tabStrip1.TabIndex = 5;
             this.tabStrip1.Text = "tabStrip1";
-            // 
-            // EvaluarDpt
-            // 
-            this.EvaluarDpt.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.EvaluarDpt.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.EvaluarDpt.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.EvaluarDpt.ContainerControlProcessDialogKey = true;
-            this.EvaluarDpt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.EvaluarDpt.DragDropSupport = true;
-            this.EvaluarDpt.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem4});
-            this.EvaluarDpt.Location = new System.Drawing.Point(103, 0);
-            this.EvaluarDpt.Name = "EvaluarDpt";
-            this.EvaluarDpt.Size = new System.Drawing.Size(119, 69);
-            this.EvaluarDpt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.EvaluarDpt.TabIndex = 1;
-            this.EvaluarDpt.Text = "Evaluar Departamento";
-            // 
-            // 
-            // 
-            this.EvaluarDpt.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.EvaluarDpt.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem4
-            // 
-            this.buttonItem4.Name = "buttonItem4";
-            this.buttonItem4.SubItemsExpandWidth = 14;
-            this.buttonItem4.Text = "EvaluarDepartamento";
-            this.buttonItem4.Click += new System.EventHandler(this.buttonItem4_Click);
             // 
             // Menu
             // 
